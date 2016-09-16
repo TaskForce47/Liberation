@@ -80,7 +80,9 @@ while { true } do {
 			};
 			_idactrotate = player addAction ["<t color='#B0FF00'>" + localize "STR_ROTATION" + "</t> <img size='2' image='res\ui_rotation.paa'/>","scripts\client\build\build_rotate.sqf","",-750,false,false,"","build_confirmed == 1"];
 			_idactplace = player addAction ["<t color='#B0FF00'>" + localize "STR_PLACEMENT" + "</t> <img size='2' image='res\ui_confirm.paa'/>","scripts\client\build\build_place.sqf","",-775,false,true,"","build_invalid == 0 && build_confirmed == 1"];
-
+			if (_classname in ["Land_HelipadCircle_F", "Land_HelipadCivil_F", "Land_HelipadEmpty_F", "Land_HelipadRescue_F", "Land_HelipadSquare_F", "Land_JumpTarget_F", "Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V3_F","Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V2_F"]) then {
+				hintC "Please be sure where to place this building. You can't remove it.";
+			};
 			_ghost_spot = (getmarkerpos "ghost_spot") findEmptyPosition [0,100];
 
 			_vehicle = _classname createVehicleLocal _ghost_spot;
