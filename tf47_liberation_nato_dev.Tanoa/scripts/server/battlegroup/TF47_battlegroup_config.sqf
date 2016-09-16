@@ -10,39 +10,39 @@ switch(_attackType)do{
 		
 			case("small"):{
 			[
-				"rhsusf_m1025_w_m2",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy"
+				"RHS_Ural_VDV_01",
+				"RHS_Ural_VDV_01",
+				"rhs_tigr_ffv_3camo_vdv",
+				"rhs_tigr_ffv_3camo_vdv"
 			]
 			};
 			case("medium"):{
 			[
-				"rhsusf_m1025_w_m2",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy"
+				"RHS_Ural_VDV_01",
+				"RHS_Ural_VDV_01",
+				"rhs_tigr_ffv_3camo_vdv",
+				"rhs_tigr_ffv_3camo_vdv",
+				"RHS_Ural_VDV_01",
+				"RHS_Ural_VDV_01",
+				"rhs_tigr_ffv_3camo_vdv",
+				"rhs_tigr_ffv_3camo_vdv"
 			]
 			
 			};
 			case("mayhem"):{
 			[
-				"rhsusf_m1025_w_m2",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_m1025_w_m2",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
-				"rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy"
+				"RHS_Ural_VDV_01",
+				"RHS_Ural_VDV_01",
+				"rhs_tigr_ffv_3camo_vdv",
+				"rhs_tigr_ffv_3camo_vdv",
+				"RHS_Ural_VDV_01",
+				"RHS_Ural_VDV_01",
+				"rhs_tigr_ffv_3camo_vdv",
+				"rhs_tigr_ffv_3camo_vdv",
+				"RHS_Ural_VDV_01",
+				"RHS_Ural_VDV_01",
+				"rhs_tigr_ffv_3camo_vdv",
+				"rhs_tigr_ffv_3camo_vdv"
 			]
 			
 			};
@@ -57,38 +57,38 @@ switch(_attackType)do{
 		
 			case("small"):{
 				[
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M2A3_BUSKIII_wd"
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd4ma_vdv"
 				]
 			};
 			case("medium"):{
 				[
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M2A3_BUSKIII_wd",
-				"rhsusf_m113_usarmy_M240",
-				"rhsusf_m113_usarmy_M240",
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M6",
-				"RHS_M6"
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd2",
+				"rhs_bmd2",
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd4ma_vdv",
+				"rhs_zsu234_aa",
+				"rhs_zsu234_aa"
 				]
 			};
 			case("mayhem"):{
 				[
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M2A3_BUSKIII_wd",
-				"rhsusf_m113_usarmy_M240",
-				"rhsusf_m113_usarmy_M240",
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M6",
-				"RHS_M6",
-				"rhsusf_m113_usarmy_M240",
-				"rhsusf_m113_usarmy_M240",
-				"RHS_M2A3_BUSKIII_wd",
-				"RHS_M2A3_BUSKIII_wd"
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd2",
+				"rhs_bmd2",
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd4ma_vdv",
+				"rhs_zsu234_aa",
+				"rhs_zsu234_aa",
+				"rhs_bmd2",
+				"rhs_bmd2",
+				"rhs_bmd4ma_vdv",
+				"rhs_bmd4ma_vdv"
 				]
 			};
 				
@@ -102,27 +102,27 @@ switch(_attackType)do{
 		
 			case("small"):{
 				[
-					"RHS_CH_47F",
-					"RHS_CH_47F",
-					"RHS_AH64D_wd"
+					"RHS_Mi8MTV3_vdv",
+					"RHS_Mi8MTV3_vdv",
+					"RHS_Ka52_vvsc"
 				]
 			};
 			case("medium"):{
 				[
-					"RHS_AH1Z_wd",
-					"RHS_AH1Z_wd",
-					"rhsusf_CH53E_USMC",
-					"rhsusf_CH53E_USMC"
+					"RHS_Mi24P_AT_vdv",
+					"RHS_Mi24P_AT_vdv",
+					"RHS_Mi8MTV3_vdv",
+					"RHS_Mi8MTV3_vdv"
 				]
 			};
 			case("mayhem"):{
 				[
-					"RHS_AH1Z_wd",
-					"RHS_AH1Z_wd",
-					"rhsusf_CH53E_USMC",
-					"rhsusf_CH53E_USMC",
-					"RHS_UH1Y",
-					"RHS_UH1Y"
+					"RHS_Ka52_vvsc",
+					"RHS_Ka52_vvsc",
+					"RHS_Mi8MTV3_vdv",
+					"RHS_Mi8MTV3_vdv",
+					"RHS_Mi24P_AT_vdv",
+					"RHS_Mi24P_AT_vdv"
 				]
 			};
 				
@@ -136,32 +136,32 @@ switch(_attackType)do{
 		
 			case("small"):{
 			[
-				"RHS_M2A2",
-				"RHS_M2A2",
-				"rhsusf_m1a1aimwd_usarmy",
-				"rhsusf_m1a1aimwd_usarmy"
+				"rhs_bmp2_vdv",
+				"rhs_bmp2_vdv",
+				"rhs_t80um",
+				"rhs_t80um"
 			]
 			};
 			case("medium"):{
 			[
-				"rhsusf_m1a2sep1tuskiiwd_usarmy",
-				"rhsusf_m1a2sep1tuskiiwd_usarmy",
-				"rhsusf_m1a1aim_tuski_wd",
-				"rhsusf_m1a1aim_tuski_wd",
-				"RHS_M6_wd",
-				"RHS_M6_wd"
+				"rhs_t90a_tv",
+				"rhs_t90a_tv",
+				"rhs_t72bd_tv",
+				"rhs_t72bd_tv",
+				"rhs_zsu234_aa",
+				"rhs_zsu234_aa"
 			]
 			};
 			case("mayhem"):{
 			[
-				"rhsusf_m1a2sep1tuskiiwd_usarmy",
-				"rhsusf_m1a2sep1tuskiiwd_usarmy",
-				"rhsusf_m1a1aim_tuski_wd",
-				"rhsusf_m1a1aim_tuski_wd",
-				"RHS_M6_wd",
-				"RHS_M6_wd",
-				"RHS_AH64D_wd",
-				"RHS_AH64D_wd"
+				"rhs_t90a_tv",
+				"rhs_t90a_tv",
+				"rhs_t72bd_tv",
+				"rhs_t72bd_tv",
+				"rhs_zsu234_aa",
+				"rhs_zsu234_aa",
+				"RHS_Ka52_vvsc",
+				"RHS_Ka52_vvsc"
 			]
 			
 			};

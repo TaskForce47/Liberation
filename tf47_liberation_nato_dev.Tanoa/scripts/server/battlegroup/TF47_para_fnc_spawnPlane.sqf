@@ -53,7 +53,7 @@ _start	set	[2,	600];
 /*******************************************************/
 /*		spawn plane
 /*******************************************************/
-private _air	=	createVehicle ["RHS_C130J" ,_start, [],0,"FLY"];
+private _air	=	createVehicle ["RHS_Mi8mt_Cargo_vdv" ,_start, [],0,"FLY"];
 _air setPos _start;
 createVehicleCrew	_air;
 _air setVectorDir [sin(_dir),cos(_dir),0];
@@ -76,21 +76,21 @@ while {count (waypoints _grp) > 0} do {    deleteWaypoint ((waypoints _grp	) sel
 private _wp = _grp addwaypoint [[(_poi select 0)+sin(_dir)*(_safety*200), (_poi select 1)+cos(_dir)*(_safety*200)],0,0,""];
 _wp setWaypointType "MOVE";
 _wp setWaypointCompletionRadius 500;
-_wp setWaypointSpeed "LIMITED";
+_wp setWaypointSpeed "FULL";
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointCombatMode "BLUE";
 
 _wp = _grp addwaypoint [[(_ende select 0)+sin(_dir)*(_safety*200), (_ende select 1)+cos(_dir)*(_safety*200)],0,1,""];
 _wp setWaypointType "MOVE";
 _wp setWaypointCompletionRadius 500;
-_wp setWaypointSpeed "LIMITED";
+_wp setWaypointSpeed "FULL";
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointCombatMode "BLUE";
 
 _wp = _grp addwaypoint [[(_ende select 0)+sin(_dir)*(_safety*200), (_ende select 1)+cos(_dir)*(_safety*200)],0,2,""];
 _wp setWaypointType "MOVE";
 _wp setWaypointCompletionRadius 500;
-_wp setWaypointSpeed "LIMITED";
+_wp setWaypointSpeed "FULL";
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointCombatMode "BLUE";
 

@@ -17,7 +17,7 @@ if(	count _bullseye == 0)exitWith{
 
 private ["_planes_number","_plane_type","_grp","_air_spawnpos","_air","_ende"];
 
-_plane_type = opfor_air select 2;	//f22
+_plane_type = "RHS_T50_vvs_051";	//f22
 
 _air_spawnpos = getMarkerPos (	( [ sectors_airspawn , [ _bullseye ] , { (markerpos _x) distance _input0 }, "ASCEND"] call BIS_fnc_sortBy ) select 0);
 _ende = getMarkerPos (	( [ sectors_airspawn , [ _bullseye ] , { (markerpos _x) distance _input0 }, "DESCEND"] call BIS_fnc_sortBy ) select 0);
