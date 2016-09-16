@@ -1,0 +1,74 @@
+respawn = "BASE";
+respawndelay = 15;
+disabledAI = 1;
+respawnOnStart = 1;
+enableDebugConsole = 1;
+allowFunctionsLog = 0;
+
+loadScreen="res\loading_image.paa";
+onLoadMission = $STR_MISSION_TITLE;
+author = "[GREUH] Zbug, [GREUH] McKeewa edited by TF47";
+onLoadName = $STR_MISSION_TITLE;
+
+
+corpseManagerMode = 0;
+wreckManagerMode = 0;
+
+joinUnassigned = 0;
+
+class Header
+{
+    gameType = CTI;
+    minPlayers = 1;
+    maxPlayers = 55;
+};
+
+#include "GREUH\UI\GREUH_interface.hpp"
+#include "ui\liberation_interface.hpp"
+#include "ui\liberation_notifications.hpp"
+#include "scripts\loadouts\cfgrespawn_templates.hpp"
+
+class CfgDebriefing
+{
+    class End1
+    {
+        title = $STR_SORRY;
+        subtitle = "";
+        description = $STR_COMMANDER_NOT_AUTHORIZED;
+        pictureBackground = "";
+    };
+};
+
+respawnTemplates[] = {"MenuInventory", "MenuPosition", "Spectator","Tickets"};
+
+disableChannels[] = {0,2,4,5};
+
+class CfgTaskEnhancements
+{
+   enable       = 1;            //0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map
+   3d           = 1;            //0: do not use new 3D markers (default), 1: replace task waypoints with new 3D markers
+   3dDrawDist   = 20;            //3d marker draw distance (default: 2000)
+   share        = 1;            //0: do not count assigned players (default), 1: count how many players have the task assigned
+   propagate    = 1;            //0: do not propagate (default), 1: propagate shared tasks to subordinates
+};
+
+class CfgRemoteExec
+{
+        class Commands
+        {
+                mode = 2;
+                class setFuel { allowedTargets = 0; };           //execute only on server
+                class Systemchat { allowedTargets = 0; };
+                class deleteGroup {allowedTargets = 0; };
+        };
+        class Functions
+        {
+                mode = 2;
+                jip = 1;                                     //no functions can use jip
+
+                class TF47_fnc_WakeUp { allowedTargets = 2; }; 
+                class TF47_fnc_CPR { allowedTargets = 2; };
+                class bis_fnc_call { allowedTargets = 0; };
+                class BIS_fnc_showNotification { allowedTargets = -2; };
+        };
+};
