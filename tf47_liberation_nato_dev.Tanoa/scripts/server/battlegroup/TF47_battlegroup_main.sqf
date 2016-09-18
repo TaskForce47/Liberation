@@ -18,7 +18,7 @@ private _sleep = 15*60;
 		if(GRLIB_csat_aggressivity >= 0.9 && GRLIB_endgame == 0) then {
 			
 			// counter battlegroup
-			if(combat_readiness >= 60 && 	(armor_weight >= 50 || air_weight >= 50)	) then {
+			if(combat_readiness >= 30 && 	(armor_weight >= 50 || air_weight >= 50)	) then {
 				[] call TF47_battlegroup_air;
 			};
 			

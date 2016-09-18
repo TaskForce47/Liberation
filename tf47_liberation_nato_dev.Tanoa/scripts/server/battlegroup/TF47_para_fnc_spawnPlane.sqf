@@ -44,7 +44,7 @@ _poi	=	_nearestOpforPoint;
 /*		saftyfeature
 /*******************************************************/
 private _dir 	=	-(_start getDir	_poi);
-private _safety	=	count entities "RHS_C130J";
+private _safety	=	count entities "RHS_AN2";
 //modify height for proper air spawn
 _start	set	[0,	(	(_start select 0)+sin(_dir)*(_safety*200) )];
 _start	set	[1,	(	(_start select 1)+cos(_dir)*(_safety*200) )];	
@@ -53,48 +53,52 @@ _start	set	[2,	600];
 /*******************************************************/
 /*		spawn plane
 /*******************************************************/
-private _air	=	createVehicle ["RHS_Mi8mt_Cargo_vdv" ,_start, [],0,"FLY"];
+private _air	=	createVehicle ["RHS_AN2" ,_start, [],0,"FLY"];
 _air setPos _start;
-createVehicleCrew	_air;
+
+private _grpPilot	=	createGroup EAST;
+private _unit =	_grpPilot createUnit ["rhs_pilot", [0,0,100000],	[],	1000, "NONE"	];
+_unit moveInDriver _air;
+
 _air setVectorDir [sin(_dir),cos(_dir),0];
 _air setVelocity [-sin(_dir)*50, -cos(_dir)*50,5]; // armalogic
 _air engineOn true;
-private _grp	=	group ((crew _air) select 0 );
-_grp addvehicle _air;
-_grp setCombatMode "BLUE";
+
+_grpPilot addvehicle _air;
+_grpPilot setCombatMode "BLUE";
 {
 	_x setvariable ["NOAI",true];
 	_x disableAi "AUTOCOMBAT";
-}forEach units _grp;
+}forEach units _grpPilot;
 _air	flyInHeightASL	[500,500,500];
 
 /*******************************************************/
 /*		add waypoints for plane
 /*******************************************************/
-while {count (waypoints _grp) > 0} do {    deleteWaypoint ((waypoints _grp	) select 0);  };  
+while {count (waypoints _grpPilot) > 0} do {    deleteWaypoint ((waypoints _grpPilot	) select 0);  };  
 
-private _wp = _grp addwaypoint [[(_poi select 0)+sin(_dir)*(_safety*200), (_poi select 1)+cos(_dir)*(_safety*200)],0,0,""];
+private _wp = _grpPilot addwaypoint [[(_poi select 0)+sin(_dir)*(_safety*200), (_poi select 1)+cos(_dir)*(_safety*200)],0,0,""];
 _wp setWaypointType "MOVE";
 _wp setWaypointCompletionRadius 500;
 _wp setWaypointSpeed "FULL";
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointCombatMode "BLUE";
 
-_wp = _grp addwaypoint [[(_ende select 0)+sin(_dir)*(_safety*200), (_ende select 1)+cos(_dir)*(_safety*200)],0,1,""];
+_wp = _grpPilot addwaypoint [[(_ende select 0)+sin(_dir)*(_safety*200), (_ende select 1)+cos(_dir)*(_safety*200)],0,1,""];
 _wp setWaypointType "MOVE";
 _wp setWaypointCompletionRadius 500;
 _wp setWaypointSpeed "FULL";
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointCombatMode "BLUE";
 
-_wp = _grp addwaypoint [[(_ende select 0)+sin(_dir)*(_safety*200), (_ende select 1)+cos(_dir)*(_safety*200)],0,2,""];
+_wp = _grpPilot addwaypoint [[(_ende select 0)+sin(_dir)*(_safety*200), (_ende select 1)+cos(_dir)*(_safety*200)],0,2,""];
 _wp setWaypointType "MOVE";
 _wp setWaypointCompletionRadius 500;
 _wp setWaypointSpeed "FULL";
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointCombatMode "BLUE";
 
-_grp setCurrentWaypoint [_grp,0];
+_grpPilot setCurrentWaypoint [_grpPilot,0];
 
 if(_debug)then{
 	{
