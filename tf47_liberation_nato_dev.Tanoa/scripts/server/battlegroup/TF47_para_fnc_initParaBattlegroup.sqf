@@ -6,7 +6,7 @@ params [["_debug",false]];
 /* still bg units active		*/
 /********************************/
 if ( isNil "TF47_battlegroup_activeGroups" ) then { TF47_battlegroup_activeGroups = 0 };
-if(	TF47_battlegroup_activeGroups	>=	0)exitWith{};
+if(	TF47_battlegroup_activeGroups	>	0)exitWith{};
 
 /********************************/
 /* some balancing 				*/
@@ -26,7 +26,7 @@ if(_attackSize	==	"none")exitWith{TF47_helper_battlegroupSlumber 	=	TF47_helper_
 /* find the point to attack		*/
 /********************************/
 private _bullseye 	= selectRandom GRLIB_all_fobs;
-if(isNil _bullseye)exitWith{};
+if(isNil "_bullseye")exitWith{};
 
 if(	air_weight >= 50 || _debug	)then{
 	

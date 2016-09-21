@@ -1,8 +1,22 @@
 private _UID = _this select 0;
 private _rights = param [1, [true,false,false,false,true,true,false]];
 if (isNil "_UID")exitWith{};
-if (isNil "_rights") then {_rights = [true,false,false,false,true,true,false]; };
+if (isNil "_rights") then {
+	_rights = [
+		true,	//light vehicles
+		false,	// armored veh
+		false,	// helicopter
+		false,	// builder
+		true,	// recycle
+		true,	//?
+		false	// jets
+	]; 
+};
+if(_uid in TF47_TL_Whitlelist)then{
 
+	_rights set [4, true];
+	
+};
 
 // Check rights
 if (_UID in TF47_ArmoredBlacklist) then { _rights set [1, false]; };
