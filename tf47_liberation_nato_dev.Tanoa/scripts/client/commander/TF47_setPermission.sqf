@@ -8,14 +8,12 @@ if (isNil "_rights") then {
 		false,	// helicopter
 		false,	// builder
 		true,	// recycle
-		true,	//?
+		true,	// Misc
 		false	// jets
 	]; 
 };
 if(_uid in TF47_TL_Whitlelist)then{
-
 	_rights set [4, true];
-	
 };
 
 // Check rights
@@ -27,4 +25,3 @@ if (_UID in TF47_FixedWingBlacklist) then { _rights set [6, false]; };
 ([getPlayerUID player]call TF47_GetPlayer) setVariable ["TF47_Permissions", _rights, true];
 
 true
-    
