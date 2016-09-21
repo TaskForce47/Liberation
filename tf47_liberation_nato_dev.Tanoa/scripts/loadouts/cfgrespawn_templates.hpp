@@ -1,8 +1,18 @@
  class CfgRoles
  {
-      class riflemanCTI
+      class bw
       {
-           displayName = "Rifleman";
+           displayName = "Bundeswehr";
+           icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+      };
+	  class baf
+      {
+           displayName = "British Armed Forces";
+           icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
+      };
+	  class usmc
+      {
+           displayName = "US Marine Corps";
            icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
       };
  };
@@ -11,8 +21,8 @@ class CfgRespawnInventory
     class riflemanUSMC
     {
 		displayName	=	"Rifleman (USMC)";
-        role = "riflemanCTI";
-		uniformClass = "rhs_uniformClass_FROG01_wd";
+        role = "usmc";
+		uniformClass = "rhs_uniform_FROG01_wd";
 		backpack = "";
 		weapons[] = {"rhs_weap_m4a1_carryhandle","Throw","Put"};
 		magazines[] = {"rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag"};
@@ -28,12 +38,12 @@ class CfgRespawnInventory
 		items[] = {};
 		linkedItems[] = {"UK3CB_BAF_V_Osprey_DPMW9","UK3CB_BAF_H_Mk6_DPMW_F","","ItemMap","ItemCompass","tf_microdagr"};
 		displayName	=	"Rifleman (BAF)";
-        role = "riflemanCTI";
+        role = "baf";
 	};
 	class riflemanGER
     {
 		displayName	=	"Rifleman (BW)";
-        role = "riflemanCTI";
+        role = "bw";
 		uniformClass = "BWA3_Uniform3_idz_Fleck";
 		backpack = "";
 		weapons[] = {"hlc_rifle_G36KA1","Throw","Put"};

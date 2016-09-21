@@ -7,7 +7,7 @@ allowFunctionsLog = 0;
 
 loadScreen="res\loading_image.paa";
 onLoadMission = $STR_MISSION_TITLE;
-author = "[GREUH] Zbug, [GREUH] McKeewa edited by TF47";
+author = "[GREUH] Zbug & McKeewa edited by [TF47]";
 onLoadName = $STR_MISSION_TITLE;
 
 

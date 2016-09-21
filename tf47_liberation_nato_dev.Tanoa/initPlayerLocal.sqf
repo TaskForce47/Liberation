@@ -7,7 +7,6 @@ if(isNil "TF47_BuildBlacklist")then{TF47_BuildBlacklist = []};
 "TF47_FixedWingBlacklist" remoteExec ["publicVariable", 2];
 "TF47_ArmoredBlacklist" remoteExec ["publicVariable", 2];
 "TF47_BuildBlacklist" remoteExec ["publicVariable", 2];
-
 switch(typeOf player)do{
 	default{
 		[player, "riflemanUSMC"]call BIS_fnc_addRespawnInventory;

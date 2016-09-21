@@ -26,8 +26,12 @@ if (isNil "TF_ArsenalArray") then { TF_ArsenalArray = []; };
 if (isNil "TF47_Missionarray") then { TF47_Missionarray = []; };
 if (isNil "TF47_Missionarray") then {
 	TF47_TL_Whitlelist = [
+		"76561198083598937",	//selvo
+		"76561198093331206",	//sir.mono
+		"76561198057152487",	//pixxel
+		"76561197992256569",	//fred
 	    "76561197991090099",    //jenkins
-		"76561198017253407",
+		"76561198017253407",	//carmine
 		"76561198060354231",
 		"76561197997340019",
 		"76561197997804176",

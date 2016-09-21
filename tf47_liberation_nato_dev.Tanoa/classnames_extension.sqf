@@ -140,8 +140,7 @@ static_vehicles_extension = [
 ["UK3CB_BAF_Static_L111A1_Deployed_High",0,10,0],
 ["UK3CB_BAF_Static_L134A1_Deployed_High",0,10,0],
 ["UK3CB_BAF_Static_L7A2_Deployed_High",0,10,0],
-["RHS_TOW_TriPod_D",0,30,0],
-["UK3CB_BAF_Static_L16_Deployed",0,500,0]
+["RHS_TOW_TriPod_D",0,30,0]
 ];
 
 buildings_overwrite = true;

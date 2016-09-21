@@ -6,59 +6,45 @@ if ((typeName (profileNamespace getVariable [_textsafe,  0]) == "Array") && ((co
 */
 
 switch (typeOf player) do {
-	case("rhs_pilot_combat_heli"):{
+	case("B_Helipilot_F"):{
 		[getPlayerUID player,  [true, false, true, false, true, true, false]]call TF47_setPermission;
 	};
-	case("rhs_pilot_transport_heli"):{
-		[getPlayerUID player,  [true, false, true, false, true, true, false]]call TF47_setPermission;
-	};
-	case("rhs_pilot"):{
+	case("B_Pilot_F"):{
 		[getPlayerUID player,  [true, false, false, false, true, true, true]]call TF47_setPermission;
 	};
-	case("rhs_vdv_engineer"):{
+	
+	case("B_Engineer_F"):{
 		[getPlayerUID player,  [true, false, false, false, true, true, false]]call TF47_setPermission;
 		player setVariable ["ace_isengineer", 2, true];
 	};
-	case("rhs_vdv_medic"):{
+	
+	case("B_Medic_F"):{
 		[getPlayerUID player,  [true, false, false, false, true, true, false]]call TF47_setPermission;
 		player setUnitTrait ["Medic", true];
 		player setVariable ["Ace_medical_medicClass",  2, true];
 	};
-	case("rhs_vdv_arifleman"):{
+	case("B_Soldier_F"):{
 		[getPlayerUID player,  [true, false, false, false, true, true, false]]call TF47_setPermission;
 	};
-	case("rhs_vdv_marksman"):{
-		[getPlayerUID player,  [true, false, false, false, true, true, false]]call TF47_setPermission;
-	};
-	case("rhs_vdv_rifleman"):{
-		[getPlayerUID player,  [true, false, false, false, true, true, false]]call TF47_setPermission;
-	};
-	case("rhs_vdv_at"):{
-		[getPlayerUID player,  [true, false, false, false, true, true, false]]call TF47_setPermission;
-	};
-	case("rhs_vdv_armoredcrew"):{
+	case("B_crew_F"):{
 		[getPlayerUID player,  [true, true, false, false, true, true,  false]]call TF47_setPermission;
 	};
-	case("rhs_vdv_sergeant"):{
+	case("B_Soldier_SL_F"):{
 		if ( (getPlayerUID player) in TF47_TL_Whitlelist ) then {
 			[getPlayerUID player,  [true, false, false, true, true, true, false]]call TF47_setPermission;
 		} else {
 			if (!isServer) then { endmission "LOSER";  };
 		};
 	};
-	case("rhs_vdv_rifleman_lite"):{
-			[getPlayerUID player, [true, false, false, false, true, true, false]]call TF47_setPermission;
-		};
-	case("rhs_vdv_officer"):{
+
+	case("B_Officer_F"):{
 		if ( (getPlayerUID player) in TF47_TL_Whitlelist ) then {
 			[getPlayerUID player,  [true, false, false, true, true, true, false]]call TF47_setPermission;
 		} else {
 			if (!isServer) then { endmission "LOSER";  };
 		};
 	};
-	case("rhs_vdv_rifleman_asval"):{
-		[getPlayerUID player,  [true, false, false, false, true, true, false]]call TF47_setPermission;
-	};
+
 	default{
 		[getPlayerUID player,  [true, false, false, false, true, true, false]]call TF47_setPermission;
 	};
