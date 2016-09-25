@@ -27,8 +27,8 @@ _air_spawnpos =
 	1000
 ];
 
-//_plane_type = "RHS_T50_vvs_051";	//f22
-_plane_type	=	"js_jc_su35";
+_plane_type = "RHS_T50_vvs_051";	//f22
+if(isclass (configfile >> "CfgPatches" >> "JS_JC_SU35"))then{_plane_type	=	"js_jc_su35";};
 _air = createVehicle [_plane_type, _air_spawnpos, [], 0, "NONE"];
 createVehicleCrew _air;
 /**************************************************************************************************/

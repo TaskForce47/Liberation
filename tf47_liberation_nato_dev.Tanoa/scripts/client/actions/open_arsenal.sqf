@@ -41,7 +41,7 @@ if(_state)then{
 	private _items = assignedItems _unit;
 	private _state = true;	
 };
-
+// wtf?
 if ((_unit getVariable ["Ace_medical_medicClass",  0]) > 0 ) then {
 	if ((secondaryWeapon _unit) != "") then {
 		_unit removeWeapon (secondaryWeapon _unit);
