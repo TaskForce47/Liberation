@@ -45,8 +45,6 @@ remote_call_ammo_bounty 	= compileFinal preprocessFileLineNumbers "scripts\clien
 remote_call_intel 			= compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_intel.sqf";
 remote_call_incoming 		= compileFinal preprocessFileLineNumbers "scripts\client\remotecall\remote_call_incoming.sqf";
 
-tf47_shared_loadLoadout	= compileFinal preprocessFileLineNumbers "scripts\loadouts\loadLoadout.sqf";	
-tf47_shared_saveLoadout	= compileFinal preprocessFileLineNumbers "scripts\loadouts\saveplayerLoadoutToServer.sqf";
 build_remote_call 			= compileFinal preprocessFileLineNumbers "scripts\server\remotecall\build_remote_call.sqf";
 build_fob_remote_call 		= compileFinal preprocessFileLineNumbers "scripts\server\remotecall\build_fob_remote_call.sqf";
 cancel_build_remote_call 	= compileFinal preprocessFileLineNumbers "scripts\server\remotecall\cancel_build_remote_call.sqf";

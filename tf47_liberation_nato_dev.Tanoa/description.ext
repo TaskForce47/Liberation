@@ -37,6 +37,13 @@ class CfgDebriefing
         description = $STR_COMMANDER_NOT_AUTHORIZED;
         pictureBackground = "";
     };
+	class modsNOTactivated
+    {
+        title = $STR_SORRY;
+        subtitle = "";
+        description = "NEED MOAAAAAR MOOODS!";
+        pictureBackground = "";
+    };
 };
 
 respawnTemplates[] = {"MenuInventory", "MenuPosition", "Spectator","Tickets"};
@@ -54,21 +61,21 @@ class CfgTaskEnhancements
 
 class CfgRemoteExec
 {
-        class Commands
-        {
-                mode = 2;
-                class setFuel { allowedTargets = 0; };           //execute only on server
-                class Systemchat { allowedTargets = 0; };
-                class deleteGroup {allowedTargets = 0; };
-        };
-        class Functions
-        {
-                mode = 2;
-                jip = 1;                                     //no functions can use jip
+	class Commands
+	{
+			mode = 2;
+			class setFuel { allowedTargets = 0; };           //execute only on server
+			class Systemchat { allowedTargets = 0; };
+			class deleteGroup {allowedTargets = 0; };
+	};
+	class Functions
+	{
+			mode = 2;
+			jip = 1;                                     //no functions can use jip
 
-                class TF47_fnc_WakeUp { allowedTargets = 2; }; 
-                class TF47_fnc_CPR { allowedTargets = 2; };
-                class bis_fnc_call { allowedTargets = 0; };
-                class BIS_fnc_showNotification { allowedTargets = -2; };
-        };
+			class TF47_fnc_WakeUp { allowedTargets = 2; }; 
+			class TF47_fnc_CPR { allowedTargets = 2; };
+			class bis_fnc_call { allowedTargets = 0; };
+			class BIS_fnc_showNotification { allowedTargets = -2; };
+	};
 };

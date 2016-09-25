@@ -10,8 +10,6 @@ if(isNil "TF47_BuildBlacklist")then{TF47_BuildBlacklist = []};
 switch(typeOf player)do{
 	default{
 		[player, "riflemanUSMC"]call BIS_fnc_addRespawnInventory;
-		[player, "riflemanRM"]call BIS_fnc_addRespawnInventory;
-		[player, "riflemanGER"]call BIS_fnc_addRespawnInventory;
 	};
 };
 	

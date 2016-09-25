@@ -1,10 +1,9 @@
 enableSaving [ false, false ];
+if(!isclass (configfile >> "CfgPatches" >> "rhsusf_main"))then{"modsNOTactivated" call BIS_fnc_endMission;};
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\config.sqf";
 
 // make blacklistmarker invisible
-{
-	_x setMarkerAlpha 0;
-} foreach ["noBattlegroup1", "noBattlegroup2", "noBattlegroup3", "noBattlegroup4" ];
+{	_x setMarkerAlpha 0;	} foreach ["noBattlegroup1", "noBattlegroup2", "noBattlegroup3", "noBattlegroup4" ];
 
 TF47_setPermission = compileFinal preprocessfilelinenumbers "scripts\client\commander\TF47_setPermission.sqf";
 TF47_fnc_WakeUp = compileFinal preprocessfilelinenumbers "scripts\shared\functions\TF47_fnc_WakeUp.sqf";
@@ -19,6 +18,11 @@ TF47_fnc_CPR = compileFinal preprocessfilelinenumbers "scripts\shared\functions\
 TF47_fnc_sendGroundsupport = compileFinal preprocessFileLineNUmbers "scripts\server\patrols\send_groundsupport.sqf";
 
 [] call compileFinal preprocessFileLineNUmbers "classnames_extension.sqf";
+[] call compileFinal preprocessFileLineNumbers "arsenal.sqf";
+[] call compileFinal preprocessFileLineNUmbers "scripts\loadouts\tf47_arsenal_3cb_baf.sqf";
+[] call compileFinal preprocessFileLineNUmbers "scripts\loadouts\tf47_arsenal_bwa3.sqf";
+[] call compileFinal preprocessFileLineNUmbers "scripts\loadouts\tf47_arsenal_hlc.sqf";
+[] call compileFinal preprocessFileLineNUmbers "scripts\loadouts\tf47_arsenal_radiomod.sqf";
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\classnames.sqf";
 TF47_GetPlayer = compileFinal preprocessfilelinenumbers "Scripts\client\misc\getPlayer.sqf";
 
@@ -70,14 +74,7 @@ if (!isDedicated && hasInterface) then {
 } else {
 	setViewDistance 1600;
 };
-// Call TFAR settings
-tf_radio_channel_name = "Radio Communication - Public I";
-tf_radio_channel_password = "India65";
-tf_freq_west_lr = 31;
-tf_freq_west = 31;
-// TFAR-Basic settings (will override userconfig settings)
-tf_no_auto_long_range_radio = true;
-tf_give_personal_radio_to_regular_soldier = true;
+
 
 TF47_helper_swapSide =	{
 	params ["_side",["_grp",nil]];
