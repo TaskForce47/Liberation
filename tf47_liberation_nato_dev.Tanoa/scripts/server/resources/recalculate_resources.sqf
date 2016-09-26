@@ -36,7 +36,7 @@ waitUntil { !isNil "save_is_loaded" };
 			};
 		} foreach vehicles;
 
-		resources_infantry = [EAST,0] call BIS_fnc_respawnTickets; // show them how many respawns there are left;
+		resources_infantry = [TF47_helper_playerFaction,0] call BIS_fnc_respawnTickets; // show them how many respawns there are left;
 		resources_fuel = _new_fuel_used;
 	},
 	0.5,
