@@ -24,7 +24,7 @@ publicVariable "TF47_Missionarray";
 TF47_ConvoyHijackisActive = true;
 //___________________________________________ Notification ___________________________________________//
 
-["TF47_TaskAssigned", [(localize "STR_SECONDARY_MISSION1")]] remoteExec ["BIS_fnc_showNotification", EAST, false];
+["TF47_TaskAssigned", [(localize "STR_SECONDARY_MISSION1")]] remoteExec ["BIS_fnc_showNotification", TF47_helper_opposingFaction, false];
 
 //___________________________________________ Notification ___________________________________________//
 _pos1 = _spawnpos; 		_pos2 = _spawnpos; 		_pos3 = _spawnpos;
