@@ -56,7 +56,7 @@ _start	set	[2,	600];
 private _air	=	createVehicle ["RHS_AN2" ,_start, [],0,"FLY"];
 _air setPos _start;
 
-private _grpPilot	=	createGroup EAST;
+private _grpPilot	=	createGroup TF47_helper_opposingFaction;
 private _unit =	_grpPilot createUnit ["rhs_pilot", [0,0,100000],	[],	1000, "NONE"	];
 _unit moveInDriver _air;
 
