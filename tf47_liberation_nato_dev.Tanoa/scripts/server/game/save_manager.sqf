@@ -262,7 +262,7 @@ if ( !isNil "greuh_liberation_savegame" ) then {
 	} foreach ai_groups;
 };
 
-TF47_respawnTickets = [EAST, TF47_respawnTickets] call BIS_fnc_respawnTickets;
+TF47_respawnTickets = [ TF47_helper_opposingFaction , TF47_respawnTickets] call BIS_fnc_respawnTickets;
 publicVariable "blufor_sectors";
 publicVariable "GRLIB_all_fobs";
 
