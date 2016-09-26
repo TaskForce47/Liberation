@@ -17,7 +17,7 @@ publicVariable "TF47_Missionarray";
 
 //___________________________________________ Notification ___________________________________________//
 
-["TF47_TaskAssigned",	[(localize "STR_SECONDARY_MISSION0")] ]	remoteExec ["BIS_fnc_showNotification", EAST, false];
+["TF47_TaskAssigned",	[(localize "STR_SECONDARY_MISSION0")] ]	remoteExec ["BIS_fnc_showNotification", TF47_helper_opposingFaction, false];
 
 //___________________________________________ Notification ___________________________________________//
 
