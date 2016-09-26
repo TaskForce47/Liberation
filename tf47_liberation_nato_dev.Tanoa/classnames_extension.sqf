@@ -93,24 +93,24 @@ heavy_vehicles_extension = [
 
 air_vehicles_overwrite = true;
 air_vehicles_extension = [
-["JS_JC_FA18E",0,500,20],
-["JS_JC_FA18F",0,500,20],
-["B_T_VTOL_01_armed_F",0,1000,20],
-["B_T_VTOL_01_infantry_F",0,0,15],
-["RHS_UH1Y",0,100,15],
-["RHS_UH1Y_FFAR",0,50,15],
-["RHS_UH1Y_UNARMED",0,0,10],
-["RHS_C130J",0,0,15],
-["rhsusf_CH53E_USMC",0,0,10]
+	["JS_JC_FA18E",0,500,20],
+	["JS_JC_FA18F",0,500,20],
+	["B_T_VTOL_01_armed_F",0,1000,20],
+	["B_T_VTOL_01_infantry_F",0,0,15],
+	["RHS_UH1Y",0,100,15],
+	["RHS_UH1Y_FFAR",0,50,15],
+	["RHS_UH1Y_UNARMED",0,0,10],
+	["RHS_C130J",0,0,15],
+	["rhsusf_CH53E_USMC",0,0,10]
 ];
 
 static_vehicles_overwrite = true;
 static_vehicles_extension = [
-["RHS_Stinger_AA_pod_WD",0,20,0],
-["UK3CB_BAF_Static_L111A1_Deployed_High",0,10,0],
-["UK3CB_BAF_Static_L134A1_Deployed_High",0,10,0],
-["UK3CB_BAF_Static_L7A2_Deployed_High",0,10,0],
-["RHS_TOW_TriPod_D",0,30,0]
+	["RHS_Stinger_AA_pod_WD",0,20,0],
+	["UK3CB_BAF_Static_L111A1_Deployed_High",0,10,0],
+	["UK3CB_BAF_Static_L134A1_Deployed_High",0,10,0],
+	["UK3CB_BAF_Static_L7A2_Deployed_High",0,10,0],
+	["RHS_TOW_TriPod_D",0,30,0]
 ];
 
 buildings_overwrite = true;
@@ -550,34 +550,34 @@ opfor_troup_transports_extension = [
 // Battlegroup members that will need to spawn in flight. Should be only helos but, who knows
 opfor_choppers_overwrite = true;
 opfor_choppers_extension = [
-"RHS_Mi24P_vvsc",
-"RHS_Mi24P_CAS_vdv",
-"RHS_Mi24P_AT_vdv",
-"RHS_Mi24P_vdv",
-"RHS_Mi24V_vvsc",
-"RHS_Mi24V_FAB_vdv",
-"RHS_Mi24V_UPK23_vdv",
-"RHS_Mi24V_AT_vdv",
-"RHS_Mi24V_vdv",
-"RHS_Mi8mt_vdv",
-"RHS_Mi8mt_Cargo_vdv",
-"RHS_Mi8MTV3_vdv",
-"RHS_Mi8MTV3_UPK23_vdv",
-"RHS_Mi8MTV3_FAB_vdv",
-"RHS_Mi8AMT_vdv",
-"RHS_Mi8AMTSh_vvsc",
-"RHS_Mi8AMTSh_UPK23_vvsc",
-"RHS_Mi8AMTSh_FAB_vvsc",
-"RHS_Ka52_vvsc",
-"RHS_Ka52_UPK23_vvsc"
+	"RHS_Mi24P_vvsc",
+	"RHS_Mi24P_CAS_vdv",
+	"RHS_Mi24P_AT_vdv",
+	"RHS_Mi24P_vdv",
+	"RHS_Mi24V_vvsc",
+	"RHS_Mi24V_FAB_vdv",
+	"RHS_Mi24V_UPK23_vdv",
+	"RHS_Mi24V_AT_vdv",
+	"RHS_Mi24V_vdv",
+	"RHS_Mi8mt_vdv",
+	"RHS_Mi8mt_Cargo_vdv",
+	"RHS_Mi8MTV3_vdv",
+	"RHS_Mi8MTV3_UPK23_vdv",
+	"RHS_Mi8MTV3_FAB_vdv",
+	"RHS_Mi8AMT_vdv",
+	"RHS_Mi8AMTSh_vvsc",
+	"RHS_Mi8AMTSh_UPK23_vvsc",
+	"RHS_Mi8AMTSh_FAB_vvsc",
+	"RHS_Ka52_vvsc",
+	"RHS_Ka52_UPK23_vvsc"
 ];
 
 // Opfor military aircrafts
 opfor_air_overwrite = true;
 opfor_air_extension = [
-"RHS_Su25SM_vvsc",
-"RHS_Su25SM_KH29_vvsc",
-"RHS_T50_vvs_051"
+	"RHS_Su25SM_vvsc",
+	"RHS_Su25SM_KH29_vvsc",
+	"RHS_T50_vvs_051"
 ];
 
 
