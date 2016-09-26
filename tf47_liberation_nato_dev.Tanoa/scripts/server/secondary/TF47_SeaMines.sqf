@@ -67,7 +67,7 @@ publicVariable "resources_ammo";
 sleep 1;
 if (isServer) then {
 	TF47_respawnTickets = TF47_respawnTickets + 3;
-	resources_infantry = [EAST, 3] call BIS_fnc_respawnTickets; 
+	resources_infantry = [TF47_helper_opposingFaction, 3] call BIS_fnc_respawnTickets; 
 	publicVariable "TF47_respawnTickets";
 	publicVariable "resources_infantry";
 };
