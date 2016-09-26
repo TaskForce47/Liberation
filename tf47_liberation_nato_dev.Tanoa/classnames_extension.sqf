@@ -116,6 +116,7 @@ static_vehicles_extension = [
 buildings_overwrite = true;
 buildings_extension = [
 	["CargoNet_01_box_F",0,0,0],
+	["Land_Medevac_house_V1_F", 0,0,0],
 	["CamoNet_ghex_big_F", 0,0,0],
 	["CamoNet_ghex_open_F", 0,0,0],
 	["CamoNet_ghex_F", 0,0,0],
