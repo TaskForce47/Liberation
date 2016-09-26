@@ -33,7 +33,7 @@ publicVariable "TF47_Missionarray";
 TF47_SARisActive = true;
 //___________________________________________ Notification ___________________________________________//
 
-["TF47_TaskAssigned", [(localize "STR_SECONDARY_MISSION2")]] remoteExec ["BIS_fnc_showNotification", EAST, false];
+["TF47_TaskAssigned", [(localize "STR_SECONDARY_MISSION2")]] remoteExec ["BIS_fnc_showNotification", TF47_helper_opposingFaction, false];
 
 //___________________________________________ Notification ___________________________________________//
 _helowreck setPos _helopos;
@@ -190,11 +190,11 @@ publicVariable "TF47_Missionarray";
 sleep 20;
 if (_failed) then {
 	combat_readiness = round (combat_readiness * 1.1);
-	["TF47_TaskFailed", [(localize "STR_SECONDARY_MISSION2")]] remoteExec ["BIS_fnc_showNotification", EAST, false];
+	["TF47_TaskFailed", [(localize "STR_SECONDARY_MISSION2")]] remoteExec ["BIS_fnc_showNotification", TF47_helper_opposingFaction, false];
 } else {
 	resources_intel = resources_intel + 20;
 	combat_readiness = round (combat_readiness * (1 - (0.125 * ({alive _x} count (units _pilotgroup)))));
-	["TF47_TaskSucceeded", [(localize "STR_SECONDARY_MISSION2")]] remoteExec ["BIS_fnc_showNotification", EAST, false];
+	["TF47_TaskSucceeded", [(localize "STR_SECONDARY_MISSION2")]] remoteExec ["BIS_fnc_showNotification", TF47_helper_opposingFaction, false];
 };
 
 { deleteMarker _x; } foreach [ _convoy_marker, _convoy_marker_wp1, _convoy_marker_wp3 ];
