@@ -3,16 +3,16 @@ if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{"3CB BAF n
 {heavy_vehicles_extension	pushBack _x}forEach [
 	["BWA3_Puma_Tropen",0,50,15],
 	["BWA3_Puma_Fleck",0,50,15],
-	["BWA3_Leopard2A6M_Tropen",0,100,20],
-	["BWA3_Leopard2A6M_Fleck",0,100,20]
+	["BWA3_Leopard2A6M_Tropen",0,300,20],
+	["BWA3_Leopard2A6M_Fleck",0,300,20]
 ];
 {air_vehicles_extension pushBack _x}forEach [
 	["BWA3_Tiger_RMK_PARS",0,200,25],
 	["BWA3_Tiger_RMK_Universal",0,200,25],
 	["BWA3_Tiger_RMK_FZ",0,200,25],
 	["BWA3_Tiger_RMK_Heavy",0,300,25],
-	["BWA3_Tiger_Gunpod_PARS",0,100,15],
-	["BWA3_Tiger_Gunpod_FZ",0,100,15],
+	["BWA3_Tiger_Gunpod_PARS",0,150,15],
+	["BWA3_Tiger_Gunpod_FZ",0,150,15],
 	["BWA3_Tiger_Gunpod_Heavy",0,200,15]
 ];
 

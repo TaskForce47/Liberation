@@ -99,3 +99,6 @@ TF47_helper_swapSide =	{
 	0,								// seconds to delete planted Explosives 			(0 means dont delete)
 	5*60							// seconds to delete dropped Smokes/chemlights 		(0 means dont delete)
 ] spawn compile preprocessFileLineNumbers "scripts\server\repetitive_cleanup.sqf";
+
+_action = ["CTIPUSH", "Push", "", {_target setPos (_target getPos [0.5, getDir _target + 180]);}, {true}] call ace_interact_menu_fnc_createAction;
+{[_x, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToClass;} foreach ["B_Boat_Armed_01_minigun_F","B_T_Boat_Armed_01_minigun_F","O_T_Boat_Armed_01_hmg_F","O_Boat_Armed_01_hmg_F","I_Boat_Armed_01_minigun_F"];

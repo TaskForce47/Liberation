@@ -7,27 +7,27 @@ if (isServer) then {
 
 	if ( _liberated_sector in sectors_bigtown ) then {
 		_combat_readiness_increase = (ceil (random 10)) * GRLIB_difficulty_modifier;
-		[ TF47_helper_playerFaction, (ceil (random 10))] call BIS_fnc_respawnTickets;
+		[ TF47_helper_playerFaction, 5 + (ceil (random 5))] call BIS_fnc_respawnTickets;
 	};
 
 	if ( _liberated_sector in sectors_capture ) then {
 		_combat_readiness_increase = (ceil (random 6)) * GRLIB_difficulty_modifier;
-		[ TF47_helper_playerFaction, (ceil (random 4))] call BIS_fnc_respawnTickets;
+		[ TF47_helper_playerFaction, 2 + (ceil (random 5))] call BIS_fnc_respawnTickets;
 	};
 
 	if ( _liberated_sector in sectors_military ) then {
 		_combat_readiness_increase = (5 + (ceil (random 11))) * GRLIB_difficulty_modifier;
-		[ TF47_helper_playerFaction, (ceil (random 6))] call BIS_fnc_respawnTickets;
+		[ TF47_helper_playerFaction, 2 + (ceil (random 5))] call BIS_fnc_respawnTickets;
 	};
 
 	if ( _liberated_sector in sectors_factory ) then {
 		_combat_readiness_increase = (3 + (ceil (random 7))) * GRLIB_difficulty_modifier;
-		[ TF47_helper_playerFaction, (2 + (ceil (random 3)))] call BIS_fnc_respawnTickets;
+		[ TF47_helper_playerFaction, (2 + (ceil (random 5)))] call BIS_fnc_respawnTickets;
 	};
 
 	if ( _liberated_sector in sectors_tower ) then {
 		_combat_readiness_increase = (ceil (random 4));
-		[ TF47_helper_playerFaction, (ceil (random 4))] call BIS_fnc_respawnTickets;
+		[ TF47_helper_playerFaction, 2 + (ceil (random 3))] call BIS_fnc_respawnTickets;
 	};
 
 	if ( GRLIB_passive_income ) then {

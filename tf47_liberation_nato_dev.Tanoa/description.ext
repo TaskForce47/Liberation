@@ -67,6 +67,7 @@ class CfgRemoteExec
 			class setFuel { allowedTargets = 0; };           //execute only on server
 			class Systemchat { allowedTargets = 0; };
 			class deleteGroup {allowedTargets = 0; };
+			class publicVariable { allowedTargets = 0; };
 	};
 	class Functions
 	{
