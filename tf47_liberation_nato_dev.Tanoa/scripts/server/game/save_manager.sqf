@@ -2,6 +2,8 @@ if ( !(isNil "GRLIB_param_wipe_savegame_1") && !(isNil "GRLIB_param_wipe_savegam
 	if ( GRLIB_param_wipe_savegame_1 == 1 && GRLIB_param_wipe_savegame_2 == 1 ) then {
 		profileNamespace setVariable [ GRLIB_save_key,nil ];
 		saveProfileNamespace;
+	} else {
+		deleteVehicle StartPuma;
 	};
 };
 
