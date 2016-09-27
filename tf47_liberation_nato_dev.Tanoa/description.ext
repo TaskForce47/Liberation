@@ -5,7 +5,7 @@ respawnOnStart = 1;
 enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
-loadScreen="res\loading_image.paa";
+loadScreen="res\liberation_nato_cover.paa";
 onLoadMission = $STR_MISSION_TITLE;
 author = "[GREUH] Zbug & McKeewa edited by [TF47]";
 onLoadName = $STR_MISSION_TITLE;
