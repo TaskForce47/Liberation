@@ -13,7 +13,7 @@ if (isNil "_rights") then {
 	]; 
 };
 if(_uid in TF47_TL_Whitlelist)then{
-	_rights set [4, true];
+	_rights set [3, true];
 };
 
 // Check rights

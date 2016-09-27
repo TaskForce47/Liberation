@@ -335,7 +335,6 @@ if(isDedicated)exitWith{};
 	"UK3CB_BAF_U_Smock_DPMW_MTP",
 	"UK3CB_BAF_U_Smock_DDPM",
 	"UK3CB_BAF_U_Smock_DPMW_DDPM",
-	"UK3CB_BAF_U_Smock_Arctic",
 	"UK3CB_BAF_U_Smock_DPMW_Arctic ",
 	"UK3CB_BAF_U_Smock_MTP_Arctic",
 
@@ -398,8 +397,6 @@ if(isDedicated)exitWith{};
 	"UK3CB_BAF_V_Osprey_DPMT9",
 	"UK3CB_BAF_V_Pilot_DPMT",
 
-	"UK3CB_BAF_V_Osprey_HiVis",
-	"UK3CB_BAF_V_HiVis",
 	"UK3CB_BAF_V_PLCE_Webbing_MTP ",
 	"UK3CB_BAF_V_PLCE_Webbing_DDPM",
 	"UK3CB_BAF_V_PLCE_Webbing_DPMW",

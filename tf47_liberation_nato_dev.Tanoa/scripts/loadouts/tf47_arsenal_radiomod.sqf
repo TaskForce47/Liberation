@@ -12,6 +12,7 @@ if(isclass (configfile >> "CfgPatches" >> "task_force_radio")	)then{
 	if(isDedicated)exitWith{};
 	
 	{GRLIB_arsenal_backpacks pushBack _x}forEach [
+	"tf_rt1523g_big_bwmod",
 		"tf_rt1523g",
 		"tf_rt1523g_big",
 		"tf_rt1523g_black",

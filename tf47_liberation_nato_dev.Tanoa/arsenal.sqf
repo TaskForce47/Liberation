@@ -31,6 +31,20 @@ isclass (configfile >> "CfgPatches" >> "JS_JC_SU35")
 
 // If left empty, everything is allowed, otherwise only whitelisted items will be available
 GRLIB_arsenal_weapons = [
+"rhs_weap_m4a1_blockII_wd",
+"rhs_weap_m4a1_blockII_M203_wd",
+"rhs_weap_m4a1_blockII_KAC_wd",
+"rhs_weap_mk18_bk",
+"rhs_weap_mk18_KAC_bk",
+"rhs_weap_mk18_wd",
+"rhs_weap_mk18_KAC_wd",
+"rhs_weap_m72a7",
+"rhsusf_weap_MP7A1_base_f",
+"rhs_weap_hk416d10",
+"rhs_weap_hk416d10_m320",
+"rhs_weap_hk416d10_LMT",
+"rhs_weap_hk416d145",
+"rhs_weap_hk416d145_m320",
 "ACE_VMM3",
 "ACE_VMM3",
 "ACE_Yardage450",	
@@ -43,6 +57,9 @@ GRLIB_arsenal_weapons = [
 "rhs_weap_XM2010_d",
 "rhs_weap_XM2010_wd",
 "rhs_weap_XM2010_sa",
+"rhs_weap_m24sws",
+"rhs_weap_m24sws_blk",
+"rhs_weap_m24sws_ghillie",
 "rhs_weap_m4",
 "rhs_weap_m4_carryhandle",
 "rhs_weap_m4_carryhandle_pmag",
@@ -104,7 +121,6 @@ GRLIB_arsenal_weapons = [
 "rhs_weap_sr25",
 "rhs_weap_sr25_ec",
 "rhs_weap_m110",
-"rhs_weap_M107",
 "rhs_weap_M590_5RD",
 "rhs_weap_M590_8RD",
 "rhs_weap_m32",
@@ -120,6 +136,7 @@ GRLIB_arsenal_magazines = [
 ];
 
 GRLIB_arsenal_items = [
+"U_B_T_FullGhillie_tna_F",
 "Gen3_aor1",
 "Gen3_aor2",
 "Gen3_atacsau",
