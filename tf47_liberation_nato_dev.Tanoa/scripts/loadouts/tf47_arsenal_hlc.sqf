@@ -80,7 +80,8 @@ if(isDedicated)exitWith{};
 "hlc_rifle_auga3_b",
 "hlc_rifle_auga3_bl",
 "hlc_rifle_auga3",
-"hlc_rifle_STG58F"
+"hlc_rifle_STG58F",
+"hlc_lmg_mk48"
 ];
 
 {GRLIB_arsenal_items pushBack _x}forEach [
