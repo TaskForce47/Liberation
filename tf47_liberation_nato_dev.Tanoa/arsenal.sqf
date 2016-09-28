@@ -504,7 +504,7 @@ GRLIB_arsenal_items = [
 "ACE_Altimeter",
 "tf_microdagr",
 "G_Balaclava_blk",
-"G_Balaclava_combat,
+"G_Balaclava_combat",
 "G_Balaclava_lowprofile",
 "G_Balaclava_oli",
 "rhs_ess_black",
