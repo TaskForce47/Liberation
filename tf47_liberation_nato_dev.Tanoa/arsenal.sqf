@@ -31,6 +31,9 @@ isclass (configfile >> "CfgPatches" >> "JS_JC_SU35")
 
 // If left empty, everything is allowed, otherwise only whitelisted items will be available
 GRLIB_arsenal_weapons = [
+"rhsusf_weap_m1911a1",
+"rhsusf_weap_m9",
+"UK3CB_BAF_Soflam_Laserdesignator",
 "rhs_weap_m4a1_blockII_wd",
 "rhs_weap_m4a1_blockII_M203_wd",
 "rhs_weap_m4a1_blockII_KAC_wd",
@@ -136,6 +139,12 @@ GRLIB_arsenal_magazines = [
 ];
 
 GRLIB_arsenal_items = [
+"G_B_Diving",
+"V_RebreatherB",
+"U_B_Wetsuit",
+"U_B_FullGhillie_ard",
+"U_B_FullGhillie_lsh",
+"U_B_FullGhillie_sard",
 "U_B_T_FullGhillie_tna_F",
 "Gen3_aor1",
 "Gen3_aor2",
@@ -493,13 +502,40 @@ GRLIB_arsenal_items = [
 "ItemCompass",
 "ItemWatch",
 "ACE_Altimeter",
-"tf_microdagr"
+"tf_microdagr",
+"G_Balaclava_blk",
+"G_Balaclava_combat,
+"G_Balaclava_lowprofile",
+"G_Balaclava_oli",
+"rhs_ess_black",
+"G_Combat",
+"G_Combat_Goggles_tna_F",
+"rhs_Booniehat_m81",
+"rhs_booniehat2_marpatwd",
+"rhs_Booniehat_ocp",
+"rhs_8point_marpatwd",
+"optic_Hamr_khk_F",
+"optic_SOS_khk_F",
+"optic_Holosight_smg_blk_F",
+"optic_Holosight_khk_F",
+"optic_Holosight_blk_F",
+"optic_LRPS_tna_F",
+"optic_ERCO_khk_F",
+"optic_ERCO_blk_F",
+"optic_Arco_blk_F",
+"optic_KHS_blk",
+"optic_AMS_khk",
+"optic_AMS"
 ];
 
 GRLIB_arsenal_backpacks = [
+"B_AssaultPack_mcamo",
+"B_AssaultPack_khk",
+"B_AssaultPack_rgr",
+"B_AssaultPack_cbr",
+"B_Bergen_mcamo_F",
 "B_Bergen_dgtl_F",
 "B_Bergen_tna_F",
-"B_Carryall_ghex_F",
 "B_Carryall_cbr",
 "B_Carryall_ocamo",
 "B_Parachute",
