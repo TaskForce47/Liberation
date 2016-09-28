@@ -1,4 +1,4 @@
-if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{"3CB BAF not initialized!" remoteExec ["systemchat",0]};
+if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{"BWA3 not initialized!" remoteExec ["systemchat",0]};
 
 {heavy_vehicles_extension	pushBack _x}forEach [
 	["BWA3_Puma_Tropen",0,50,15],
@@ -28,7 +28,7 @@ if(isDedicated)exitWith{};
     "BWA3_G38_AG_Tan", 
     "BWA3_G38K_Tan", 
     "BWA3_G38K_AG_Tan", 
-    "BWA3_G38C_Tan"
+    "BWA3_G38C_Tan",
 	"BWA3_G28_Standard",
 	"BWA3_G28_Assault",
 	"BWA3_G27",
