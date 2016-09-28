@@ -1,4 +1,4 @@
-if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{"3CB BAF not initialized!" remoteExec ["systemchat",0]};
+if(	!(isclass (configfile >> "CfgPatches" >> "hlcweapons_core")	)	)exitWith{"HLC CORE not initialized!" remoteExec ["systemchat",0]};
 
 if(isDedicated)exitWith{};
 
