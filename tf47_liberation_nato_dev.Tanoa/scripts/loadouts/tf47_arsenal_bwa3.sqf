@@ -19,6 +19,16 @@ if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{"3CB BAF n
 if(isDedicated)exitWith{};
 
 {GRLIB_arsenal_weapons pushBack _x}forEach [
+    "BWA3_G38", 
+    "BWA3_G38K", 
+    "BWA3_G38C", 
+    "BWA3_G38_AG", 
+    "BWA3_G38K_AG", 
+    "BWA3_G38_Tan",
+    "BWA3_G38_AG_Tan", 
+    "BWA3_G38K_Tan", 
+    "BWA3_G38K_AG_Tan", 
+    "BWA3_G38C_Tan"
 	"BWA3_G28_Standard",
 	"BWA3_G28_Assault",
 	"BWA3_G27",
