@@ -140,7 +140,7 @@ class CfgNotifications
     {
 		title = "SIDEMISSION Succeeded";
 		description = "%1";
-        iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+        iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconDone_ca.paa";
 		priority = 7;
 		sound = "taskSucceeded";
     };
@@ -148,7 +148,7 @@ class CfgNotifications
     {
 		title = "SIDEMISSION Failed";
 		description = "%1";
-        iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+        iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconFailed_ca.paa";
 		priority = 7;
 		sound = "taskSucceeded";
     };
@@ -156,7 +156,7 @@ class CfgNotifications
     {
 		title = "SIDEMISSION cancelled";
 		description = "%1";
-        iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+        iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconCanceled_ca.paa";
 		priority = 7;
 		sound = "taskSucceeded";
     };

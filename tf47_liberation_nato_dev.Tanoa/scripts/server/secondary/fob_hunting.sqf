@@ -12,7 +12,7 @@ _fob_templates = [
 _spawn_marker = [2000,999999,false] call F_findOpforSpawnPoint;
 if ( _spawn_marker == "" ) exitWith { diag_log "Could not find position for fob hunting mission"; };
 _markeddownpos = (getMarkerPos _spawn_marker) getPos [random 1000, random 359];
-_index = TF47_Missionarray pushback [ _markeddownpos, { }, localize "STR_SECONDARY_MISSION0", localize "STR_SECONDARY_BRIEFING0", "", "res\secondary\fob_hunting.jpg"];
+private _index = TF47_Missionarray pushback [ _markeddownpos, { }, localize "STR_SECONDARY_MISSION0", localize "STR_SECONDARY_BRIEFING0", "", "res\secondary\fob_hunting.jpg"];
 publicVariable "TF47_Missionarray";
 
 //___________________________________________ Notification ___________________________________________//

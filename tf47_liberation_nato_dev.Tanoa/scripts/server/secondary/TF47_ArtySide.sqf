@@ -35,7 +35,6 @@ private _havetobuild = selectRandom
 [
 	[
 		[ (selectRandom OpferArtyArr), [0.7, -7.52, -0.05], 180.54 ],
-		[ (selectRandom OpferArtyArr), [-0.32, 8.76, -0.05], 360 ],
 		[ (selectRandom OpforStaticVehicles), [-12.2, -2.93, 0.02], 272.25 ],
 		[ "Land_Trench_01_grass_F", [-5.02, -7.93, 1.7], 269.44 ],
 		[ "Land_Trench_01_grass_F", [5.36, 8.56, 1.7], 90.38 ],
@@ -182,7 +181,7 @@ private _artillerytypeName = _havetobuild select 0 select 0;
 private _text = getText (configFile >> "CfgVehicles" >> _artillerytypeName >> "displayName");
 private _description = format ["The opposing Force has build up a Artillery side with an %1 at %2. It will provide firesupport for any conflict in Range.", _text, mapGridPosition _locpos];
 
-_index = TF47_Missionarray pushback [ (_location select 0), { }, "Destroy Artillery Side", _description, "", "res\secondary\destroy_artillery.jpg"];
+private _index = TF47_Missionarray pushback [ (_location select 0), { }, "Destroy Artillery Side", _description, "", "res\secondary\destroy_artillery.jpg"];
 publicVariable "TF47_Missionarray";
 
 //___________________________________________ Notification ___________________________________________//
@@ -199,38 +198,40 @@ for "_i" from 0 to (round (random 2)) do {
 	  
 };
 
-private _patrol = 1;
-private _garnison = 6;
-private _playercount = (count (allPlayers - entities "HeadlessClient_F"));
-switch (true) do {
-	case( _playercount <= 4): {
-		_patrol = 2;
-		_garnison = 8;
-	};
-	case( (_playercount >= 6) && (_playercount <= 7)): {
-		_patrol = 2;
-		_garnison = 10;
-	};
-	case( (_playercount >= 8) && (_playercount <= 11)): {
-		_patrol = 3;
-		_garnison = 10;
-	};
-	case( (_playercount >= 12) && (_playercount <= 16)): {
-		_patrol = 4;
-		_garnison = 12;
-	};
-	case( (_playercount >= 17)): {
-		_patrol = 4;
-		_garnison = 16;
-	};
-	default{
-		_patrol = 2;
-		_garnison = 8;
-	};
-};
+
 
 Waituntil {sleep 10; ([ _locpos ] call F_sectorOwnership != independent) || ({alive _x} count (units _defensegroup) == 0) };
 if ({alive _x} count (units _defensegroup) != 0) then {
+
+	private _patrol = 1;
+	private _garnison = 6;
+	private _playercount = (count (allPlayers - entities "HeadlessClient_F"));
+	switch (true) do {
+		case( _playercount <= 4): {
+			_patrol = 2;
+			_garnison = 8;
+		};
+		case( (_playercount >= 6) && (_playercount <= 7)): {
+			_patrol = 2;
+			_garnison = 10;
+		};
+		case( (_playercount >= 8) && (_playercount <= 11)): {
+			_patrol = 3;
+			_garnison = 10;
+		};
+		case( (_playercount >= 12) && (_playercount <= 16)): {
+			_patrol = 4;
+			_garnison = 12;
+		};
+		case( (_playercount >= 17)): {
+			_patrol = 4;
+			_garnison = 16;
+		};
+		default{
+			_patrol = 2;
+			_garnison = 8;
+		};
+	};
 
 	for "_i" from 1 to _patrol do {
 		private _group = createGroup TF47_helper_opposingFaction;
@@ -272,7 +273,7 @@ if ({alive _x} count (units _defensegroup) != 0) then {
 };
 
 waitUntil { sleep 10;  ( { alive _x } count _unitarr ) <= 1 };
-["TF47_TaskSucceeded",	[("Destroy Artillery Side")]	] remoteExec ["BIS_fnc_showNotification", TF47_helper_playerFaction, false];
+["TF47_TaskSucceeded",	[("Destroy Artillery Side")]] remoteExec ["BIS_fnc_showNotification", TF47_helper_playerFaction, false];
 combat_readiness = (combat_readiness - 5 - (round 5));
 sleep 3;
 TF47_Missionarray deleteAt _index;

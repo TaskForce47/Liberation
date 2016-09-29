@@ -95,9 +95,7 @@ while { true } do {
 			for [{_i=0}, {_i<5}, {_i=_i+1}] do {
 				_vehicle setObjectTextureGlobal [_i, '#(rgb,8,8,3)color(0,1,0,0.8)'];
 			};
-
 			{ _x setObjectTexture [0, "#(rgb,8,8,3)color(0,1,0,1)"]; } foreach GRLIB_preview_spheres;
-
 			while { build_confirmed == 1 && alive player } do {
 				_truedir = 90 - (getdir player);
 				_truepos = [((getpos player) select 0) + (_dist * (cos _truedir)), ((getpos player) select 1) + (_dist * (sin _truedir)),0];
@@ -108,14 +106,14 @@ while { true } do {
 				while { _actualdir > 360 } do { _actualdir = _actualdir - 360 };
 				while { _actualdir < 0 } do { _actualdir = _actualdir + 360 };
 				if ( ((buildtype == 6) || (buildtype == 99)) && ((gridmode % 2) == 1) ) then {
-					if ( _actualdir >= 22.5 && _actualdir <= 67.5 ) then { _actualdir = 45 };
-					if ( _actualdir >= 67.5 && _actualdir <= 112.5 ) then { _actualdir = 90 };
+					if ( _actualdir >= 22.5  && _actualdir <= 67.5 ) then { _actualdir = 45 };
+					if ( _actualdir >= 67.5  && _actualdir <= 112.5 ) then { _actualdir = 90 };
 					if ( _actualdir >= 112.5 && _actualdir <= 157.5 ) then { _actualdir = 135 };
 					if ( _actualdir >= 157.5 && _actualdir <= 202.5 ) then { _actualdir = 180 };
 					if ( _actualdir >= 202.5 && _actualdir <= 247.5 ) then { _actualdir = 225 };
 					if ( _actualdir >= 247.5 && _actualdir <= 292.5 ) then { _actualdir = 270 };
 					if ( _actualdir >= 292.5 && _actualdir <= 337.5 ) then { _actualdir = 315 };
-					if ( _actualdir <= 22.5 || _actualdir >= 337.5 ) then { _actualdir = 0 };
+					if ( _actualdir <= 22.5  || _actualdir >= 337.5 ) then { _actualdir = 0 };
 				};
 
 				_sphere_idx = 0;
@@ -250,60 +248,13 @@ while { true } do {
 				_vehicle allowDamage false;
 				_vehicle setdir _vehdir;
 				_vehicle setpos _truepos;
-				// Assign all MedicVehicles and Faacilitys the ACEE Attribute's
-				if (_classname in ["Land_Medevac_HQ_V1_F","O_T_Truck_03_medical_ghex_F","Land_Medevac_house_V1_F","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
-					_vehicle setVariable ["ace_medical_ismedicalfacility", true, true];
-					_vehicle setVariable ["Ace_medical_medicClass", 1, true];
-				};
-				/*
-					Automated detection of Supply Vehicles added. No more need for Classname Array's if, mods are build properly 
-					( most likly all Mods exept for RHS...)
-				*/
-				private _isTruck = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "textSingular") == "truck";
-				if (_isTruck) then {
-					private _Ammocap = getNumber (configfile >> "CfgVehicles" >> (typeOf _vehicle) >> "transportAmmo") > 0;
-					private _Fuelcap = getNumber (configfile >> "CfgVehicles" >> (typeOf _vehicle) >> "transportFuel") > 0;
-					private _Repaircap = getNumber (configfile >> "CfgVehicles" >> (typeOf _vehicle) >> "transportRepair") > 0;
-					/*
-						As far as I know, does'nt interfere with the e.g. getRepairCargo. Just with the e.g. transportAmmo.
-						But if this changes both Values, we have to deal with some sort of ACE/RHS compatibility. If RHS does something strange and
-						ACE does't initialize RHS Vehicles, this should do the trick. and if ACE does we should be on the save side.
-
-						EDIT: This is def. experimental. Not tested in any Way,  as I'm currently unable to do so.
-					*/
-					switch (true) do {
-						case(_Fuelcap):{
-							// No Idea if 500 Liters is an good Value. Might need some adjusting.
-							[_vehicle] call ace_refuel_fnc_reset;
-							[_vehicle, 500] call ace_refuel_fnc_setFuel;
-							_vehicle setFuelCargo 0;
-						};
-						case(getFuelCargo _vehicle isEqualType 0):{
-							// No Idea if 500 Liters is an good Value. Might need some adjusting.
-							[_vehicle] call ace_refuel_fnc_reset;
-							[_vehicle, 500] call ace_refuel_fnc_setFuel;
-							_vehicle setFuelCargo 0;
-						};
-						case(_Repaircap):{
-							//ToDo: Find out possible Value's for RepairVehicles from ACE.
-							_vehicle setVariable ["ACE_isRepairVehicle", 1, true];
-							_vehicle setRepairCargo 0;
-							// _x getVariable ["ACE_isRepairFacility",1, true];
-						};
-						case(getRepairCargo _vehicle isEqualType 0):{ 
-							_vehicle setRepairCargo 0;
-							_vehicle setVariable ["ACE_isRepairVehicle", 1, true];
-						};
-						case(_Ammocap):{ 
-							//[_vehicle, false] call ace_rearm_fnc_disable;
-							[_vehicle, 1000] call ace_rearm_fnc_setSupplyCount;
-							_vehicle setAmmoCargo 0;
-						};
-						case( getAmmoCargo _vehicle isEqualType 0 ):{ 
-							//[_vehicle, false] call ace_rearm_fnc_disable;
-							[_vehicle, 1000] call ace_rearm_fnc_setSupplyCount;	
-							_vehicle setAmmoCargo 0;
-						};
+				// Assign all MedicVehicles and Faacilitys the ACE Attribute's
+				if (_classname in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
+					if (_classname in ["Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F"]) then {
+						_vehicle setVariable ["ace_medical_ismedicalfacility", true];
+					};
+					if (_classname in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
+						_vehicle setVariable ["Ace_medical_medicClass", 1];
 					};
 				};
 
@@ -358,7 +309,6 @@ while { true } do {
 				
 				buildtype = 1;
 			};
-
 			build_confirmed = 0;
 		};
 	};
