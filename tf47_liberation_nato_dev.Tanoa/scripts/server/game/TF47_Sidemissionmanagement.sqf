@@ -1,4 +1,5 @@
-Waituntil {(time > 180) || (!isMultiplayer)};
+Waituntil {(time > 600) || (!isMultiplayer)};
+Waituntil {sleep 30; count GRLIB_all_fobs > 0};
 
 TF47_side_AAAactive = false;
 TF47_side_Artiactive = false;
@@ -11,7 +12,6 @@ TF47_FobMissionisActive = false;
 TF47_SARisActive = false;
 TF47_ConvoyHijackisActive = false;
 TF47_FobSeaMineisActive = false;
-Waituntil {sleep 10; count GRLIB_all_fobs > 0};
 
 [
 	{
