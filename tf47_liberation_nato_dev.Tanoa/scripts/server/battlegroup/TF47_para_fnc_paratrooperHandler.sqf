@@ -7,7 +7,7 @@ if(isNil "TF47_helper_paratrooperProcessList")then{TF47_helper_paratrooperProces
 		private _cacheToProcess	=	+TF47_helper_paratrooperJumpInit;
 		TF47_helper_paratrooperJumpInit	=	[];
 		{
-			if(	((getPos _x) select 2) < 200)then{
+			if(	((getPos _x) select 2) < 300)then{
 			
 				TF47_helper_paratrooperProcessCache pushBackUnique	_x;
 				
@@ -18,14 +18,8 @@ if(isNil "TF47_helper_paratrooperProcessList")then{TF47_helper_paratrooperProces
 			};
 			
 		}forEach _cacheToProcess;
-	},
-	0.2,
-	[]
-] call CBA_fnc_addPerFrameHandler;
 
-[
-	{
-		private _cacheToProcess	=	+TF47_helper_paratrooperProcessCache;
+		_cacheToProcess	=	+TF47_helper_paratrooperProcessCache;
 		TF47_helper_paratrooperProcessCache	=	[];
 		{
 
@@ -36,14 +30,8 @@ if(isNil "TF47_helper_paratrooperProcessList")then{TF47_helper_paratrooperProces
 			_x addbackpack "ACE_NonSteerableParachute";
 			
 		}forEach _cacheToProcess;
-	},
-	0.2,
-	[]
-] call CBA_fnc_addPerFrameHandler;
 
-[
-	{
-		private _cacheToProcess	=	+TF47_helper_paratrooperProcessList;
+		_cacheToProcess	=	+TF47_helper_paratrooperProcessList;
 		TF47_helper_paratrooperProcessList	=	[];
 		{
 			
@@ -56,7 +44,7 @@ if(isNil "TF47_helper_paratrooperProcessList")then{TF47_helper_paratrooperProces
 					removeBackpackGlobal _unit;
 					_unit addbackpack  (_unit getVariable "TF47_paratrooper_backpack");
 					{ _unit additemtobackpack _x}forEach (_unit getVariable "TF47_paratrooper_items");
-					_unit spawn {params ["_unit"]; sleep 1;	_unit allowDamage true; _unit linkItem "rhsusf_ANPVS_15";};
+					_unit spawn {params ["_unit"]; sleep 2;	_unit allowDamage true; _unit linkItem "rhsusf_ANPVS_15";};
 					
 				};
 			
