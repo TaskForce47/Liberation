@@ -278,7 +278,7 @@ private _roadarr = [];
 private _unitarr = [];
 private _didbuild = [];
 private _locpos = _location select 0;
-_defensegroup =  createGroup TF47_helper_opposingFaction;
+_defensegroup1 =  createGroup TF47_helper_opposingFaction;
 {
 	private _type = (_x select 0);
 	private _pos = (_x select 1);
@@ -297,14 +297,14 @@ _defensegroup =  createGroup TF47_helper_opposingFaction;
 	
 	if ((_building emptyPositions  "Commander") != 0) then {
 		_building lock 3;
-		private _commander = _defensegroup createUnit [ (selectRandom OpforCrew), _endpos, [], 0, "NONE"];
+		private _commander = _defensegroup1 createUnit [ (selectRandom OpforCrew), _endpos, [], 0, "NONE"];
 		_commander allowDamage false;
 		_commander assignAsCommander _building;
 		_commander moveinCommander _building;
 		_unitarr pushback _commander;
 	};
 	if ((_building emptyPositions  "GUNNER") != 0) then {
-		private _gunner = _defensegroup createUnit [ (selectRandom OpforCrew), _endpos, [], 0, "NONE"];
+		private _gunner = _defensegroup1 createUnit [ (selectRandom OpforCrew), _endpos, [], 0, "NONE"];
 		_gunner allowDamage false;
 		_gunner assignAsGunner _building;
 		_gunner moveinGunner _building;
@@ -328,7 +328,7 @@ _defensegroup =  createGroup TF47_helper_opposingFaction;
 
 private _description = format ["The opposing Force has build up a AAA side at %1. Do not enter the Area with any Aircraft", mapGridPosition _locpos];
 
-_index = TF47_Missionarray pushback [ (_location select 0), { }, "Destroy AAA Side", _description, "", "res\secondary\destroy_aaa.jpg"];
+private _index = TF47_Missionarray pushback [ (_location select 0), { }, "Destroy AAA Side", _description, "", "res\secondary\destroy_aaa.jpg"];
 publicVariable "TF47_Missionarray";
 //___________________________________________ Notification ___________________________________________//
 
@@ -378,8 +378,8 @@ switch (true) do {
 
 
 
-Waituntil {sleep 10; ([ _locpos ] call F_sectorOwnership != independent) || ({alive _x} count (units _defensegroup) == 0) };
-if ({alive _x} count (units _defensegroup) != 0) then {
+Waituntil {sleep 10; ([ _locpos ] call F_sectorOwnership != independent) || ({alive _x} count (units _defensegroup1) == 0) };
+if ( ({alive _x} count (units _defensegroup1) != 0) ) then {
 	for "_i" from 1 to _patrol do {
 		private _group = createGroup TF47_helper_opposingFaction;
 		for "_o" from 1 to 4 do {
@@ -419,11 +419,11 @@ if ({alive _x} count (units _defensegroup) != 0) then {
 	};
 };
 
-WaitUntil { sleep 10;  ( { (alive _x) } count units _defensegroup ) == 0 };
+WaitUntil { sleep 10;  ( { alive _x } count (units _defensegroup1)) == 0 };
 ["TF47_TaskSucceeded", [("Destroy AAA Side")]] remoteExec ["BIS_fnc_showNotification", TF47_helper_playerFaction, false];
 TF47_Missionarray deleteAT _index;
 publicVariable "TF47_Missionarray";
-combat_readiness = (combat_readiness - 5 - (round 5));
+combat_readiness = (combat_readiness - (5 + (round 5)));
 publicVariableServer "combat_readiness";
 sleep 1;
 trigger_server_save = true;
