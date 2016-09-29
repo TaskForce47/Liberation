@@ -10,7 +10,7 @@ TF47_ArmoredBlacklist = profileNamespace getVariable ["TF47_ArmoredBlacklist", [
 TF47_HeliBlacklist = profileNamespace getVariable ["TF47_HeliBlacklist", []];
 TF47_BuildBlacklist = profileNamespace getVariable ["TF47_BuildBlacklist", []];
 TF47_BuildBlacklist = profileNamespace getVariable ["TF47_BuildBlacklist", []];
-TF47_TL_Whitlelist = profileNamespace getVariable ["TF47_TLWhitelist",["76561197992256569","76561198057152487","76561198093331206","76561198083598937","76561198043617179","76561198057808323","76561197991090099","76561198017253407","76561198060354231","76561197997340019","76561197997804176","76561198107147607","76561198075771437","76561198010638416","76561198026525307","76561198071872589","76561198043320125","76561198088566694","76561198070395053","76561197990703314","76561198122032581","76561198005476324","76561197996296785","76561197981809309","76561198023782694","76561198022749433"]];
+TF47_TL_Whitlelist = profileNamespace getVariable ["TF47_TLWhitelist",["76561197992256569","76561198002813252","76561197960489271","76561197963794597","76561198002813252","76561197960489271","76561197963794597","76561198057152487","76561198093331206","76561198083598937","76561198043617179","76561198057808323","76561197991090099","76561198017253407","76561198060354231","76561197997340019","76561197997804176","76561198107147607","76561198075771437","76561198010638416","76561198026525307","76561198071872589","76561198043320125","76561198088566694","76561198070395053","76561197990703314","76561198122032581","76561198005476324","76561197996296785","76561197981809309","76561198023782694","76561198022749433"]];
 
 publicVariable "TF47_BuildBlacklist";
 publicVariable "TF47_ArmoredBlacklist";
@@ -221,11 +221,11 @@ if ( !isNil "greuh_liberation_savegame" ) then {
 			if ( _nextclass in all_hostile_classnames ) then {
 				_nextbuilding setVariable [ "GRLIB_captured", 1, true ];
 			};
-			if (_nextclass in ["Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
+			if (_nextclass in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
 				if (_nextclass in ["Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F"]) then {
 					_nextbuilding setVariable ["ace_medical_ismedicalfacility", true];
 				};
-				if (_nextclass in ["B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
+				if (_nextclass in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
 					_nextbuilding setVariable ["Ace_medical_medicClass", 1];
 				};
 			};
