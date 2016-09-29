@@ -7,16 +7,10 @@ private _spawnPos	=	[(getMarkerPos _spawnsector) select 0,	(getMarkerPos _spawns
 private _newvehicle = createVehicle [ _chopper_type, _spawnPos , [], 100, "FLY"];
 createVehicleCrew _newvehicle;
 
-
 private _pilot_group = group ((crew _newvehicle) select 0);
 
 _newvehicle flyInHeightASL [500, (350 + random 200), 200];
 
-if ((typeOf _newvehicle) in ["RHS_AH64D_wd", "RHS_UH1Y_GS"]) then {
-	_newvehicle flyInHeightASL [500, (100 + random 120), 200];
-} else {
-	_newvehicle flyInHeightASL [500, (350 + random 200), 200];	
-};
 sleep 0.1;
 
 if (isNil "_pilot_group") exitWith { deleteVehicle _newvehicle; };
@@ -43,9 +37,10 @@ _waypoint setWaypointSpeed "LIMITED";
 if(	(_newvehicle emptyPositions "cargo")	>= 6)then{
     { _x setWaypointBehaviour "CARELESS" } foreach (waypoints _pilot_group);
 	private _para_group = createGroup TF47_helper_opposingFaction;
+	private _sqComp =  [] call F_getAdaptiveSquadComp;
 	
 	for "_u" from 1 to (_newvehicle emptyPositions "cargo") do {
-		opfor_paratrooper createUnit [ getmarkerpos _spawnsector, _para_group, ''];
+		(_sqComp select (_u -1)	) createUnit [ getmarkerpos _spawnsector, _para_group, ''];
 		sleep 0.5;
 	};
 
@@ -72,20 +67,9 @@ if(	(_newvehicle emptyPositions "cargo")	>= 6)then{
 	{
 		unassignVehicle _x;
 		moveout _x;
-		sleep 0.5;
-		_x spawn {
-			
-			private _unit = _this;
-			private _items = backpackitems _unit;
-			private _backpack =	backpack _unit;
-			removeBackpackGlobal _unit;
-			_unit addbackpack  "B_Parachute";
-			waituntil{ (	(getPos _unit) select 2) <= 1.5;};
-			removeBackpackGlobal _unit;
-			_unit addbackpack  _backpack;
-			{ _unit additemtobackpack _x}forEach _items;
-			
-		};
+
+		TF47_helper_paratrooperJumpInit pushBack _x;
+		
 	} foreach (units _para_group);
     Waituntil {sleep 1; count (crew _newvehicle) < 3};
     { deleteWaypoint _x } foreach waypoints _pilot_group;
