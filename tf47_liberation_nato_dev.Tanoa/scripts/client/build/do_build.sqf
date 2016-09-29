@@ -248,11 +248,15 @@ while { true } do {
 				_vehicle allowDamage false;
 				_vehicle setdir _vehdir;
 				_vehicle setpos _truepos;
-				// Assign all MedicVehicles and Faacilitys the ACEE Attribute's
-				if (_classname in ["Land_Medevac_HQ_V1_F","O_T_Truck_03_medical_ghex_F","Land_Medevac_house_V1_F","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
-					_vehicle setVariable ["ace_medical_ismedicalfacility", true, true];
-					_vehicle setVariable ["Ace_medical_medicClass", 1, true];
-				};	
+				// Assign all MedicVehicles and Faacilitys the ACE Attribute's
+				if (_classname in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
+					if (_classname in ["Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F"]) then {
+						_vehicle setVariable ["ace_medical_ismedicalfacility", true];
+					};
+					if (_classname in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
+						_vehicle setVariable ["Ace_medical_medicClass", 1];
+					};
+				};
 
 				clearWeaponCargoGlobal _vehicle;
 				clearMagazineCargoGlobal _vehicle;
