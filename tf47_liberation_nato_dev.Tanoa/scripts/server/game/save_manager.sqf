@@ -160,7 +160,7 @@ if ( !isNil "greuh_liberation_savegame" ) then {
 		GRLIB_player_scores = greuh_liberation_savegame select 15;
 	};
     
-    if ( count greuh_liberation_savegame > 16 ) then {
+    if ( count greuh_liberation_savegame >= 16 ) then {
 		TF47_respawnTickets = greuh_liberation_savegame select 16;
 	};
 	setDate [ 2016, 6, 6, time_of_day, 0];
@@ -387,7 +387,7 @@ while { true } do {
 			};
 		} foreach allPlayers;
 		GRLIB_player_scores = _newscores;
-
+		TF47_respawnTickets = [ TF47_helper_playerFaction] call BIS_fnc_respawnTickets;
 		_stats = [];
 		_stats pushback stats_opfor_soldiers_killed;
 		_stats pushback stats_opfor_killed_by_players;
