@@ -101,8 +101,7 @@ air_vehicles_extension = [
 	["RHS_UH1Y_FFAR",0,50,15],
 	["RHS_UH1Y_UNARMED",0,0,10],
 	["RHS_C130J",0,0,15],
-	["rhsusf_CH53E_USMC",0,0,10],
-	["RHS_UH60M_MEV_d", 0,0,10]
+	["rhsusf_CH53E_USMC",0,0,10]
 ];
 
 static_vehicles_overwrite = true;
@@ -174,9 +173,10 @@ support_vehicles_extension = [
 	[Arsenal_typename, 0,100,0],
     [FOB_box_typename, 0,500,0],
     [FOB_truck_typename, 0,500,5],
-    ["B_Truck_01_medical_F", 0,100,10],
+    ["B_Truck_01_medical_F", 0,100,5],
+    ["RHS_UH60M_MEV_d", 0,100,10],
     ["B_Truck_01_Repair_F", 0,100,5],
-    ["B_Truck_01_fuel_F", 0,100,10],
+    ["B_Truck_01_fuel_F", 0,100,5],
     ["B_Truck_01_ammo_F", 0,100,5],
     ["Box_NATO_AmmoVeh_F", 0,100,0],
     ["Box_East_AmmoVeh_F", 0,100,0]
