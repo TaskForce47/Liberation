@@ -9,7 +9,7 @@ if ( !isNil "GRLIB_last_battlegroup_time" ) then {
 	//GRLIB_last_battlegroup_time = 3600/GRLIB_csat_aggressivity;	// value gets readjusted in "spawn_baatlegroup"
 };
 GRLIB_last_battlegroup_time	= 100;
-private _sleep = 15*60;
+private _sleep = 30*60;
 
 //private _sleep = 90;
 [
@@ -19,7 +19,9 @@ private _sleep = 15*60;
 			
 			// counter battlegroup
 			if(combat_readiness >= 30 && 	(armor_weight >= 50 || air_weight >= 50)	) then {
-				[] call TF47_battlegroup_air;
+				if( (count allPlayers >= (10 / GRLIB_csat_aggressivity) ) && (diag_fps > 15.0) )then{
+					[] call TF47_battlegroup_air;
+				};
 			};
 			
 			// random battlegroup
