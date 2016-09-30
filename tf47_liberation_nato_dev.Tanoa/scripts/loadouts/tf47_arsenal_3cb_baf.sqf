@@ -19,8 +19,7 @@ if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{	"BWA3 not
 	["UK3CB_BAF_Merlin_HC3_18_GPMG",0,30,15],
 	["UK3CB_BAF_Merlin_HC3_32",0,0,15],
 	["UK3CB_BAF_Merlin_HC3_CSAR",0,30,15],
-	["UK3CB_BAF_Wildcat_AH1_CAS_8D",0,50,15],
-	["UK3CB_BAF_Wildcat_AH1_HEL_8A",0,150,15]
+	["UK3CB_BAF_Wildcat_AH1_CAS_8D",0,50,15]
 ];
 
 if(isDedicated)exitWith{};
