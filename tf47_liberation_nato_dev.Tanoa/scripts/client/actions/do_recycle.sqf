@@ -21,4 +21,5 @@ if ( dialog ) then { closeDialog 0 };
 
 if ( dorecycle == 1 && !(isnull _vehtorecycle) && alive _vehtorecycle) then {
 	[ [ _vehtorecycle,  round ((_objectinfo select 2) * GRLIB_recycling_percentage) ] , "recycle_remote_call" ] call BIS_fnc_MP;
+	[ 0, {diag_log _this}, (format ["[INFORMATION] Vehicle: %1 was recycled by %2", (getText (configfile >> "CfgVehicles" >> typeOf _vehtorecycle >> "displayName")), name player]) ] call CBA_fnc_globalExecute;
 };

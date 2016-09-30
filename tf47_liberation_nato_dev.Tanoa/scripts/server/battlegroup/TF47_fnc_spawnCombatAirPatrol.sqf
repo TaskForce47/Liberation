@@ -4,11 +4,12 @@
 	1:	NUMBER	-	cycles between start and end 
 */
 params [ 
-	["_bullseye",[]],
+	["_input",[],[[],""]],
 	["_sweeps",1]
 ];
-
-if(	count _bullseye == 0)exitWith{
+private _bullseye = [];
+if (	_input isequalType ""	)then{	_bullseye = getMarkerPos _input;	};
+if(	count _bullseye != 3 && !(_bullseye isEqualTo [0,0,0])	)exitWith{
 
 	diag_log "[ FAIL ] TF47 FNC COMBATAIRPATROL: No bullseye given, exiting function!";
 	false;

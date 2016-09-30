@@ -25,10 +25,10 @@ publicVariable "TF47_Missionarray";
 if (isNil "used_positions") then {used_positions = [];};
 
 used_positions = used_positions + [ _spawn_marker ];
-_base_position = markerpos _spawn_marker;
-_base_objects = [];
-_base_objectives = [];
-_base_defenders = [];
+private _base_position = markerpos _spawn_marker;
+private _base_objects = [];
+private _base_objectives = [];
+private _base_defenders = [];
 _template = ([] call (compile preprocessFileLineNumbers ( selectRandom _fob_templates)));
 
 _objects_to_build = _template select 0;
@@ -76,7 +76,7 @@ sleep 1;
 sleep 1;
 
 { _x setDamage 0; } foreach (_base_objectives + _base_objects);
-Waituntil {sleep 10; ([ _locpos ] call F_sectorOwnership != independent) || (( { alive _x } count _base_objectives ) <= 1) };
+Waituntil {sleep 10; ([ (getMarkerPos _spawn_marker) ] call F_sectorOwnership != independent) || (( { alive _x } count _base_objectives ) <= 1) };
 if (( { alive _x } count _base_objectives ) > 1) then {
 		
 	_grpdefenders = createGroup TF47_helper_opposingFaction;

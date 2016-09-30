@@ -17,66 +17,42 @@
 
 		
 */
-
-params [
-	["_startingLocation",[]]
-];
-
-IF(count _startingLocation == 0)EXITWITH{};
-
-PRIVATE _id			=	-1;
-PRIVATE _ISLANDS	= 	["noBattlegroup1","noBattlegroup2","noBattlegroup3","noBattlegroup4"];
+params [["_startingLocation",[]]];
+if(count _startingLocation == 0)exitWith{};
+private _id	= -1;
+private _ISLANDS = ["noBattlegroup1","noBattlegroup2","noBattlegroup3","noBattlegroup4"];
 
 {
-	IF(_startingLocation	inArea	_x	)THEN{	_id	=	_forEachIndex};
-}FOREACH _ISLANDS;
+	if(_startingLocation inArea	_x) then { _id = _forEachIndex; };
+}foreach _ISLANDS;
 
-PRIVATE _possibleAOs	=	[];
-PRIVATE _allAOs			=	+GRLIB_all_fobs;
-{	_allAOs pushBack (getmarkerpos _x)	}foreach blufor_sectors;
-PRIVATE _allAOsN		=	(count _allAOs)-1;
-PRIVATE _allAOSnew		=	+_allAOs;
+private _possibleAOs = [];
+private _allAOs	= +GRLIB_all_fobs;
+{ _allAOs pushBack (getmarkerpos _x) }foreach blufor_sectors;
+private _allAOsN = (count _allAOs)-1;
+private _allAOSnew = +_allAOs;
 
-IF(_id	==	-1)THEN{
-
+if(_id == -1) then {
 	//big island
-	for "_i" from 0 to _allAOsN do{
-	
-		PRIVATE	_pos 	=	_allAOs select _i;
+	for "_i" from 0 to _allAOsN do {
+		private	_pos =_allAOs select _i;
 		{
-			IF(	(_pos	inArea	_x	)	)THEN{	_allAOsNew deleteAt (_allAOSnew find _pos);	};
-		}FOREACH _ISLANDS;
-	
+			if((_pos inArea _x)) then { _allAOsNew deleteAt (_allAOSnew find _pos);	};
+		}foreach _ISLANDS;
 	};
-	
-	_possibleAOs	=	+_allAOSnew;
-	
-}ELSE{
-
-	PRIVATE 	_area	=	_ISLANDS	select	_id;
-	
+	_possibleAOs = +_allAOSnew;
+}else{
+	private _area = _ISLANDS select	_id;
 	for "_i" from 0 to _allAOsN do{
-	
-		PRIVATE	_pos 	=	_allAOs select _i;
-
-		IF(	_pos	inArea	_area	)THEN{	_possibleAOs	pushBack	_pos;};
-	
+		private	_pos  =	_allAOs select _i;
+		if(	_pos inArea	_area ) then { _possibleAOs	pushBack _pos;};
 	};
-
 };
 
-/*
-	priorize fobs
-*/
-
 {
-
-	if(_x in _possibleAOs)then{
-	
-		_possibleAOs	=	[_x] append (_possibleAOs deleteAt (_possibleAOs	find _x ));
-
+	if(_x in _possibleAOs) then {
+		([_x] append (_possibleAOs deleteAt (_possibleAOs find _x)));
 	};
-
-}forEach GRLIB_all_fobs;
+}foreach GRLIB_all_fobs;
 
 _possibleAOs;
