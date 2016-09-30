@@ -15,9 +15,9 @@ huron_typename = "rhsusf_CH53E_USMC";									// Default "B_Heli_Transport_03_un
 ammobox_b_typename = "Box_NATO_AmmoVeh_F";								// Default "Box_NATO_AmmoVeh_F";
 ammobox_o_typename = "Box_East_AmmoVeh_F";								// Default "Box_East_AmmoVeh_F";
 opfor_ammobox_transport = "B_Truck_01_ammo_F";							// Default "O_Truck_03_transport_F";
-commander_classname = "B_officer_F";								// Default "B_officer_F"
-crewman_classname = "B_crew_F";								// Default "B_crew_F";
-pilot_classname = "B_Helipilot_F";											// Default "B_Helipilot_F";
+commander_classname = "B_officer_F";								    // Default "B_officer_F"
+crewman_classname = "B_crew_F";								            // Default "B_crew_F";
+pilot_classname = "B_Helipilot_F";										// Default "B_Helipilot_F";
 
 
 
@@ -604,9 +604,6 @@ ai_resupply_sources_extension = [
 
 // Everything that can resupply other vehicles
 vehicle_repair_sources_extension = [
-	"UK3CB_BAF_Coyote_Logistics_L134A1_W",
-	"UK3CB_BAF_Coyote_Logistics_L111A1_D",
-	"UK3CB_BAF_Coyote_Logistics_L111A1_W"
 ];
 vehicle_rearm_sources_extension = [
 	
