@@ -343,7 +343,8 @@ for "_i" from 0 to (round random 3) do {
 	[ [_next_box, 200 ] , "F_setMass" ] call BIS_fnc_MP;
 };
 
-{ _x setDamage 0; _x allowDamage true; }foreach _didbuild;
+{ _x setDamage 0; _x allowDamage true; } foreach _didbuild;
+{ _x setDamage 0; _x allowDamage true; } foreach _unitarr;
 
 private _patrol = 1;
 private _garnison = 6;
