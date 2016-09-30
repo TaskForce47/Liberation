@@ -101,7 +101,8 @@ air_vehicles_extension = [
 	["RHS_UH1Y_FFAR",0,50,15],
 	["RHS_UH1Y_UNARMED",0,0,10],
 	["RHS_C130J",0,0,15],
-	["rhsusf_CH53E_USMC",0,0,10]
+	["rhsusf_CH53E_USMC",0,0,10],
+	["RHS_UH60M_MEV_d", 0,0,10]
 ];
 
 static_vehicles_overwrite = true;
