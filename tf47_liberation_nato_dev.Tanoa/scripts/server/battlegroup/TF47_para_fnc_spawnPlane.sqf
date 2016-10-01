@@ -151,11 +151,10 @@ for "_i" from 0 to 1 do{
 	_cargo pushBack _grpInf;
 	
 	while {count (waypoints _grpInf) > 0} do {    deleteWaypoint ((waypoints _grpInf	) select 0);  }; 
-	if ( local _grpInf ) then {
-		_headless_client = [] call F_lessLoadedHC;
-		if ( !isNull _headless_client ) then {
-			_grpInf setGroupOwner ( owner _headless_client );
-		};
+	
+	_ID = [] call F_lessLoadedHC;
+	if ( _ID != -1 ) then {
+		_grpInf setGroupOwner _ID;
 	};
 	
 };
