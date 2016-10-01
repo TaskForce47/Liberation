@@ -295,7 +295,7 @@ _defensegroup1 =  createGroup TF47_helper_opposingFaction;
 	_building setPos _endpos;
 	_building setVectorUp (surfaceNormal (position _building));
 	
-	if ((_building emptyPositions  "Commander") != 0) then {
+	if ((_building emptyPositions "Commander") != 0) then {
 		_building lock 3;
 		private _commander = _defensegroup1 createUnit [ (selectRandom OpforCrew), _endpos, [], 0, "NONE"];
 		_commander allowDamage false;
@@ -303,14 +303,13 @@ _defensegroup1 =  createGroup TF47_helper_opposingFaction;
 		_commander moveinCommander _building;
 		_unitarr pushback _commander;
 	};
-	if ((_building emptyPositions  "GUNNER") != 0) then {
+	if ((_building emptyPositions "GUNNER") != 0) then {
 		private _gunner = _defensegroup1 createUnit [ (selectRandom OpforCrew), _endpos, [], 0, "NONE"];
 		_gunner allowDamage false;
 		_gunner assignAsGunner _building;
 		_gunner moveinGunner _building;
 		_unitarr pushback _gunner;
 		_building setVehicleAmmo 1;
-		_building addEventHandler ["HandleDamage", { private [ "_damage" ]; if (( side (_this select 3) !=TF47_helper_opposingFaction) && ( side (_this select 3) != TF47_helper_playerFaction )) then { _damage = 0 } else { _damage = _this select 2 }; _damage } ];
 	}  else {
 	    if ( isOnRoad (getpos _building)) then {
 	        deletevehicle _building; 
@@ -338,47 +337,16 @@ publicVariable "TF47_Missionarray";
 
 
 for "_i" from 0 to (round random 3) do {
-	_next_box = createVehicle [ammobox_o_typename, [((_locpos select 0) - ((random 20) + (random 40))) , ((_locpos select 1) - ((random 20) + (random 40))), 0], [], 0, "NONE"]; 
+	_next_box = createVehicle [ ammobox_o_typename, [((_locpos select 0) - ((random 20) + (random 40))) , ((_locpos select 1) - ((random 20) + (random 40))), 0], [], 0, "NONE"]; 
 	_next_box enableRopeAttach true;
 	[ [_next_box, 200 ] , "F_setMass" ] call BIS_fnc_MP;
 };
 
-{ _x setDamage 0; _x allowDamage true; }foreach _didbuild;
-
+{ _x setDamage 0; _x allowDamage true; } foreach _didbuild;
+{ _x setDamage 0; _x allowDamage true; } foreach _unitarr;
 private _patrol = 1;
 private _garnison = 6;
-private _playercount = (count (allPlayers - entities "HeadlessClient_F"));
-switch (true) do {
-	case( _playercount <= 4): {
-		_patrol = 2;
-		_garnison = 8;
-	};
-	case( (_playercount >= 6) && (_playercount <= 7)): {
-		_patrol = 2;
-		_garnison = 10;
-	};
-	case( (_playercount >= 8) && (_playercount <= 11)): {
-		_patrol = 3;
-		_garnison = 10;
-	};
-	case( (_playercount >= 12) && (_playercount <= 16)): {
-		_patrol = 4;
-		_garnison = 12;
-	};
-	case( (_playercount >= 17)): {
-		_patrol = 4;
-		_garnison = 16;
-	};
-	default{
-		_patrol = 2;
-		_garnison = 8;
-	};
-};
 
-
-
-
-Waituntil {sleep 10; ([ _locpos ] call F_sectorOwnership != independent) || ({alive _x} count (units _defensegroup1) == 0) };
 if ( ({alive _x} count (units _defensegroup1) != 0) ) then {
 	for "_i" from 1 to _patrol do {
 		private _group = createGroup TF47_helper_opposingFaction;

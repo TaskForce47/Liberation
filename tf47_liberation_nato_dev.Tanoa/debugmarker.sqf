@@ -15,7 +15,7 @@ handle1 = addMissionEventHandler ["GroupIconClick",
 	}
 ];
 */
-while {true} do {
+while {false} do {
 	setGroupIconsVisible [true,true];
 	if (isNil "_iconed_groups") then {_iconed_groups = [];};
 	if (isNil "_ticks") then {_ticks = 0;};

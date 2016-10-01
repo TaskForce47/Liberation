@@ -90,8 +90,8 @@ wait_to_spawn_sector 		= compileFinal preprocessFileLineNumbers "scripts\server\
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\synchronise_vars.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\zeus_synchro.sqf";
 
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_calculation.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_manager.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_calculation.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\show_fps.sqf";
 
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\patrols\civilian_patrols.sqf";

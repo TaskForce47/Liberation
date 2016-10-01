@@ -46,7 +46,7 @@ while { GRLIB_endgame == 0 } do {
 			_civ disableAI "FSM";
 			_civ disableAI "AUTOCOMBAT";
 			_grpspeed = "LIMITED";
-
+			_civveh forceFollowRoad true;
 		};
 
 		{
@@ -103,15 +103,15 @@ while { GRLIB_endgame == 0 } do {
 		_waypoint = _grp addWaypoint [_patrol_startpos , 100];
 		_waypoint setWaypointType "CYCLE";
 
-		if ( local _grp ) then {
-			_headless_client = [] call F_lessLoadedHC;
-			if ( !isNull _headless_client ) then {
-				_grp setGroupOwner ( owner _headless_client );
-			};
+		_ID = [] call F_lessLoadedHC;
+		if ( _ID != -1 ) then {
+			_grp setGroupOwner _ID;
 		};
 
+		
+
 		waitUntil {
-			sleep (30 + (random 30));
+			sleep (120);
 			( ( ( { alive _x } count ( units _grp ) ) == 0 ) || ( count ( [ getpos leader _grp , 4000 ] call F_getNearbyPlayers ) == 0 ) )
 		};
 

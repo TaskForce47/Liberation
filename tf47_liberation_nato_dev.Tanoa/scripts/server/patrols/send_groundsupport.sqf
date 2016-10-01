@@ -1,11 +1,14 @@
 params [ "_targetsector" ];
 private _targetpos = getMarkerPos _targetsector;
 if ((_targetpos inArea "noBattlegroup1") ||(_targetpos inArea "noBattlegroup2") ||(_targetpos inArea "noBattlegroup3") ||(_targetpos inArea "noBattlegroup4")) exitWith {};
-private _spawnsector = ((sectors_allSectors - blufor_sectors) - sectors_tower) select { ((getMarkerPos _x) distance2D _targetpos < 4000) && (((getMarkerPos _x) distance2D _targetpos) > 2000) && (_x != _targetsector)};
+private _spawnsector = ((sectors_allSectors - blufor_sectors) - sectors_tower) select { ((getMarkerPos _x) distance2D _targetpos < 4000) && (((getMarkerPos _x) distance2D _targetpos) > 2300) && (_x != _targetsector)};
 if (count _spawnsector == 0) exitWith {};
 private _accstart = getmarkerPos (_spawnsector select 0);
 
 for "_i" from 1 to 2 do {
+	private _targetRoad = [_targetpos, 1000] call BIS_fnc_nearestRoad;
+	if (!isNull _targetRoad) then { _targetpos = getPos _targetRoad; };
+	private _group = createGroup TF47_helper_opposingFaction;
 	private _vehicletype = selectRandom opfor_vehicles;
 	if (!(_vehicletype isKindOf "AIR")) then {
 		_nearestRoad = [_accstart, 1000] call BIS_fnc_nearestRoad;
@@ -13,37 +16,35 @@ for "_i" from 1 to 2 do {
 		if (!isNull _nearestRoad) then {
 			_newvehicle setPos ((getPos _nearestRoad) findEmptyPosition [0, 100, _vehicletype]);
 		};
-		
+		_newvehicle forceFollowRoad true;
+		_newvehicle setConvoySeparation 120; 
 		createVehicleCrew _newvehicle;
 		_newvehicle addEventHandler ["HandleDamage", { private [ "_damage" ]; if (( side (_this select 3) !=TF47_helper_opposingFaction) && ( side (_this select 3) != TF47_helper_playerFaction )) then { _damage = 0 } else { _damage = _this select 2 }; _damage } ];
 		_newvehicle allowCrewInImmobile true;
 		_newvehicle lock 3;
 
-		private _group = group ((crew _newvehicle) select 0);
+		(crew _newvehicle) joinSilent _group;
 
-		sleep 0.1;
 		if (isNil "_group") exitWith { deleteVehicle _newvehicle; };
 		{_x doFollow leader _group} foreach units _group;
-		sleep 0.2;
 		{deleteWaypoint _x } foreach waypoints _group;
 		private _waypoint = _group addWaypoint [ (getPos ([(getPos _newvehicle), 1000] call BIS_fnc_nearestRoad)) , 0];
 		_waypoint setWaypointType "MOVE";
 		_waypoint setWaypointSpeed "LIMITED";
-		_waypoint setWaypointBehaviour "AWARE";
+		_waypoint setWaypointBehaviour "SAFE";
 		_waypoint setWaypointCompletionRadius 4;
 
-		sleep 1;
-		if (surfaceIsWater (getWPPos _waypoint) || (str (getWPPos _waypoint) == str [0,0,0])) then { deleteWaypoint _waypoint};
-
-		private _waypoint = _group addWaypoint [ (getPos ([_targetpos, 1000] call BIS_fnc_nearestRoad)) , 0];
+		if (surfaceIsWater (getWPPos _waypoint) || (str (getWPPos _waypoint) == str [0,0,0])) then { deleteWaypoint _waypoint; };
+		private _waypoint = _group addWaypoint [ _targetpos , 0];
 		_waypoint setWaypointType "MOVE";
 		_waypoint setWaypointSpeed "NORMAL";
-		_waypoint setWaypointBehaviour "AWARE";
+		_waypoint setWaypointBehaviour "SAFE";
 		_waypoint setWaypointCompletionRadius 150;
-		private _waypoint = _group addWaypoint [ (getPos ([_targetpos, 1000] call BIS_fnc_nearestRoad)) , 0];
+
+		private _waypoint = _group addWaypoint [ _targetpos , 0];
 		_waypoint setWaypointType "SAD";
 		_waypoint setWaypointSpeed "NORMAL";
-		_waypoint setWaypointBehaviour "AWARE";
+		_waypoint setWaypointBehaviour "SAFE";
 		_waypoint setWaypointCompletionRadius 150;
 
 	/**********************************************************************************************************************************/
@@ -89,6 +90,6 @@ for "_i" from 1 to 2 do {
 		};
 		sleep 1; 
 		_group setCurrentWaypoint ((waypoints _group) select 0);
-		{ _x linkItem "rhsusf_ANPVS_15";} foreach crew _newvehicle;
+		{ _x linkItem "rhsusf_ANPVS_15"; } foreach crew _newvehicle;
 	};
 };

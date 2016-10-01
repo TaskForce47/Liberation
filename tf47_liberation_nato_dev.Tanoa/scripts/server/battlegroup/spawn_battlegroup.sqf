@@ -104,13 +104,10 @@ stats_hostile_battlegroups = stats_hostile_battlegroups + 1;
 
 /*	HC offloading	*/
 {
-	if ( local _x ) then {
-		_headless_client = [] call F_lessLoadedHC;
-		if ( !isNull _headless_client ) then {
-			_x setGroupOwner ( owner _headless_client );
+		private _ID = [] call F_lessLoadedHC;
+		if ( _ID != -1 ) then {
+			_x setGroupOwner _ID;
 		};
-	};
-
 } foreach _bg_groups;
 
 /********************************/

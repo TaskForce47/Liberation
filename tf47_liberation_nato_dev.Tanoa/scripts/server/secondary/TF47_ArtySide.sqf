@@ -200,38 +200,10 @@ for "_i" from 0 to (round (random 2)) do {
 
 
 
-Waituntil {sleep 10; ([ _locpos ] call F_sectorOwnership != independent) || ({alive _x} count (units _defensegroup) == 0) };
 if ({alive _x} count (units _defensegroup) != 0) then {
 
 	private _patrol = 1;
 	private _garnison = 6;
-	private _playercount = (count (allPlayers - entities "HeadlessClient_F"));
-	switch (true) do {
-		case( _playercount <= 4): {
-			_patrol = 2;
-			_garnison = 8;
-		};
-		case( (_playercount >= 6) && (_playercount <= 7)): {
-			_patrol = 2;
-			_garnison = 10;
-		};
-		case( (_playercount >= 8) && (_playercount <= 11)): {
-			_patrol = 3;
-			_garnison = 10;
-		};
-		case( (_playercount >= 12) && (_playercount <= 16)): {
-			_patrol = 4;
-			_garnison = 12;
-		};
-		case( (_playercount >= 17)): {
-			_patrol = 4;
-			_garnison = 16;
-		};
-		default{
-			_patrol = 2;
-			_garnison = 8;
-		};
-	};
 
 	for "_i" from 1 to _patrol do {
 		private _group = createGroup TF47_helper_opposingFaction;

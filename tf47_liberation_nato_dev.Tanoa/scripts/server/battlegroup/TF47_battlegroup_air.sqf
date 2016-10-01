@@ -10,15 +10,16 @@ private _cap	=	false;
 
 {
 	if (!(isNull _target)) exitWith {};
-	
-	if (( armor_weight >= 50 ) && ((vehicle _x) isKindOf "Tank")) then {
-		_target = _x; _cas	=	true;
-	};
-	
-	if (( air_weight >= 50 ) && ((vehicle _x) isKindOf "Air")) then {
-		_target = _x; _cap	=	true;
-	};
-	
+	private _veh    =   (vehicle _x);
+	if((_veh emptyPositions "cargo")<6)then{
+    	if (( armor_weight >= 50 ) && ( _veh isKindOf "Tank")) then {
+    		_target = _x; _cas	=	true;
+    	};
+    	
+    	if (( air_weight >= 50 ) && (_veh isKindOf "Air")) then {
+    		_target = _x; _cap	=	true;
+    	};
+    };	
 } foreach (allPlayers - entities "HeadlessClient_F");
 
 if (!(isNull _target)) then {
