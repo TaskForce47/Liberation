@@ -79,19 +79,12 @@ while { _boxes_loaded < _boxes_amount } do {
 	sleep 0.5;
 	[ _next_box, 50 ] call _load_box_fnc;
 };
-
-sleep 0.5;
-
 private _troop_vehicle = [ [ _spawnpos, 30, 180 ] call BIS_fnc_relPos, opfor_transport_truck, true, true, false ] call F_libSpawnVehicle;
-
-sleep 0.5;
-
-
-
-sleep 2;
 
 {
 	_x addEventHandler ["HandleDamage", { private [ "_damage" ]; if ( side (_this select 3) != TF47_helper_playerFaction ) then { _damage = 0 } else { _damage = _this select 2 }; _damage } ];
+	_x forceFollowRoad true;
+	_x setConvoySeparation 100; 
 } foreach [ _scout_vehicle, _escort_vehicle, _transport_vehicle, _troop_vehicle ];
 
 _convoy_group setFormation "COLUMN";
