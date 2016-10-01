@@ -235,7 +235,7 @@ if ( !isNil "greuh_liberation_savegame" ) then {
 					_nextbuilding setVariable ["ace_medical_ismedicalfacility", true, true];
 				};
 				if (_classname in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
-					_nextbuilding setVariable ["Ace_medical_medicClass", 1, , true];
+					_nextbuilding setVariable ["Ace_medical_medicClass", 1, true];
 				};
 			};
 
