@@ -261,7 +261,6 @@ if(isDedicated)exitWith{};
 	"UK3CB_BAF_H_Mk7_Camo_CESS_B",
 	"UK3CB_BAF_H_Mk7_Camo_CESS_C",
 	"UK3CB_BAF_H_Mk7_Camo_CESS_D",
-	"UK3CB_BAF_H_Mk7_HiVis",
 	"UK3CB_BAF_H_Mk7_Net_A",
 	"UK3CB_BAF_H_Mk7_Net_B",
 	"UK3CB_BAF_H_Mk7_Net_C",
