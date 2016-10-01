@@ -46,7 +46,7 @@ while { GRLIB_endgame == 0 } do {
 			_civ disableAI "FSM";
 			_civ disableAI "AUTOCOMBAT";
 			_grpspeed = "LIMITED";
-
+			_civveh forceFollowRoad true;
 		};
 
 		{
@@ -111,7 +111,7 @@ while { GRLIB_endgame == 0 } do {
 		
 
 		waitUntil {
-			sleep (30 + (random 30));
+			sleep (120);
 			( ( ( { alive _x } count ( units _grp ) ) == 0 ) || ( count ( [ getpos leader _grp , 4000 ] call F_getNearbyPlayers ) == 0 ) )
 		};
 
