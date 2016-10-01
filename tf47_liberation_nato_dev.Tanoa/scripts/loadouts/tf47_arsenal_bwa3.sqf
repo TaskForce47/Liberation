@@ -67,7 +67,6 @@ if(isDedicated)exitWith{};
 	"BWA3_optic_24x72",
 	"BWA3_optic_24x72_NSV",
 	"BWA3_optic_NSV600",
-	"BWA3_optic_IRV600",
 	"BWA3_optic_NSA80",
 	"BWA3_acc_LLM01_irlaser",
 	"BWA3_acc_LLM01_flash",
