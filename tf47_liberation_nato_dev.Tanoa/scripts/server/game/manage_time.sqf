@@ -1,6 +1,6 @@
 [
 	{
-		if (( daytime > 18.40 || daytime < 5.5 )) then {
+		if (( daytime > 20 || daytime < 4 )) then {
 			setTimeMultiplier 8;
 		} else {
 			setTimeMultiplier 4;
