@@ -35,8 +35,8 @@ if(isNil "TF47_helper_paratrooperLanded")then{TF47_helper_paratrooperLanded=[];}
 					private _unit	=	_x;
 					_unit allowDamage false;
 					removeBackpackGlobal _unit;
-					_unit addbackpack  (_unit getVariable "TF47_paratrooper_backpack");
-					{ _unit additemtobackpack _x}forEach (_unit getVariable "TF47_paratrooper_items");
+					_unit addbackpack  (_unit getVariable ["TF47_paratrooper_backpack",""]);
+					{ _unit additemtobackpack _x}forEach (_unit getVariable ["TF47_paratrooper_items",[]]);
 					TF47_helper_paratrooperLanded	pushBackUnique	_unit;
 					
 				};
