@@ -91,6 +91,8 @@ private _convoy_group = group driver _scout_vehicle;
 
 {
 	_x addEventHandler ["HandleDamage", { private [ "_damage" ]; if ( side (_this select 3) != TF47_helper_playerFaction ) then { _damage = 0 } else { _damage = _this select 2 }; _damage } ];
+	_x forceFollowRoad true;
+	_x setConvoySeparation 100; 
 } foreach [ _scout_vehicle, _escort_vehicle, _transport_vehicle, _troop_vehicle ];
 
 _convoy_group setFormation "FILE";
