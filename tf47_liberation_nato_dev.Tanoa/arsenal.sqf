@@ -296,6 +296,7 @@ GRLIB_arsenal_items = [
 	"rhsusf_ach_bare",
 	"rhsusf_ach_bare_ess",
 	"rhsusf_ach_bare_headset",
+	"G_Balaclava_TI_G_tna_F",
 	"rhsusf_ach_bare_headset_ess",
 	"rhsusf_ach_bare_tan",
 	"rhsusf_ach_bare_tan_ess",
