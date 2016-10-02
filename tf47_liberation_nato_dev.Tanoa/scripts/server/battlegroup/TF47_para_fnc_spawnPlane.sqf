@@ -179,7 +179,11 @@ if(!alive _air)exitWith{
 private _distancePlane = 100;
 {
 
-	TF47_helper_paratrooperJumpInit	pushBackUnique	_x;
+	_x setVariable ["TF47_paratrooper_items", backpackitems _x];
+	_x setVariable ["TF47_paratrooper_backpack",backpack _x];
+	_x linkItem "rhsusf_ANPVS_15";
+	removeBackpackGlobal _x;
+	TF47_helper_paratrooperJumpInit	pushBack	_x;
 	(getPos _air) params ["_dx","_dy","_dz"];
 	(vectorDir _air) params ["_dirX","_dirY","_dirZ"];
 	private _pos = [
