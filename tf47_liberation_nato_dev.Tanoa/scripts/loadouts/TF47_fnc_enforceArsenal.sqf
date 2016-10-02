@@ -25,13 +25,13 @@ private _checkarr = [
 {
     //somewhat drastic but ok :P
 	if (!(_x in _arr))exitWith {
-		removeAllWeapons _x;
-		removeAllItems _x;
-		removeAllAssignedItems _x;
-		removeUniform _x;
-		removeVest _x;
-		removeBackpack _x;
-		removeHeadgear _x;
-		removeGoggles _x;
+		removeAllWeapons _unit;
+		removeAllItems _unit;
+		removeAllAssignedItems _unit;
+		removeUniform _unit;
+		removeVest _unit;
+		removeBackpack _unit;
+		removeHeadgear _unit;
+		removeGoggles _unit;
 	};
 } forEach _checkarr;
