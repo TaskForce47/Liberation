@@ -92,6 +92,10 @@ for "_i" from 0 to _sweeps do {
 	[_grp,(_i +2)] setWaypointType "MOVE";
 	
 };
+
+
+[ "TF47_planeIncoming"] call BIS_fnc_showNotification;
+
 waitUntil{!(alive _air) || (armor_weight < 50)};
 sleep 300;
 if(alive _air)then{
