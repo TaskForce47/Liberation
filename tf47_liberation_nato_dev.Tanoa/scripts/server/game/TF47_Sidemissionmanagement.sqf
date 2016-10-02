@@ -21,7 +21,7 @@ TF47_FobSeaMineisActive = false;
 			private _activeSides	= count TF47_Missionarray;
 			if(4 > (TF47_helper_battlegroupSlumber + _activeSides)	)then{
 				if(!TF47_side_Artiactive && !TF47_side_AAAactive)then{
-					IF(_val	==	0) then {
+					IF(true) then {
 						if (!TF47_side_Artiactive ) then {
 							[]spawn TF47_spawnSideMissionARTY;
 						};
