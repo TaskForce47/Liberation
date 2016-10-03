@@ -44,6 +44,13 @@ class CfgDebriefing
         description = "NEED MOAAAAAR MOOODS!";
         pictureBackground = "";
     };
+	class missionFailed
+    {
+        title = "MISSION FAILED";
+        subtitle = "To many good men died here for no reason!";
+        description = "NATO HQ is canceling this mission! To many good men died here for no reason!";
+        picture = "";
+    };
 };
 
 respawnTemplates[] = {"MenuInventory", "MenuPosition", "Spectator","Tickets"};
