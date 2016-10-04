@@ -1,6 +1,6 @@
 params ["_unit"];
 
-private _arr = GRLIB_arsenal_weapons + GRLIB_arsenal_items + GRLIB_arsenal_backpacks;
+private _arr = [""]+ GRLIB_arsenal_weapons + GRLIB_arsenal_items + GRLIB_arsenal_backpacks;
 
 private _checkarr = [
 	uniform _unit, 
@@ -11,10 +11,11 @@ private _checkarr = [
 	goggles _unit, 
 	backpack _unit
 ];
-
+/*
 {
 	_checkarr pushBack _x;
 } foreach backpackItems _unit;
+*/
 {
 	_checkarr pushBack _x;
 } foreach assignedItems _unit;

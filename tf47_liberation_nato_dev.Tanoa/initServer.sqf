@@ -1,5 +1,5 @@
 MyPlacesAA = selectBestPlaces [[9981.85,9991.62,0], 10000, "((2 + 2* meadow) - (1 * forest - 0 * hills ))", 250, 30];  
-addMissionEventHandler ["EntityRespawned",{    if(    [TF47_helper_playerFaction,0] call BIS_fnc_respawnTickets == 0)then{    profileNamespace    setVariable [GRLIB_save_key,nil];	"missionFailed" call BIS_fnc_endMission;};}];
+addMissionEventHandler ["EntityKilled",{    if(    [TF47_helper_playerFaction,0] call BIS_fnc_respawnTickets == 0)then{    profileNamespace    setVariable ["GRLIB_save_key",nil]; saveProfileNamespace;	"missionFailed" call bis_fnc_endmissionServer;};}];
 addMissionEventHandler ["HandleDisconnect",{     if ( (_this select 0) getVariable ["ace_isunconscious", false] )then{[TF47_helper_playerFaction,-1] call BIS_fnc_respawnTickets};    }];
 TF47_Missionarray = [];
 if (isNil "TF47_TL_Whitlelist") then {
