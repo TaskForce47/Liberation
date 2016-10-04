@@ -10,7 +10,7 @@ GRLIB_fatigue 				= ["Fatigue",1] call bis_fnc_getParamValue;
 GRLIB_revive 				= ["Revive",0] call bis_fnc_getParamValue;
 GRLIB_introduction 			= ["Introduction",0] call bis_fnc_getParamValue;
 GRLIB_deployment_cinematic 	= ["DeploymentCinematic",0] call bis_fnc_getParamValue;
-GRLIB_unitcap 				= ["Unitcap",1] call bis_fnc_getParamValue;
+GRLIB_unitcap 				= ["Unitcap",0.8] call bis_fnc_getParamValue;
 GRLIB_adaptive_opfor 		= ["AdaptToPlayercount",1] call bis_fnc_getParamValue;
 GRLIB_civilian_activity 	= ["Civilians",0.5] call bis_fnc_getParamValue;
 GRLIB_teamkill_penalty = ["TeamkillPenalty",0] call bis_fnc_getParamValue;
@@ -58,7 +58,7 @@ GRLIB_sector_military_value = 3;
 GRLIB_secondary_objective_impact = 0.6;
 GRLIB_blufor_cap = 100					* GRLIB_unitcap;		// unit_cap = 1
 GRLIB_sector_cap = 120					* GRLIB_unitcap;
-GRLIB_battlegroup_cap = 150				* GRLIB_unitcap;
+GRLIB_battlegroup_cap = 120				* GRLIB_unitcap;
 GRLIB_patrol_cap = 120					* GRLIB_unitcap;
 GRLIB_battlegroup_size = 4				* (sqrt GRLIB_unitcap) * (sqrt GRLIB_csat_aggressivity);
 GRLIB_civilians_amount = 10				* GRLIB_civilian_activity;

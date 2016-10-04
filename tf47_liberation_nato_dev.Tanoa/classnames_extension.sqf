@@ -93,15 +93,16 @@ heavy_vehicles_extension = [
 
 air_vehicles_overwrite = true;
 air_vehicles_extension = [
-	["JS_JC_FA18E",0,500,20],
-	["JS_JC_FA18F",0,500,20],
+	["JS_JC_FA18E",0,300,20],
+	["JS_JC_FA18F",0,300,20],
 	["B_T_VTOL_01_armed_F",0,1000,20],
-	["B_T_VTOL_01_infantry_F",0,0,15],
-	["RHS_UH1Y",0,100,15],
-	["RHS_UH1Y_FFAR",0,50,15],
-	["RHS_UH1Y_UNARMED",0,0,10],
-	["RHS_C130J",0,0,15],
-	["rhsusf_CH53E_USMC",0,0,10]
+	["B_T_VTOL_01_infantry_F",0,0,10],
+	["RHS_UH1Y",0,100,10],
+	["RHS_UH1Y_FFAR",0,50,10],
+	["RHS_UH1Y_UNARMED",0,0,5],
+	["RHS_C130J",0,0,10],
+	["rhsusf_CH53E_USMC",0,0,10],
+	["rhsusf_f22",0,100,15]
 ];
 
 static_vehicles_overwrite = true;

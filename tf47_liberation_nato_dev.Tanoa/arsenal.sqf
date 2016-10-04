@@ -31,6 +31,9 @@ isclass (configfile >> "CfgPatches" >> "JS_JC_SU35")
 
 // If left empty, everything is allowed, otherwise only whitelisted items will be available
 GRLIB_arsenal_weapons = [
+"srifle_LRR_tna_F",
+"srifle_LRR_camo_F",
+"srifle_LRR_F",
 	"rhsusf_weap_m1911a1",
 	"rhsusf_weap_m9",
 	"UK3CB_BAF_Soflam_Laserdesignator",
@@ -139,6 +142,8 @@ GRLIB_arsenal_magazines = [
 ];
 
 GRLIB_arsenal_items = [
+"rhsusf_acc_premier",
+"rhsusf_acc_premier_anpvs27",
 	"G_B_Diving",
 	"V_RebreatherB",
 	"U_B_Wetsuit",
@@ -241,6 +246,12 @@ GRLIB_arsenal_items = [
 	"rhsusf_acc_sniper_base",
 	"rhsusf_acc_compm4",
 	"rhsusf_acc_eotech_552",
+	"rhsusf_acc_SpecterDR",
+	"rhsusf_acc_SpecterDR_OD",
+	"rhsusf_acc_SpecterDR_D",
+	"rhsusf_acc_SpecterDR_A",
+	"rhsusf_acc_anpvs27",
+	"RKSL_optic_RMR_MS19",
 	"rhsusf_acc_LEUPOLDMK4",
 	"rhsusf_acc_ELCAN",
 	"rhsusf_acc_ELCAN_ard",
@@ -258,6 +269,7 @@ GRLIB_arsenal_items = [
 	"rhsusf_acc_LEUPOLDMK4_2",
 	"rhsusf_acc_EOTECH",
 	"rhsusf_acc_M2A1",
+	"rhsusf_acc_premier_low",
 	"rhs_uniform_cu_ocp",
 	"rhs_uniform_cu_ucp",
 	"rhs_uniform_cu_ocp_1stcav",

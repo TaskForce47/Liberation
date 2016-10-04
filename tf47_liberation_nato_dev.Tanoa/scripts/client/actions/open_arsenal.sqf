@@ -59,4 +59,4 @@ if ((_unit getVariable ["Ace_medical_medicClass",  0]) > 0 ) then {
 	};
 };
 
-[_unit]execVM "scripts\loadouts\TF47_fnc_enforceArsenal.sqf;
+[_unit]execVM "scripts\loadouts\TF47_fnc_enforceArsenal.sqf";
