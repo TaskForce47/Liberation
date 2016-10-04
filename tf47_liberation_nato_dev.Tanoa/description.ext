@@ -53,7 +53,7 @@ class CfgDebriefing
     };
 };
 
-respawnTemplates[] = {"MenuInventory", "MenuPosition", "Spectator","Tickets"};
+respawnTemplates[] = {"MenuInventory", "MenuPosition", "Tickets"};
 
 disableChannels[] = {0,2,4,5};
 
