@@ -83,6 +83,7 @@ if(isDedicated)exitWith{};
 {GRLIB_arsenal_magazines pushBack _x}forEach [];
 
 {GRLIB_arsenal_items pushBack _x}forEach [
+"RKSL_optic_LDS",
 	"UK3CB_BAF_SUIT",
 	"UK3CB_BAF_SUSAT,",
 	"UK3CB_BAF_SUSAT_3D",
