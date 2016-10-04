@@ -1,10 +1,10 @@
 if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{"BWA3 not initialized!" remoteExec ["systemchat",0]};
 
 {heavy_vehicles_extension	pushBack _x}forEach [
-	["BWA3_Puma_Tropen",0,50,15],
-	["BWA3_Puma_Fleck",0,50,15],
-	["BWA3_Leopard2A6M_Tropen",0,300,20],
-	["BWA3_Leopard2A6M_Fleck",0,300,20]
+	["BWA3_Puma_Tropen",0,50,10],
+	["BWA3_Puma_Fleck",0,50,10],
+	["BWA3_Leopard2A6M_Tropen",0,100,20],
+	["BWA3_Leopard2A6M_Fleck",0,100,20]
 ];
 {air_vehicles_extension pushBack _x}forEach [
 	["BWA3_Tiger_RMK_PARS",0,200,25],
