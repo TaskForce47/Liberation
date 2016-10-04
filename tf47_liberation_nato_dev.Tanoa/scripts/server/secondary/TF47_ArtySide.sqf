@@ -213,6 +213,10 @@ if ({alive _x} count (units _defensegroup) != 0) then {
 			_unitarr pushback _unit;
 		};
 		[_group, (getPos (leader _group)), (100 + (random 300)), 7, "MOVE", "SAFE", "RED", "LIMITED", "STAG COLUMN", "this spawn CBA_fnc_searchNearby", [3,6,9]] call CBA_fnc_taskPatrol;
+		_ID = [] call F_lessLoadedHC;
+		if ( _ID != -1 ) then {
+			_group setGroupOwner _ID;
+		};
 	};
 	_buildingpositions = [];
 
@@ -229,6 +233,10 @@ if ({alive _x} count (units _defensegroup) != 0) then {
 		private _group = createGroup TF47_helper_opposingFaction;
 		_unit = _group createUnit [ (selectRandom [opfor_sentry, opfor_rifleman, opfor_grenadier, opfor_marksman, opfor_machinegunner, opfor_heavygunner, opfor_rpg, opfor_rpg, opfor_at, opfor_aa,  opfor_engineer]), _locpos, [], 1, "NONE"];
 		_didbuild pushback _unit;
+		_ID = [] call F_lessLoadedHC;
+		if ( _ID != -1 ) then {
+			_group setGroupOwner _ID;
+		};
 		if (count _buildingpositions > 0 ) then {
 			_rndbuildingpos = (selectRandom _buildingpositions);
 			_buildingpositions deleteAt (_buildingpositions find _rndbuildingpos);
