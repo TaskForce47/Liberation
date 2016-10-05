@@ -19,11 +19,13 @@ private _items = assignedItems _unit;
 
 }forEach _items;
 
+
 [ "Open", false ] spawn BIS_fnc_arsenal;
 
 waitUntil {!isnull( uinamespace getvariable "RSCDisplayArsenal" )};	//because fucking scheduler is over the top!!!
 waitUntil {isnull( uinamespace getvariable "RSCDisplayArsenal" )};	//should work now like expected, no need to open+close inventory
 
+[] call tf47_fnc_forceArsenal;
 private _items = assignedItems _unit;
 private _state = true;
 {
@@ -58,5 +60,3 @@ if ((_unit getVariable ["Ace_medical_medicClass",  0]) > 0 ) then {
 		] call CBA_fnc_waitAndExecute;
 	};
 };
-
-[_unit]execVM "scripts\loadouts\TF47_fnc_enforceArsenal.sqf";
