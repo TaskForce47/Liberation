@@ -1,4 +1,5 @@
 [] call compileFinal preprocessFileLineNumbers "scripts\client\misc\init_markers.sqf";
+tf47_fnc_forceArsenal =  compileFinal preprocessFileLineNumbers "scripts\loadouts\TF47_fnc_enforceArsenal.sqf";
 
 if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\empty_vehicles_marker.sqf";
