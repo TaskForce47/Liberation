@@ -16,7 +16,7 @@ if(	count _bullseye != 3 && !(_bullseye isEqualTo [0,0,0])	)exitWith{
 
 };
 
-private ["_planes_number","_plane_type","_grp","_air_spawnpos","_air","_ende"];
+private ["_planes_number","_plane_type","_grp","_air_spawnpos","_air","_ende","_plane_note"];
 
 _air_spawnpos = getMarkerPos (	( [ sectors_airspawn , [ _bullseye ] , { (markerpos _x) distance _input0 }, "ASCEND"] call BIS_fnc_sortBy ) select 0);
 _ende = getMarkerPos (	( [ sectors_airspawn , [ _bullseye ] , { (markerpos _x) distance _input0 }, "DESCEND"] call BIS_fnc_sortBy ) select 0);
@@ -29,7 +29,8 @@ _air_spawnpos =
 ];
 
 _plane_type = "RHS_T50_vvs_051";	//f22
-if(isclass (configfile >> "CfgPatches" >> "JS_JC_SU35"))then{_plane_type	=	"js_jc_su35";};
+_plane_note	=	"PAK FA";
+if(isclass (configfile >> "CfgPatches" >> "JS_JC_SU35"))then{_plane_type	=	"js_jc_su35";_plane_note = "SU 35";};
 _air = createVehicle [_plane_type, _air_spawnpos, [], 0, "NONE"];
 createVehicleCrew _air;
 /**************************************************************************************************/
@@ -66,7 +67,7 @@ _air setVelocity [-sin(_dir)*50, -cos(_dir)*50,0]; // armalogic
 
 _grp	=	group ((crew _air)select 0 );
 {_x setvariable ["NOAI",true];}forEach units _grp;
-_air flyInHeightASL [500, 500, 400];	//showoff
+_air flyInHeightASL [1000, 1000, 1000];	//showoff
 
 sleep 0.5;
 while {(count (waypoints _grp)) != 0} do {deleteWaypoint ((waypoints _grp) select 0);};
@@ -89,6 +90,9 @@ for "_i" from 0 to _sweeps do {
 	[_grp,(_i +2)] setWaypointSpeed "LIMITED";
 	
 };
+
+[ "TF47_planeIncoming",[_plane_note]] remoteExec ["BIS_fnc_showNotification",0];
+
 waitUntil{!(alive _air) || (air_weight < 50)};
 sleep 300;
 if(alive _air)then{

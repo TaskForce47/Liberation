@@ -17,7 +17,7 @@ if(	count _bullseye != 3 && !(_bullseye isEqualTo [0,0,0]) )exitWith{
 
 };
 
-private ["_planes_number","_plane_type","_grp","_air_spawnpos","_air","_ende"];
+private ["_planes_number","_plane_type","_grp","_air_spawnpos","_air","_ende","_plane_note"];
 
 _air_spawnpos = markerPos (	( [ sectors_airspawn , [ _bullseye ] , { (markerpos _x) distance _input0 }, "ASCEND"] call BIS_fnc_sortBy ) select 0);
 _ende = markerPos(	( [ sectors_airspawn , [ _bullseye ] , { (markerpos _x) distance _input0 }, "DESCEND"] call BIS_fnc_sortBy ) select 0);
@@ -30,8 +30,8 @@ _air_spawnpos =
 ];
 
 _plane_type = "RHS_Su25SM_vvsc";
-
-if(isclass (configfile >> "CfgPatches" >> "JS_JC_SU35"))then{_plane_type	=	"js_jc_su35";};
+_plane_note	=	"SU 25";
+if(isclass (configfile >> "CfgPatches" >> "JS_JC_SU35"))then{_plane_type	=	"js_jc_su35";_plane_note = "SU 35";};
 _air = createVehicle [_plane_type, _air_spawnpos, [], 0, "NONE"];
 createVehicleCrew _air;
 /**************************************************************************************************/
@@ -93,8 +93,7 @@ for "_i" from 0 to _sweeps do {
 	
 };
 
-
-[ "TF47_planeIncoming"] call BIS_fnc_showNotification;
+[ "TF47_planeIncoming",[_plane_note]] remoteExec ["BIS_fnc_showNotification",0];
 
 waitUntil{!(alive _air) || (armor_weight < 50)};
 sleep 300;

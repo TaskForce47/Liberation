@@ -160,4 +160,11 @@ class CfgNotifications
 		priority = 7;
 		sound = "taskSucceeded";
     };
+	class 	TF47_planeIncoming
+    {
+		title = "ENEMY AIRCRAFT!";
+		description = "ENEMY %1 IS ENTERING AIRSPACE";
+        iconPicture = "res\notif\ui_notif_bgp.paa";
+		priority = 7;
+    };
 };

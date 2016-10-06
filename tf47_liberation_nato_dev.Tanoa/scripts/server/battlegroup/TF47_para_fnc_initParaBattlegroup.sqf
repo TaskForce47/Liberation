@@ -62,6 +62,6 @@ switch(_attackSize)do{
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship;
 	};
 
-}
+};
 
-
+[ "TF47_planeIncoming",["AN-2"]] remoteExec ["BIS_fnc_showNotification",0];
