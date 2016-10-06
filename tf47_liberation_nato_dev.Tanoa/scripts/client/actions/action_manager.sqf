@@ -1,29 +1,28 @@
-private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander" ];
-
-_idact_build = -1;
-_idact_arsenal = -1;
-_idact_buildfob = -1;
-_idact_redeploy = -1;
-_idact_tutorial = -1;
-_idact_squad = -1;
-_idact_commander = -1;
-_idact_repackage = -1;
-_idact_halo = -1;
-_idact_secondary = -1;
-_distfob = 100;
-_distarsenal = 5;
-_distbuildfob = 10;
-_distspawn = 10;
-_distredeploy = 25;
-
 GRLIB_removefobboxes = false;
 
 waitUntil { !isNil "build_confirmed" };
 waitUntil { !isNil "one_synchro_done" };
 waitUntil { one_synchro_done };
 
-while { true } do {
+[
+{
+	private [ "_idact_build",  "_idact_arsenal", "_idact_buildfob", "_idact_redeploy", "_idact_tutorial", "_distfob", "_distarsenal",  "_distbuildfob", "_distspawn", "_distredeploy", "_idact_commander" ];
 
+	_idact_build = -1;
+	_idact_arsenal = -1;
+	_idact_buildfob = -1;
+	_idact_redeploy = -1;
+	_idact_tutorial = -1;
+	_idact_squad = -1;
+	_idact_commander = -1;
+	_idact_repackage = -1;
+	_idact_halo = -1;
+	_idact_secondary = -1;
+	_distfob = 100;
+	_distarsenal = 5;
+	_distbuildfob = 10;
+	_distspawn = 10;
+	_distredeploy = 25;
 	_nearfob = [] call F_getNearestFob;
 	_fobdistance = 9999;
 	if ( count _nearfob == 3 ) then {
@@ -132,5 +131,7 @@ while { true } do {
 			_idact_secondary = -1;
 		};
 	};
-	sleep 1;
-};
+},
+1,
+[]
+] call CBA_fnc_addPerFrameHandler;
