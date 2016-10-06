@@ -1,10 +1,7 @@
-/*
-TF47_PERMISSION_HELO
-TF47_PERMISSION_PLANE
-TF47_PERMISSION_ARMOUR
-TF47_PERMISSION_BUILDER
-TF47_PERMISSION_JTFC
-*/
+// ... server is too slow so we need to wait for him
+TF47_PERMISSION_JTFC = nil;
+waitUntil{!isnil TF47_PERMISSION_JTFC};
+
 switch (typeOf player) do {
 	case("B_Helipilot_F"):{
 		if(!TF47_PERMISSION_HELO)then{endmission "notAuthorized"; };
@@ -19,8 +16,7 @@ switch (typeOf player) do {
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_BUILDER	= false;
 		TF47_PERMISSION_JTFC	= false;
-	};
-	
+	};	
 	case("B_Engineer_F"):{
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_HELO	= false;
@@ -29,7 +25,6 @@ switch (typeOf player) do {
 		TF47_PERMISSION_JTFC	= false;
 		player setVariable ["ace_isengineer", 2, true];
 	};
-	
 	case("B_Medic_F"):{
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_HELO	= false;
@@ -72,9 +67,6 @@ switch (typeOf player) do {
 		TF47_PERMISSION_JTFC	= false;
 	};
 };
-
-/* ACE MEDICAL SHIT */
-
 
 _oldunit = _this select 1;
 if (!isNil "_oldunit") then {

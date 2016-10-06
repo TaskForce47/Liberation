@@ -12,10 +12,7 @@ _initindex = buildindex;
 _dialog = createDialog "liberation_build";
 waitUntil { dialog };
 
-_iscommandant = false;
-if ( player == [] call F_getCommander ) then {
-	_iscommandant = true;
-};
+_iscommandant = TF47_PERMISSION_JTFC;
 
 ctrlShow [ 108, _iscommandant ];
 ctrlShow [ 1085, _iscommandant ];

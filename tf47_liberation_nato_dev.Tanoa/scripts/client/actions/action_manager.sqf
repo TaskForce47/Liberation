@@ -31,7 +31,7 @@ while { true } do {
 	};
 
 	_neararsenal 	= [];
-	_nearfobbox 	= ( (getpos player) nearEntities [[ FOB_truck_typename, FOB_box_typename ] , _distbuildfob ] );
+	_nearfobbox 	= (getpos player) nearEntities [[ FOB_truck_typename, FOB_box_typename ] , _distbuildfob ];
 	_nearspawn 		= [];
 
 	if ( GRLIB_removefobboxes ) then {
@@ -100,7 +100,7 @@ while { true } do {
 		};
 	};
 	/*
-	if ( (( player == ( [] call F_getCommander )) || ([] call F_isAdmin)) && alive player && vehicle player == player && GRLIB_permissions_param ) then {
+	if ( (( TF47_PERMISSION_JTFC )) || ([] call F_isAdmin)) && alive player && vehicle player == player && GRLIB_permissions_param ) then {
 		if ( _idact_commander == -1 ) then {
 			_idact_commander = player addAction ["<t color='#FF8000'>" + localize "STR_COMMANDER_ACTION" + "</t> <img size='2' image='\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\modeGroups_ca.paa'/>","scripts\client\commander\open_permissions.sqf","",-995,false,true,"","build_confirmed == 0"];
 		};
@@ -111,7 +111,7 @@ while { true } do {
 		};
 	};
 	*/
-	if (  _fobdistance < _distredeploy  && alive player && vehicle player == player && ( player == ( [] call F_getCommander ) || [] call F_isAdmin ) ) then {
+	if (  _fobdistance < _distredeploy  && alive player && vehicle player == player && ( TF47_PERMISSION_JTFC || [] call F_isAdmin ) ) then {
 		if ( _idact_repackage == -1 ) then {
 			_idact_repackage = player addAction ["<t color='#FFFF00'>" + localize "STR_FOB_REPACKAGE" + "</t> <img size='2' image='res\ui_deployfob.paa'/>","scripts\client\actions\do_repackage_fob.sqf","",-991,false,true,"","build_confirmed == 0"];
 		};
