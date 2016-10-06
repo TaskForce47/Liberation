@@ -6166,7 +6166,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						description="JTF Commander (Whitelisted)";
+						description="JTF Commander (JTFC Whitelist)";
 						isPlayer=1;
 					};
 					id=1089;
@@ -6220,7 +6220,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squadleader Alpha (Whitelisted)";
+						description="ALPHA: Squadleader (BUILDER Whitelist)";
 						isPlayable=1;
 					};
 					id=1091;
@@ -6283,7 +6283,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1;
+									value=-1;
 								};
 							};
 						};
@@ -6397,7 +6397,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1508.525,6.3101997,779.79999};
+						position[]={1508.525,6.3101993,779.79999};
 					};
 					side="West";
 					flags=4;
@@ -6408,7 +6408,6 @@ class Mission
 					};
 					id=1144;
 					type="B_Soldier_F";
-					atlOffset=4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -6561,7 +6560,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1546.8218,6.7455463,771.44495};
+						position[]={1546.822,6.7455535,771.44501};
 					};
 					side="West";
 					flags=5;
@@ -6588,7 +6587,7 @@ class Mission
 											"SCALAR"
 										};
 									};
-									value=1;
+									value=-1;
 								};
 							};
 						};
@@ -6639,7 +6638,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squadleader Bravo (Whitelisted)";
+						description="BRAVO: Squadleader (BUILDER Whitelist)";
 						isPlayable=1;
 					};
 					id=1149;
@@ -7069,7 +7068,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squadleader Charlie (Whitelisted)";
+						description="CHARLIE: Squadleader (BUILDER Whitelist)";
 						isPlayable=1;
 					};
 					id=1158;
@@ -8748,7 +8747,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=0;
+							value=1;
 						};
 					};
 				};

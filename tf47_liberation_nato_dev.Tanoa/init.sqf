@@ -1,3 +1,8 @@
+/*
+	init.sqf
+	in mp environment it will be executed AFTER initserver.sqf and AFTER initPlayerLocal.sqf
+	in sp environment it will be executed BEFOR (thanks for that ...)
+*/
 enableSaving [ false, false ];
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\config.sqf";	// all missionparameters
 
@@ -45,17 +50,7 @@ if(isNil "TF47_PERMISSION_HELO")then{ TF47_PERMISSION_HELO = false; };
 if(isNil "TF47_PERMISSION_JTFC")then{ TF47_PERMISSION_JTFC = false; };
 
 if (isServer) then {
-	if(isNil "TF47_Missionarray")then{ TF47_Missionarray = []; };
-	if(isNil "TF47_HeliBlacklist")then{TF47_HeliBlacklist = []};
-	if(isNil "TF47_FixedWingBlacklist")then{TF47_FixedWingBlacklist = []};
-	if(isNil "TF47_ArmoredBlacklist")then{TF47_ArmoredBlacklist = []};
-	if(isNil "TF47_BuildBlacklist")then{TF47_BuildBlacklist = []};
-	if (isNil "TF47_BUILDER_WHITELIST")then{
-		TF47_BUILDER_WHITELIST =["76561197992256569","76561198002813252","76561197960489271","76561197963794597","76561198057152487","76561198093331206","76561198083598937","76561198043617179","76561198057808323","76561197991090099","76561198017253407","76561198060354231","76561197997340019","76561197997804176","76561198107147607","76561198075771437","76561198010638416","76561198026525307","76561198071872589","76561198043320125","76561198088566694","76561198070395053","76561197990703314","76561198122032581","76561198005476324","76561197996296785","76561197981809309","76561198023782694","76561198022749433","76561198135942291","76561197986395577"];
-	};
-	if (isNil "TF47_JTFC_WHITELIST")then{
-		TF47_JTFC_WHITELIST =["76561197992256569","76561198002813252","76561197960489271","76561197963794597","76561198057152487","76561198093331206","76561198083598937","76561198043617179","76561198057808323","76561197991090099","76561198017253407","76561198060354231","76561197997340019","76561197997804176","76561198107147607","76561198075771437","76561198010638416","76561198026525307","76561198071872589","76561198043320125","76561198088566694","76561198070395053","76561197990703314","76561198122032581","76561198005476324","76561197996296785","76561197981809309","76561198023782694","76561198022749433","76561198135942291","76561197986395577"];
-	};
+
 	[] call compileFinal preprocessFileLineNumbers "scripts\server\init_server.sqf";
 	[
 	30*60,							// seconds to delete dead Bodies 					(0 means dont delete) 
@@ -65,6 +60,7 @@ if (isServer) then {
 	0,								// seconds to delete planted Explosives 			(0 means dont delete)
 	5*60							// seconds to delete dropped Smokes/chemlights 		(0 means dont delete)
 	] spawn compile preprocessFileLineNumbers "scripts\server\repetitive_cleanup.sqf";
+	
 };
 
 if (!isDedicated && !hasInterface && isMultiplayer) then {

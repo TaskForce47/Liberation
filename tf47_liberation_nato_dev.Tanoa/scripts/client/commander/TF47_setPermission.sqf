@@ -1,3 +1,6 @@
+/*
+	permissionsvar not used any more
+*/
 private _UID = _this select 0;
 private _rights = param [1, [true,false,false,false,true,true,false]];
 if (isNil "_UID")exitWith{};

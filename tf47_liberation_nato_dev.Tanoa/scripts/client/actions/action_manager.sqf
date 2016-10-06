@@ -122,7 +122,7 @@ while { true } do {
 		};
 	};
 
-	if ((alive player) && (([ player, 5 ] call F_fetchPermission ) || TF47_PERMISSION_JTFC || [] call F_isAdmin ))) then {
+	if ((alive player) && (([ player, 5 ] call F_fetchPermission ) || TF47_PERMISSION_JTFC || [] call F_isAdmin )) then {
 		if ( _idact_secondary == -1 ) then {
 			_idact_secondary = player addAction ["<t color='#FFFF00'>" + localize "STR_SECONDARY_OBJECTIVES" + "</t>","scripts\client\ui\secondary_ui.sqf","",-993,false,true,"","build_confirmed == 0"];
 		};

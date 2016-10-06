@@ -210,13 +210,13 @@ if ( !isNil "greuh_liberation_savegame" ) then {
 			if ( _nextclass in _building_classnames ) then {						
 				_nextbuilding setVariable [ "GRLIB_saved_pos", _nextpos, false ];
 			} else {
-				if (_classname isKindOf "AIR") then {
+				if (_nextclass isKindOf "AIR") then {
 					_EHkilledIdx2 = _nextbuilding addEventHandler ["Hit", {  (format ["[INFORMATION] Vehicle: %1 ( %2 )  was hit by %3 ( %4 ) . instigator = %5", (_this select 0), typeOf (_this select 0), (_this select 1),typeOf (_this select 1),  (_this select 3), typeOf (vehicle (_this select 3)) ]) remoteExec ["diag_log", 2, false]; }]; 
 				};
 				_EHkilledIdx1 = _nextbuilding addEventHandler ["killed", { (format ["[INFORMATION] Vehicle: %1 ( %2 ) was killed by %3 ( %4 ) . instigator = %5 ( %6 ) ", (_this select 0), (getText (configfile >> "CfgVehicles" >> typeOf (_this select 0) >> "displayName")) , (_this select 1), (getText (configfile >> "CfgVehicles" >> typeOf typeOf (_this select 1) >> "displayName")), (_this select 2), (getText (configfile >> "CfgVehicles" >> typeOf typeOf (_this select 2) >> "displayName"))]) remoteExec ["diag_log", 2, false]; }];
 			};
 			
-			if (_classname == "TargetBootcampHuman_F") then {
+			if (_nextclass == "TargetBootcampHuman_F") then {
 				_vehicle setVariable ["rscattributetargetpopupdelay", 10, true];
 				_vehicle setvariable ["rscattributetargettexture_textureindex", 2];
 			};
@@ -235,11 +235,11 @@ if ( !isNil "greuh_liberation_savegame" ) then {
 			};
 
 			// Assign all MedicVehicles and Faacilitys the ACE Attribute's
-			if (_classname in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
-				if (_classname in ["Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F"]) then {
+			if (_nextclass in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
+				if (_nextclass in ["Land_Medevac_HQ_V1_F","Land_Medevac_house_V1_F"]) then {
 					_nextbuilding setVariable ["ace_medical_ismedicalfacility", true, true];
 				};
-				if (_classname in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
+				if (_nextclass in ["rhsusf_m113d_usarmy_medical","RHS_UH60M_MEV2_d","RHS_UH60M_MEV_d","rhsusf_m113_usarmy_medical","RHS_UH60M_MEV2","RHS_UH60M_MEV","B_Truck_01_medical_F","B_T_Truck_01_medical_F"]) then {
 					_nextbuilding setVariable ["Ace_medical_medicClass", 1, true];
 				};
 			};
