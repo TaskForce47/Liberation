@@ -12,7 +12,7 @@ if (isNil "_rights") then {
 		false	// jets
 	]; 
 };
-if(_uid in TF47_TL_Whitlelist)then{
+if(_uid in TF47_BUILDER_WHITELIST)then{
 	_rights set [3, true];
 };
 

@@ -9,14 +9,19 @@ TF47_FixedWingBlacklist = profileNamespace getVariable ["TF47_FixedWingBlacklist
 TF47_ArmoredBlacklist = profileNamespace getVariable ["TF47_ArmoredBlacklist", []];
 TF47_HeliBlacklist = profileNamespace getVariable ["TF47_HeliBlacklist", []];
 TF47_BuildBlacklist = profileNamespace getVariable ["TF47_BuildBlacklist", []];
-TF47_BuildBlacklist = profileNamespace getVariable ["TF47_BuildBlacklist", []];
-TF47_TL_Whitlelist = profileNamespace getVariable ["TF47_TLWhitelist",["76561197992256569","76561198002813252","76561197960489271","76561197963794597","76561198002813252","76561197960489271","76561197963794597","76561198057152487","76561198093331206","76561198083598937","76561198043617179","76561198057808323","76561197991090099","76561198017253407","76561198060354231","76561197997340019","76561197997804176","76561198107147607","76561198075771437","76561198010638416","76561198026525307","76561198071872589","76561198043320125","76561198088566694","76561198070395053","76561197990703314","76561198122032581","76561198005476324","76561197996296785","76561197981809309","76561198023782694","76561198022749433","76561198135942291","76561197986395577","76561198002813252","76561197960489271", "76561197963794597"]];
+TF47_BUILDER_WHITELIST = profileNamespace getVariable ["TF47_BUILDER_WHITELIST",TF47_BUILDER_WHITELIST];
+TF47_JTFC_WHITELIST = profileNamespace getVariable ["TF47_JTFC_WHITELIST",TF47_JTFC_WHITELIST];
 
+/*
 publicVariable "TF47_BuildBlacklist";
 publicVariable "TF47_ArmoredBlacklist";
 publicVariable "TF47_HeliBlacklist";
 publicVariable "TF47_FixedWingBlacklist";
-publicVariable "TF47_TL_Whitlelist";
+publicVariable "TF47_BUILDER_WHITELIST";
+*/
+
+
+
 date_year = date select 0;
 date_month = date select 1;
 date_day = date select 2;
@@ -446,7 +451,8 @@ while { true } do {
 		profileNamespace setVariable ["TF47_ArmoredBlacklist", TF47_ArmoredBlacklist];
 		profileNamespace setVariable ["TF47_HeliBlacklist", TF47_HeliBlacklist];
 		profileNamespace setVariable ["TF47_BuildBlacklist", TF47_BuildBlacklist];
-		profileNamespace setVariable ["TF47_TLWhitelist",TF47_TL_Whitlelist];
+		profileNamespace setVariable ["TF47_BUILDER_WHITELIST",TF47_BUILDER_WHITELIST];
+		profileNamespace setVariable ["TF47_JTFC_WHITELIST",TF47_JTFC_WHITELIST];
 		profileNamespace setVariable ["TF47_Missionarray_lastgame", TF47_Missionarray];
 		profileNamespace setVariable [ GRLIB_save_key, greuh_liberation_savegame ];
 		saveProfileNamespace;

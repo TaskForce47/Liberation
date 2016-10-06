@@ -51,11 +51,15 @@ class CfgDebriefing
         description = "NATO HQ is canceling this mission! To many good men died here for no reason!";
         picture = "";
     };
+	class notAuthorized
+    {
+        title = "NOT AUTHORIZED!";
+        subtitle = "You are not authorized to play on this slot!";
+		description = "You are not whitelisted to play on this slot! Visit https://armasim.de/ for more information.";
+    };
 };
 
 respawnTemplates[] = {"MenuInventory", "MenuPosition", "Tickets"};
-
-disableChannels[] = {0,2,4,5};
 
 class CfgTaskEnhancements
 {

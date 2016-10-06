@@ -446,7 +446,7 @@ class Mission
 	class Intel
 	{
 		briefingName="Liberation v0.923.1";
-		timeOfChanges=1800.0002;
+		timeOfChanges=14400;
 		startWeather=0;
 		startWind=0.1;
 		startWaves=0.1;
@@ -455,14 +455,14 @@ class Mission
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
 		year=2035;
-		month=6;
+		month=12;
 		day=6;
 		hour=8;
 		minute=-29;
-		startFogBase=250;
-		forecastFogBase=250;
-		startFogDecay=0.014;
-		forecastFogDecay=0.014;
+		startFogBase=-1000;
+		forecastFogBase=-1000;
+		startFogDecay=0;
+		forecastFogDecay=0;
 		class CustomAttributes
 		{
 			name="Intel";

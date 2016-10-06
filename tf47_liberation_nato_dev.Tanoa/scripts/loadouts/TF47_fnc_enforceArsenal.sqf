@@ -1,6 +1,10 @@
-params ["_unit"];
+private _unit = player;
 
-private _arr = [""]+ GRLIB_arsenal_weapons + GRLIB_arsenal_items + GRLIB_arsenal_backpacks;
+private _arr = [""];
+
+{_arr pushBack _x;}forEach GRLIB_arsenal_weapons;
+{_arr pushBack _x;}forEach GRLIB_arsenal_items;
+{_arr pushBack _x;}forEach GRLIB_arsenal_backpacks;
 
 private _checkarr = [
 	uniform _unit, 
@@ -11,20 +15,8 @@ private _checkarr = [
 	goggles _unit, 
 	backpack _unit
 ];
-/*
-{
-	_checkarr pushBack _x;
-} foreach backpackItems _unit;
-*/
-{
-	_checkarr pushBack _x;
-} foreach assignedItems _unit;
-{
-	_checkarr pushBack _x;
-} foreach items _unit;
 
 {
-    //somewhat drastic but ok :P
 	if (!(_x in _arr))exitWith {
 		removeAllWeapons _unit;
 		removeAllItems _unit;
