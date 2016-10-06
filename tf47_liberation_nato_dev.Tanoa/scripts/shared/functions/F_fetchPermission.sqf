@@ -10,7 +10,7 @@ private _rights = [
 		TF47_PERMISSION_ARMOUR,	// armored veh
 		TF47_PERMISSION_HELO,	// helicopter
 		TF47_PERMISSION_BUILDER,	// builder
-		true,	// recycle
+		TF47_PERMISSION_BUILDER,	// recycle
 		true,	// Misc
 		TF47_PERMISSION_PLANE	// jets
 	]; 
