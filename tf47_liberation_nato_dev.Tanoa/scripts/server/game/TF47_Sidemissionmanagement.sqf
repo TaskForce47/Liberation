@@ -20,9 +20,13 @@ TF47_FobSeaMineisActive = false;
 			private  _val = round (random 2);
 			private _activeSides	= count TF47_Missionarray;
 			if(4 > (TF47_helper_battlegroupSlumber + _activeSides)	)then{
+				
+				_allPlayercount = count (allPlayers - entities "HeadlessClient_F");
+				if (!isMultiplayer) then { _allPlayercount = 99; };
+			
 				if(!TF47_side_Artiactive && !TF47_side_AAAactive)then{
 					IF(true) then {
-						if (!TF47_side_Artiactive ) then {
+						if (!TF47_side_Artiactive && _allPlayercount > 15) then {
 							[]spawn TF47_spawnSideMissionARTY;
 						};
 					} else {
@@ -31,9 +35,6 @@ TF47_FobSeaMineisActive = false;
 						};
 					};
 				};
-
-				_allPlayercount = count (allPlayers - entities "HeadlessClient_F");
-				if (!isMultiplayer) then { _allPlayercount = 99; };
 				
 				switch(ceil (random 3))do{
 					case(1):{
@@ -43,13 +44,13 @@ TF47_FobSeaMineisActive = false;
 						};
 					};
 					case(2):{
-						if ( (resources_intel > 10) && (!(TF47_ConvoyHijackisActive))  && (count TF47_Missionarray < 2) && _allPlayercount > 8) then {
+						if ( (resources_intel > 10) && (!(TF47_ConvoyHijackisActive))  && (count TF47_Missionarray < 2) && _allPlayercount > 15) then {
 							[]spawn convoy_hijack;
 							
 						};
 					};
 					case(3):{
-						if ( (resources_intel > 10) && (!(TF47_SARisActive))  && (count TF47_Missionarray < 2) && _allPlayercount > 10) then {
+						if ( (resources_intel > 10) && (!(TF47_SARisActive))  && (count TF47_Missionarray < 2) && _allPlayercount > 15) then {
 							[]spawn search_and_rescue;
 							resources_intel = resources_intel -10;
 						};

@@ -1,23 +1,23 @@
 // ... server is too slow so we need to wait for him
-TF47_PERMISSION_JTFC = nil;
-waitUntil{!isnil TF47_PERMISSION_JTFC};
+TF47_PERMISSION_INIT = false;
+waitUntil{TF47_PERMISSION_INIT};
 
-switch (typeOf player) do {
-	case("B_Helipilot_F"):{
+switch (	toLower (typeOf player) )do {
+	case("b_helipilot_f"):{
 		if(!TF47_PERMISSION_HELO)then{endmission "notAuthorized"; };
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_BUILDER	= false;
 		TF47_PERMISSION_JTFC	= false;
 	};
-	case("B_Pilot_F"):{
+	case("b_pilot_f"):{
 		if(!TF47_PERMISSION_PLANE)then{endmission "notAuthorized"; };
 		TF47_PERMISSION_HELO	= false;
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_BUILDER	= false;
 		TF47_PERMISSION_JTFC	= false;
 	};	
-	case("B_Engineer_F"):{
+	case("b_engineer_f"):{
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_HELO	= false;
 		TF47_PERMISSION_ARMOUR	= false;
@@ -25,7 +25,7 @@ switch (typeOf player) do {
 		TF47_PERMISSION_JTFC	= false;
 		player setVariable ["ace_isengineer", 2, true];
 	};
-	case("B_Medic_F"):{
+	case("b_medic_f"):{
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_HELO	= false;
 		TF47_PERMISSION_ARMOUR	= false;
@@ -35,28 +35,28 @@ switch (typeOf player) do {
 		player setUnitTrait ["Medic", true];
 		player setVariable ["Ace_medical_medicClass",  2, true];
 	};
-	case("B_Soldier_F"):{
+	case("b_soldier_f"):{
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_HELO	= false;
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_BUILDER	= false;
 		TF47_PERMISSION_JTFC	= false;
 	};
-	case("B_crew_F"):{
+	case("b_crew_f"):{
 		if(!TF47_PERMISSION_ARMOUR)then{endmission "notAuthorized"; };
 		TF47_PERMISSION_HELO	= false;
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_BUILDER	= false;
 		TF47_PERMISSION_JTFC	= false;
 	};
-	case("B_Soldier_SL_F"):{
+	case("b_soldier_sl_f"):{
 		if(!TF47_PERMISSION_BUILDER)then{endmission "notAuthorized"; };
 		TF47_PERMISSION_HELO	= false;
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_JTFC	= false;
 	};
-	case("B_Officer_F"):{
+	case("b_officer_f"):{
 		if(!TF47_PERMISSION_JTFC)then{endmission "notAuthorized"; };
 	};
 	default{

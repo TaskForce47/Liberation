@@ -85,6 +85,8 @@ if(isDedicated)exitWith{};
 ];
 
 {GRLIB_arsenal_items pushBack _x}forEach [
+"hlc_muzzle_Tundra",
+"hlc_acc_Surefiregrip",
 "HLC_Optic_G36dualoptic35x",
 "HLC_Optic_G36Dualoptic15x2d",
 "HLC_Optic_G36Dualoptic15x",

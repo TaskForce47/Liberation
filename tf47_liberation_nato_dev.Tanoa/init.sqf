@@ -43,6 +43,7 @@ TF47_helper_swapSide =	{
 
 [] call compileFinal preprocessfilelinenumbers "scripts\shared\init_shared.sqf";
 
+if(isNil "TF47_PERMISSION_INIT")then{ TF47_PERMISSION_INIT = false; };
 if(isNil "TF47_PERMISSION_BUILDER")then{ TF47_PERMISSION_BUILDER = false; };
 if(isNil "TF47_PERMISSION_ARMOUR")then{ TF47_PERMISSION_ARMOUR = false; };
 if(isNil "TF47_PERMISSION_PLANE")then{ TF47_PERMISSION_PLANE = false; };

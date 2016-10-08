@@ -19,7 +19,8 @@ if(isclass (configfile >> "CfgPatches" >> "task_force_radio")	)then{
 		"tf_rt1523g_fabric",
 		"tf_rt1523g_green",
 		"tf_rt1523g_rhs",
-		"tf_rt1523g_sage"
+		"tf_rt1523g_sage",
+		"tf_rt1523g_bwmod"
 	];
 
 };

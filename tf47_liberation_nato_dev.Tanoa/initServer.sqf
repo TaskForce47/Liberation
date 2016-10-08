@@ -23,6 +23,7 @@ addMissionEventHandler ["EntityRespawned",{
 	if(	!(_UID in TF47_ArmoredBlacklist)	)then{		TF47_PERMISSION_ARMOUR = true; 	}else{	TF47_PERMISSION_ARMOUR = false; 	};	_OID publicVariableClient "TF47_PERMISSION_ARMOUR";
 	if(	(_UID in TF47_BUILDER_WHITELIST)	)then{		TF47_PERMISSION_BUILDER = true; }else{	TF47_PERMISSION_BUILDER = false; 	};	_OID publicVariableClient "TF47_PERMISSION_BUILDER";
 	if(	(_UID in TF47_BUILDER_WHITELIST)	)then{		TF47_PERMISSION_JTFC = true; 	}else{	TF47_PERMISSION_JTFC = false; 		};	_OID publicVariableClient "TF47_PERMISSION_JTFC";
+	TF47_PERMISSION_INIT = true; _OID publicVariableClient "TF47_PERMISSION_INIT";
 	
 }];
 addMissionEventHandler ["PlayerConnected",{
@@ -33,6 +34,7 @@ addMissionEventHandler ["PlayerConnected",{
 	if(	!(_UID in TF47_ArmoredBlacklist)	)then{		TF47_PERMISSION_ARMOUR = true; 	}else{	TF47_PERMISSION_ARMOUR = false; 	};	_OID publicVariableClient "TF47_PERMISSION_ARMOUR";
 	if(	(_UID in TF47_BUILDER_WHITELIST)	)then{		TF47_PERMISSION_BUILDER = true; }else{	TF47_PERMISSION_BUILDER = false; 	};	_OID publicVariableClient "TF47_PERMISSION_BUILDER";
 	if(	(_UID in TF47_BUILDER_WHITELIST)	)then{		TF47_PERMISSION_JTFC = true; 	}else{	TF47_PERMISSION_JTFC = false; 		};	_OID publicVariableClient "TF47_PERMISSION_JTFC";
+	TF47_PERMISSION_INIT = true; _OID publicVariableClient "TF47_PERMISSION_INIT";
 	
 }];
 

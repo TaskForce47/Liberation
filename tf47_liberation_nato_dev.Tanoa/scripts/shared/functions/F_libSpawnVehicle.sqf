@@ -63,7 +63,7 @@ _newvehicle setVectorUp surfaceNormal position _newvehicle;
 _newvehicle allowCrewInImmobile true;
 _newvehicle allowdamage true;
 _newvehicle setdamage 0;
-
+_newvehicle setVariable ["ace_cookoff_isCookingOff", false];
 // diag_log format [ "Done Spawning vehicle %1 at %2", _classname , time ];
 
 _newvehicle
