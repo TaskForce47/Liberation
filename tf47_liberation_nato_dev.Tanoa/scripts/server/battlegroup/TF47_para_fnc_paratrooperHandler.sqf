@@ -17,7 +17,7 @@ if(isNil "TF47_helper_paratrooperJumpInit")then{	TF47_helper_paratrooperJumpInit
 					};
 					if(	isTouchingGround _unit)then{	
 						_unit addbackpack  (_unit getVariable ["TF47_paratrooper_backpack",""]);
-						{ _unit additemtobackpack _x}forEach (_unit getVariable ["TF47_paratrooper_items",""]);	
+						{ _unit additemtobackpack _x}forEach (_unit getVariable ["TF47_paratrooper_items",[]]);	
 						_unit allowDamage true; 
 						TF47_helper_paratrooperJumpInit deleteAt (TF47_helper_paratrooperJumpInit find _unit);
 					};
