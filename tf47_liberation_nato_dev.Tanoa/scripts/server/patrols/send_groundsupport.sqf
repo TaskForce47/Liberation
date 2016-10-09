@@ -16,10 +16,10 @@ for "_i" from 1 to 2 do {
 		if (!isNull _nearestRoad) then {
 			_newvehicle setPos ((getPos _nearestRoad) findEmptyPosition [0, 100, _vehicletype]);
 		};
+		_newvehicle setVariable ["ace_cookoff_isCookingOff", false];
 		_newvehicle forceFollowRoad true;
 		_newvehicle setConvoySeparation 120; 
 		createVehicleCrew _newvehicle;
-		_newvehicle addEventHandler ["HandleDamage", { private [ "_damage" ]; if (( side (_this select 3) !=TF47_helper_opposingFaction) && ( side (_this select 3) != TF47_helper_playerFaction )) then { _damage = 0 } else { _damage = _this select 2 }; _damage } ];
 		_newvehicle allowCrewInImmobile true;
 		_newvehicle lock 3;
 
