@@ -10576,6 +10576,39 @@ class Mission
 			id=1296;
 			atlOffset=1.1961087e+026;
 		};
+		class Item353
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1618.286,24.393833,827.49402};
+			};
+			id=1298;
+			type="ACEX_ModuleSitting";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ACEX_ModuleSitting_enable";
+					expression="_this setVariable ['enable',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
 	};
 	class Connections
 	{
