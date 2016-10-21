@@ -30,7 +30,11 @@ _air_spawnpos =
 
 _plane_type = "RHS_T50_vvs_051";	//f22
 _plane_note	=	"PAK FA";
-if(isclass (configfile >> "CfgPatches" >> "JS_JC_SU35"))then{_plane_type	=	"js_jc_su35";_plane_note = "SU 35";};
+if(isclass (configfile >> "CfgPatches" >> "JS_JC_SU35"))then{
+	if(round random 1 isEqualTo 0)then{
+		_plane_type	=	"js_jc_su35";_plane_note = "SU 35";
+	};
+};
 _air = createVehicle [_plane_type, _air_spawnpos, [], 0, "NONE"];
 createVehicleCrew _air;
 /**************************************************************************************************/
@@ -58,7 +62,6 @@ if(_plane_type isEqualTo "js_jc_su35")then{
 	{_air addmagazine _x}forEach _cap;
 	_air setObjectTextureGlobal [0, "\js_jc_su35\data\Su35_hull_SKY_co.paa"];      
 	_air setObjectTextureGlobal [1, "\js_jc_su35\data\Su35_misc_sky_co.paa"];
-	_air animate ["paint_scheme_switch",0.25];
 };
 /**************************************************************************************************/
 private _dir 	=	-(_air_spawnpos getDir	_bullseye);
@@ -67,7 +70,7 @@ _air setVelocity [-sin(_dir)*50, -cos(_dir)*50,0]; // armalogic
 
 _grp	=	group ((crew _air)select 0 );
 {_x setvariable ["NOAI",true];}forEach units _grp;
-_air flyInHeightASL [1000, 1000, 1000];	//showoff
+_air flyInHeightASL [1500, 1500, 1500];
 
 sleep 0.5;
 while {(count (waypoints _grp)) != 0} do {deleteWaypoint ((waypoints _grp) select 0);};

@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1298;
+		nextID=1299;
 	};
 	class MarkerIDProvider
 	{
@@ -74,13 +74,14 @@ addons[]=
 	"ace_advanced_fatigue",
 	"ace_advanced_throwing",
 	"ace_tagging",
-	"ace_fastroping"
+	"ace_fastroping",
+	"acex_sitting"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=38;
+		items=39;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -338,6 +339,13 @@ class AddonsMetaData
 		{
 			className="ace_fastroping";
 			name="ACE3 - Fastroping";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item38
+		{
+			className="acex_sitting";
+			name="ACEX - Sitting";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
@@ -623,7 +631,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=353;
+		items=354;
 		class Item0
 		{
 			dataType="Marker";

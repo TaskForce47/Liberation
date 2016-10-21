@@ -32,7 +32,3 @@ if (!(isNull _target)) then {
 		
 	};
 };
-
-
-
-

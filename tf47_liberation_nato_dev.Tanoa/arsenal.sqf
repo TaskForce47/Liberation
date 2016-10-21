@@ -109,10 +109,11 @@ GRLIB_arsenal_items = [
 	"U_B_FullGhillie_lsh",
 	"U_B_FullGhillie_sard",
 	"U_B_T_FullGhillie_tna_F",
+	"U_B_PilotCoveralls",
+	
 	"Gen3_aor1",
 	"Gen3_aor2",
 	"Gen3_atacsau",
-	"U_B_PilotCoveralls",
 	"Gen3_atacsfg",
 	"Gen3_Blk",
 	"Gen3_M81",
@@ -121,6 +122,8 @@ GRLIB_arsenal_items = [
 	"Gen3_Multicam",
 	"Gen3_Ranger",
 	"Gen3_Tan",
+	
+	
 	"lbt_comms_aor1",
 	"lbt_light_aor1",
 	"lbt_medical_aor1",
@@ -128,6 +131,7 @@ GRLIB_arsenal_items = [
 	"lbt_pouchless_aor1",
 	"lbt_tl_aor1",
 	"lbt_weapons_aor1",
+	
 	"lbt_comms_aor2",
 	"lbt_light_aor2",
 	"lbt_medical_aor2",
@@ -156,6 +160,46 @@ GRLIB_arsenal_items = [
 	"lbt_pouchless_od",
 	"lbt_tl_od",
 	"lbt_weapons_od",
+	
+	"cpc_communications_rngr",
+	"cpc_Fast_rngr",
+	"cpc_light_rngr",
+	"cpc_medical_rngr",
+	"cpc_tl_rngr",
+	"cpc_weapons_rngr",
+	"cpc_communicationsbelt_rngr",
+	"cpc_Fastbelt_rngr",
+	"cpc_lightbelt_rngr",
+	"cpc_medicalbelt_rngr",
+	"cpc_tlbelt_rngr",
+	"cpc_weaponsbelt_rngr",
+	
+	"cpc_communications_mc",
+	"cpc_Fast_mc",
+	"cpc_light_mc",
+	"cpc_medical_mc",
+	"cpc_tl_mc",
+	"cpc_weapons_mc",
+	"cpc_communicationsbelt_mc",
+	"cpc_Fastbelt_mc",
+	"cpc_lightbelt_mc",
+	"cpc_medicalbelt_mc",
+	"cpc_tlbelt_mc",
+	"cpc_weaponsbelt_mc",
+
+	"cpc_communications_coy",
+	"cpc_Fast_coy",
+	"cpc_light_coy",
+	"cpc_medical_coy",
+	"cpc_tl_coy",
+	"cpc_weapons_coy",
+	"cpc_communicationsbelt_coy",
+	"cpc_Fastbelt_coy",
+	"cpc_lightbelt_coy",
+	"cpc_medicalbelt_coy",
+	"cpc_tlbelt_coy",
+	"cpc_weaponsbelt_coy",
+	
 	"rhsusf_opscore_aor1",
 	"rhsusf_opscore_aor1_pelt_nsw",
 	"rhsusf_opscore_aor2",
@@ -503,6 +547,10 @@ GRLIB_arsenal_items = [
 ];
 
 GRLIB_arsenal_backpacks = [
+
+	"fatpack_coy",
+	"fatpack_od",
+	
 	"B_AssaultPack_mcamo",
 	"B_AssaultPack_khk",
 	"B_AssaultPack_rgr",

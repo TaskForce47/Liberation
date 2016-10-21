@@ -46,16 +46,19 @@ switch(_attackSize)do{
 	case("small"):{
 	
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;
+		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship;
 		
 	};
 	case("medium"):{
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;
+		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship;
 	};
 	case("mayhem"):{
-		
+		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;
+		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;		
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;
 		[_bullseye,[],[],_debug] spawn TF47_battlegroup_spawnDropship; sleep 3;

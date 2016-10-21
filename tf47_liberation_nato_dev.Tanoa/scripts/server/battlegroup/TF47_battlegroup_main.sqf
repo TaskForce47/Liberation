@@ -32,7 +32,7 @@ private _sleep = 30*60;
 					if ( ([] call F_opforCap < GRLIB_battlegroup_cap) && (combat_readiness >= 40)) then {
 					
 						"[ INFO ] TF47 Battlegroup: The dragon awakens!" remoteExec ["diag_log",0];
-						if(	( daytime > 18.40 || daytime < 5.5 ) )then{
+						if(	( daytime > 20 || daytime < 4 ) )then{
 							[] spawn TF47_battlegroup_initParaGroup;
 						}else{
 							[] spawn spawn_battlegroup;						
