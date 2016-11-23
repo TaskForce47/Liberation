@@ -75,11 +75,11 @@ light_vehicles_extension = [
 	["rhsusf_m1025_w_s_Mk19",0,25,3],
 	//["rhsusf_m1025_d_s_Mk19",0,25,3],
 	["B_Quadbike_01_F",0,0,1],
-	["rhsusf_mkvsoc",0,50,5],
-	["B_Boat_Armed_01_minigun_F",0,30,5],
-	["B_Boat_Transport_01_F", 0,0,3],
-	["Burnes_MK10_1",0,0,5],
-	["B_SDV_01_F",0,0,3],
+	//["rhsusf_mkvsoc",0,50,5],
+	//["B_Boat_Armed_01_minigun_F",0,30,5],
+	//["B_Boat_Transport_01_F", 0,0,3],
+	//["Burnes_MK10_1",0,0,5],
+	//["B_SDV_01_F",0,0,3],
 	["ACE_Wheel",0,2,0]
 ];
 
@@ -93,9 +93,14 @@ heavy_vehicles_extension = [
 
 air_vehicles_overwrite = true;
 air_vehicles_extension = [
+	["RHS_UH60M",0,0,5],
+	["RHS_MELB_AH6M_M",0,50,5],
+	["RHS_MELB_AH6M_L",0,50,5],
+	["RHS_MELB_AH6M_H",0,50,5],
+	["RHS_MELB_MH6M",0,0,5],
 	["JS_JC_FA18E",0,300,20],
 	["JS_JC_FA18F",0,300,20],
-	["B_T_VTOL_01_armed_F",0,1000,20],
+	//["B_T_VTOL_01_armed_F",0,1000,20],
 	["B_T_VTOL_01_infantry_F",0,0,10],
 	["RHS_UH1Y",0,100,10],
 	["RHS_UH1Y_FFAR",0,50,10],
