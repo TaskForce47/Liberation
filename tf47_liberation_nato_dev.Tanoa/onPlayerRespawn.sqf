@@ -55,7 +55,9 @@ switch (	toLower (typeOf player) )do {
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_JTFC	= false;
-		{ _x enableChannel [false,false]; } foreach [0,2,3];
+		{  } foreach [0,2,3];
+		1 enableChannel [false, true];
+		1 enableChannel [false, true];
 	};
 	case("b_officer_f"):{
 		if(!TF47_PERMISSION_JTFC)then{endmission "notAuthorized"; };
