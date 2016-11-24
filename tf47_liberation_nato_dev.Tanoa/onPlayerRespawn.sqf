@@ -2,7 +2,7 @@
 TF47_PERMISSION_INIT = false;
 waitUntil{TF47_PERMISSION_INIT};
 0 enableChannel [false, true];
-1 enableChannel [true, true];
+1 enableChannel [false, true];
 2 enableChannel [false, true];
 3 enableChannel [false, true];
 
