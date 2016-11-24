@@ -1,7 +1,7 @@
 // ... server is too slow so we need to wait for him
 TF47_PERMISSION_INIT = false;
 waitUntil{TF47_PERMISSION_INIT};
-
+{ _x enableChannel [false,false]; } foreach [0,1,2,3];
 switch (	toLower (typeOf player) )do {
 	case("b_helipilot_f"):{
 		if(!TF47_PERMISSION_HELO)then{endmission "notAuthorized"; };
@@ -55,9 +55,11 @@ switch (	toLower (typeOf player) )do {
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_JTFC	= false;
+		{ _x enableChannel [false,false]; } foreach [0,2,3];
 	};
 	case("b_officer_f"):{
 		if(!TF47_PERMISSION_JTFC)then{endmission "notAuthorized"; };
+		{ _x enableChannel [false,false]; } foreach [0,2,3];
 	};
 	default{
 		TF47_PERMISSION_PLANE	= false;
@@ -65,9 +67,10 @@ switch (	toLower (typeOf player) )do {
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_BUILDER	= false;
 		TF47_PERMISSION_JTFC	= false;
+		
 	};
 };
-{ _x enableChannel [false,false]; } foreach [0,1,2,3];
+
 _oldunit = _this select 1;
 if (!isNil "_oldunit") then {
 	if (!isNull _oldunit && (str ([(getPos _oldunit)] call F_getNearestFob)) != str []) then {
