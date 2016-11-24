@@ -67,7 +67,7 @@ switch (	toLower (typeOf player) )do {
 		TF47_PERMISSION_JTFC	= false;
 	};
 };
-
+{ _x enableChannel [false,false]; } foreach [0,1,2,3];
 _oldunit = _this select 1;
 if (!isNil "_oldunit") then {
 	if (!isNull _oldunit && (str ([(getPos _oldunit)] call F_getNearestFob)) != str []) then {
