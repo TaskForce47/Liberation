@@ -34,20 +34,8 @@ while { true } do {
 		_overlayshown = false;
 		_first_iteration = true;
 	};
-	if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name)	)exitWith{ 
-		[] spawn {
-			while {	!([] call TFAR_fnc_isTeamSpeakPluginEnabled	&& ([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name))	}do{
-				cutText ["Please turn on your Teamspeak 3 TFAR Plugin and/or switch to the appropriate channel!","BLACK FADED",0.1,true];
-				player enableSimulation false;
-				sleep 0.1;
-			};
-			player enableSimulation true;
-			cutText ["","PLAIN",0.25,true]; 
-			[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
-		};
-	};
-
 	if ( _overlayshown ) then {
+
 		((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (266)) ctrlSetText format [ "%1", GRLIB_ui_notif ];
 		((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (267)) ctrlSetText format [ "%1", GRLIB_ui_notif ];
 
@@ -68,7 +56,7 @@ while { true } do {
 
 		if ( _uiticks % 5 == 0 ) then {
 
-			((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (101)) ctrlSetText format [ "%1", (floor resources_infantry)];
+			((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (101)) ctrlSetText format [ "%1/%2", (floor resources_infantry),infantry_cap ];
 			((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (102)) ctrlSetText format [ "%1", (floor resources_ammo) ];
 			((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (103)) ctrlSetText format [ "%1/%2", (floor resources_fuel),fuel_cap ];
 			((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (104)) ctrlSetText format [ "%1/%2", unitcap,([] call F_localCap) ];

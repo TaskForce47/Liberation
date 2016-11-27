@@ -15,8 +15,6 @@ TF47_ADDACTIONS_SAVE	=	[
 	-1,
 	-1
 ];
-if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
-
 [
 {
 	TF47_ADDACTIONS_SAVE params [
@@ -39,7 +37,6 @@ if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
 	private _nearfob =	[] call F_getNearestFob;
 	private _fobdistance = 9999;
 	private _alive	=	alive player && vehicle player == player;	
-	private _p2fobD	=	player distance (getMarkerPos "respawn_west");
 	if ( count _nearfob == 3 ) then {
 		_fobdistance = player distance _nearfob;
 	};
@@ -55,7 +52,7 @@ if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
 		};
 	};
 
-	if ( (_fobdistance < _distredeploy ||   _p2fobD < 200) &&  _alive  ) then {
+	if ( (_fobdistance < _distredeploy ||   (player distance lhd) < 200) &&  _alive  ) then {
 		if ( _idact_tutorial == -1 ) then {
 			_idact_tutorial = player addAction ["<t color='#80FF80'>" + localize "STR_TUTO_ACTION" + "</t>","howtoplay = 1","",-740,false,true,"",""];
 		};
@@ -67,7 +64,7 @@ if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
 	};
 
 
-	if ( (_fobdistance < _distredeploy ||   _p2fobD < 200) &&  _alive  && tf47_mission_arsenalControl) then {
+	if ( (_fobdistance < _distredeploy ||   (player distance lhd) < 200) &&  _alive  ) then {
 		if (_idact_arsenal == -1) then {
 			_idact_arsenal = player addAction ["<t color='#FFFF00'>" + localize "STR_ARSENAL_ACTION" + "</t> <img size='2' image='res\ui_arsenal.paa'/>",
 			"[_this select 1] execVM 'scripts\client\actions\open_arsenal.sqf'",
@@ -80,7 +77,7 @@ if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
 		};
 	};
 
-	if ( 	((_fobdistance < _distfob) || ( _p2fobD<_distfob)) &&  _alive  	&& 			(TF47_PERMISSION_BUILDER || TF47_PERMISSION_JTFC || [] call F_isAdmin )		) then {
+	if ( 	(_fobdistance < _distfob) &&  _alive  	&& 			(TF47_PERMISSION_BUILDER || TF47_PERMISSION_JTFC || [] call F_isAdmin )		) then {
 		if ( _idact_build == -1 ) then {
 			_idact_build = player addAction ["<t color='#FFFF00'>" + localize "STR_BUILD_ACTION" + "</t> <img size='2' image='res\ui_build.paa'/>","scripts\client\build\open_build_menu.sqf","",-985,false,true,"","build_confirmed == 0"];
 		};
@@ -91,7 +88,7 @@ if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
 		};
 	};
 
-	if ( count _nearfobbox != 0 &&  _alive  && !(surfaceIsWater getpos player) && (_p2fobD > 1000) &&  (TF47_PERMISSION_BUILDER || TF47_PERMISSION_JTFC || [] call F_isAdmin) )then {
+	if ( count _nearfobbox != 0 &&  _alive  && !(surfaceIsWater getpos player) && ((player distance lhd) > 1000) &&  (TF47_PERMISSION_BUILDER || TF47_PERMISSION_JTFC || [] call F_isAdmin) )then {
 		if ( _idact_buildfob == -1 ) then {
 			_idact_buildfob = player addAction ["<t color='#FFFF00'>" + localize "STR_FOB_ACTION" + "</t> <img size='2' image='res\ui_deployfob.paa'/>","scripts\client\build\do_build_fob.sqf","",-990,false,true,"","build_confirmed == 0"];
 		};

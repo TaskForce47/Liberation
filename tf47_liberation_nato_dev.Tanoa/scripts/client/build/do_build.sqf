@@ -65,7 +65,7 @@ while { true } do {
 			if (buildtype != 99) then {
 				_posfob = [] call F_getNearestFob;
 			};
-			if(count _posfob	==	0)then{_posfob	=	getmarkerpos "respawn_west"};
+
 			_idactcancel = -1;
 			_idactsnap = -1;
 			_idactplacebis = -1;

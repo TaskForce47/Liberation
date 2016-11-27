@@ -4,15 +4,10 @@ if(isclass (configfile >> "CfgPatches" >> "task_force_radio")	)then{
 	tf_radio_channel_name = "Radio Communication - Public I";
 	tf_radio_channel_password = "India65";
 	tf_freq_west_lr = 31;
-	TFAR_defaultFrequencies_lr_west = 31;
 	tf_freq_west = 31;
 	// TFAR-Basic settings (will override userconfig settings)
 	tf_no_auto_long_range_radio = true;
 	tf_give_personal_radio_to_regular_soldier = true;
-	tf_same_sw_frequencies_for_side = true;
-	tf_same_lr_frequencies_for_side = true;
-	TF_defaultWestRiflemanRadio = "tf_anprc152";
-	
 	
 	if(isDedicated)exitWith{};
 	

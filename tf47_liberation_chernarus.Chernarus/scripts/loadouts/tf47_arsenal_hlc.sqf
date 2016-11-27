@@ -3,6 +3,13 @@ if(	!(isclass (configfile >> "CfgPatches" >> "hlcweapons_core")	)	)exitWith{"HLC
 if(isDedicated)exitWith{};
 
 {GRLIB_arsenal_weapons pushBack _x}forEach [
+"HLC_Rifle_G36KSKAG36",
+"hlc_rifle_hk33a2",
+"hlc_rifle_hk33a2RIS",
+"hlc_rifle_hk33a2RIS_GL",
+"hlc_rifle_M14",
+"hlc_rifle_M14_Bipod",
+"hlc_rifle_G36KA1KSK",
 "hlc_rifle_awcovert_BL",
 "hlc_rifle_awcovert_FDE",
 "hlc_rifle_awcovert",
@@ -81,10 +88,33 @@ if(isDedicated)exitWith{};
 "hlc_rifle_auga3_bl",
 "hlc_rifle_auga3",
 "hlc_rifle_STG58F",
-"hlc_lmg_mk48"
+"hlc_lmg_mk48",
+"hlc_lmg_m60",
+"hlc_lmg_mk46",
+"hlc_lmg_mk46mod1",
+"hlc_lmg_mk48mod1",
+"hlc_lmg_MG3",
+"hlc_lmg_MG3KWS_b",
+"hlc_lmg_MG3KWS_g",
+"hlc_lmg_MG3KWS",
+"hlc_lmg_mg42kws_b",
+"hlc_lmg_mg42kws_g",
+"hlc_lmg_MG42KWS_t",
+"hlc_rifle_m14sopmod"
 ];
 
 {GRLIB_arsenal_items pushBack _x}forEach [
+"hlc_muzzle_snds_AUG"
+"hlc_muzzle_556NATO_KAC",
+"hlc_optic_LRT_m14",
+"hlc_optic_artel_m14",
+"hlc_optic_PVS4M14",
+"hlc_rifle_M14_Bipod_Rail",
+"hlc_rifle_M14_Rail",
+"hlc_rifle_m14dmr",
+"hlc_rifle_M14dmr_Rail",
+"hlc_rifle_M21",
+"hlc_rifle_M21_Rail",
 "hlc_muzzle_Tundra",
 "hlc_acc_Surefiregrip",
 "HLC_Optic_G36dualoptic35x",

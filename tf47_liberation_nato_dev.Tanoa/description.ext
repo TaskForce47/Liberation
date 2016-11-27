@@ -5,13 +5,11 @@ respawnOnStart = 1;
 enableDebugConsole = 1;
 allowFunctionsLog = 0;
 
-author = "Zbug & McKeewa, heavily modified by [TF47]";
-OnLoadName = "TF47 Liberation Tanoa";
-OnLoadMission = "Cooperative gameplay mission with the overall task to liberate all of Tanoa. Good luck soldiers, you will need it!";
-loadScreen = "res\cti_tanoa.paa";
-overviewPicture = "res\cti_chernarus_titel.paa";
-overviewText= "Cooperative gameplay mission with the overall task to liberate all of Tanoa. Good luck soldiers, you will need it!";
-overviewTextLocked= "Cooperative gameplay mission with the overall task to liberate all of Tanoa. Good luck soldiers, you will need it!";
+loadScreen="res\liberation_nato_cover.paa";
+onLoadMission = $STR_MISSION_TITLE;
+author = "[GREUH] Zbug & McKeewa edited by [TF47]";
+onLoadName = $STR_MISSION_TITLE;
+
 
 corpseManagerMode = 0;
 wreckManagerMode = 0;

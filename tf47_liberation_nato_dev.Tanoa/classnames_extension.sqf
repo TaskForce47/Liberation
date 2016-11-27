@@ -93,6 +93,7 @@ heavy_vehicles_extension = [
 
 air_vehicles_overwrite = true;
 air_vehicles_extension = [
+	["RHS_A10",0,200,15],
 	["RHS_UH60M",0,0,5],
 	["RHS_MELB_AH6M_M",0,50,5],
 	["RHS_MELB_AH6M_L",0,50,5],

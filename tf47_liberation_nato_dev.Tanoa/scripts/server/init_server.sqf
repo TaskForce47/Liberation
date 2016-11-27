@@ -73,7 +73,7 @@ wait_to_spawn_sector 		= compileFinal preprocessFileLineNumbers "scripts\server\
 
 
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\TF47_battlegroup_main.sqf";
-//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\TF47_Sidemissionmanagement.sqf";
+[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\TF47_Sidemissionmanagement.sqf";
 
 
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\startgame.sqf";
@@ -94,7 +94,7 @@ wait_to_spawn_sector 		= compileFinal preprocessFileLineNumbers "scripts\server\
 //[] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\show_fps.sqf";
 
-//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\patrols\civilian_patrols.sqf";
+[] spawn compileFinal preprocessFileLineNumbers "scripts\server\patrols\civilian_patrols.sqf";
 //[] spawn compileFinal preprocessFileLineNumbers "scripts\server\patrols\manage_patrols.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\patrols\reinforcements_resetter.sqf";
 

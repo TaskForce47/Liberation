@@ -463,4 +463,4 @@ if(isDedicated)exitWith{};
 	"UK3CB_BAF_B_Carryall_DPMT"
 ];
 
-//[player, "riflemanRM"]call BIS_fnc_addRespawnInventory;
+[player, "riflemanRM"]call BIS_fnc_addRespawnInventory;

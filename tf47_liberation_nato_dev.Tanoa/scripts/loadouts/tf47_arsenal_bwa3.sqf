@@ -161,4 +161,4 @@ if(isDedicated)exitWith{};
 ];
 
 
-//[player, "riflemanGER"]call BIS_fnc_addRespawnInventory;
+[player, "riflemanGER"]call BIS_fnc_addRespawnInventory;

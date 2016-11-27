@@ -1,10 +1,6 @@
 // ... server is too slow so we need to wait for him
 TF47_PERMISSION_INIT = false;
 waitUntil{TF47_PERMISSION_INIT};
-0 enableChannel [false, true];
-1 enableChannel [false, true];
-2 enableChannel [false, true];
-3 enableChannel [false, true];
 
 switch (	toLower (typeOf player) )do {
 	case("b_helipilot_f"):{
@@ -59,18 +55,9 @@ switch (	toLower (typeOf player) )do {
 		TF47_PERMISSION_PLANE	= false;
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_JTFC	= false;
-		
-		0 enableChannel [false, true];
-		1 enableChannel [true, true];
-		2 enableChannel [false, true];
-		3 enableChannel [false, true];
 	};
 	case("b_officer_f"):{
 		if(!TF47_PERMISSION_JTFC)then{endmission "notAuthorized"; };
-		0 enableChannel [false, true];
-		1 enableChannel [true, true];
-		2 enableChannel [false, true];
-		3 enableChannel [false, true];
 	};
 	default{
 		TF47_PERMISSION_PLANE	= false;
@@ -78,7 +65,6 @@ switch (	toLower (typeOf player) )do {
 		TF47_PERMISSION_ARMOUR	= false;
 		TF47_PERMISSION_BUILDER	= false;
 		TF47_PERMISSION_JTFC	= false;
-		
 	};
 };
 

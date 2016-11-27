@@ -15,11 +15,6 @@
            displayName = "US Marine Corps";
            icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
       };
-	  class usarmy
-      {
-           displayName = "US Army";
-           icon = "\A3\Ui_f\data\GUI\Cfg\Ranks\sergeant_gs.paa";
-      };
  };
 class CfgRespawnInventory 
 {
@@ -27,29 +22,15 @@ class CfgRespawnInventory
     {
 		displayName	=	"Rifleman (USMC)";
         role = "usmc";
-		// Exported from Arsenal by mindbl4ster
-		uniformClass = "rhs_uniform_FROG01_wd";
+		// Exported from Arsenal by Crewt
+		uniformClass = "Gen3_Ranger";
 		backpack = "";
-		weapons[] = {"rhs_weap_m16a4_carryhandle_pmag","rhs_weap_M136","Binocular","Throw","Put"};
-		magazines[] = {"rhs_m136_mag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_an_m8hc","rhs_mag_an_m8hc","rhs_mag_f1","rhs_mag_f1","rhs_mag_30Rnd_556x45_Mk318_Stanag"};
-		items[] = {"ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_CableTie","ACE_CableTie","ACE_Flashlight_MX991","ACE_IR_Strobe_Item","ACE_MapTools","ACE_morphine","ACE_morphine","ACE_morphine","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_salineIV_250","ACE_salineIV_250","ACE_tourniquet","ACE_tourniquet"};
-		linkedItems[] = {"rhsusf_spc_rifleman","rhsusf_lwh_helmet_marpatwd","rhsusf_acc_ACOG","ItemMap","ItemCompass","ItemGPS"};
-
+		weapons[] = {"rhs_weap_m4a1_blockII","Binocular","Throw","Put"};
+		magazines[] = {"SmokeShellBlue","HandGrenade","HandGrenade","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","SmokeShellBlue","SmokeShellBlue"};
+		items[] = {"ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_CableTie","ACE_CableTie"};
+		linkedItems[] = {"rhsusf_spc_light","UK3CB_BAF_H_Beret_Mer","","ItemMap","ItemCompass","ItemWatch","ItemGPS","UK3CB_BAF_HMNVS"};
 
     };
-	class riflemanUSA
-	{
-		displayName	=	"Rifleman (US Army)";
-        role = "usarmy";
-		// Exported from Arsenal by mindbl4ster
-		uniformClass = "rhs_uniform_cu_ocp";
-		backpack = "";
-		weapons[] = {"rhs_weap_M136","UK3CB_BAF_L131A1","Binocular","rhs_weap_m4a1_carryhandle_pmag","Throw","Put"};
-		magazines[] = {"rhs_mag_an_m8hc","rhs_mag_an_m8hc","rhs_mag_f1","rhs_mag_f1","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag","rhs_mag_30Rnd_556x45_Mk318_Stanag"};
-		items[] = {"ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_CableTie","ACE_CableTie","ACE_EarPlugs","ACE_Flashlight_MX991","ACE_IR_Strobe_Item","ACE_MapTools","ACE_morphine","ACE_morphine","ACE_morphine","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_salineIV_250","ACE_salineIV_250","ACE_tourniquet","ACE_tourniquet"};
-		linkedItems[] = {"rhsusf_iotv_ocp_Rifleman","rhsusf_ach_helmet_ESS_ocp","","ItemMap","ItemCompass","tf_anprc148jem_2","ItemGPS"};
-
-	};
     class riflemanRM
     {
 		displayName	=	"Rifleman (BAF)";

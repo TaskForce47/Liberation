@@ -20,7 +20,7 @@
 params [["_startingLocation",[]]];
 if(count _startingLocation == 0)exitWith{};
 private _id	= -1;
-private _ISLANDS = [];
+private _ISLANDS = ["noBattlegroup1","noBattlegroup2","noBattlegroup3","noBattlegroup4"];
 
 {
 	if(_startingLocation inArea	_x) then { _id = _forEachIndex; };

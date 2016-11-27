@@ -29,8 +29,6 @@ if (!(isNull _target)) then {
 		
 		if(	_cap	)then{	[_target_pos,3] spawn TF47_battlegroup_combatAirPatrol;	"[ INFO ] TF47 Battlegroup: Look out for the evil minions!" remoteExec ["diag_log",0];};
 		if(	_cas	)then{	[_target_pos,3] spawn TF47_battlegroup_closeairsupport;	"[ INFO ] TF47 Battlegroup: Look out for the evil minions!" remoteExec ["diag_log",0];};
-		if(	_cap	)then{	[_target_pos,3] spawn TF47_battlegroup_combatAirPatrol;	"[ INFO ] TF47 Battlegroup: Look out for the evil minions!" remoteExec ["diag_log",0];};
-		if(	_cas	)then{	[_target_pos,3] spawn TF47_battlegroup_closeairsupport;	"[ INFO ] TF47 Battlegroup: Look out for the evil minions!" remoteExec ["diag_log",0];};
 		
 	};
 };
