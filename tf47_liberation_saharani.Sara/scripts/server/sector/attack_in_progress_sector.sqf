@@ -1,6 +1,6 @@
 params [ "_sector" ];
 private [ "_attacktime", "_ownership", "_grp", "_squad_type" ];
-if (!(_sector in SectorunderAttack))exitWith {};
+if ( _sector in SectorunderAttack ) exitWith {};
 private _idx = SectorunderAttack pushBackUnique _sector;
 publicVariable "SectorunderAttack";
 sleep 5;

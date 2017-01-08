@@ -3,7 +3,7 @@ waitUntil { !isNil "GRLIB_all_fobs" };
 waitUntil { !isNil "save_is_loaded" };
 
 private [ "_fobbox" ];
-0 setFog [0,0,0];
+//0 setFog [0,0,0];
 if ( count GRLIB_all_fobs == 0 ) then {
 
 	if ( GRLIB_build_first_fob ) then {

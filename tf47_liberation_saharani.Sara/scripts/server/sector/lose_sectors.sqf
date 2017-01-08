@@ -4,7 +4,8 @@ sleep 5;
 
 attack_in_progress = false;
 if (isNil "SectorunderAttack") then {SectorunderAttack = [];};
-while {true} do {
+[
+{
 	{
 		_ownership = [ (markerpos _x ), GRLIB_capture_size + 200] call F_sectorOwnership;
 		if ( (_ownership == TF47_helper_opposingFaction)&& !(_x in SectorunderAttack) ) then {
@@ -18,5 +19,7 @@ while {true} do {
 		};
 	
 	} foreach GRLIB_all_fobs;
-	sleep 5;
-};
+},
+5,
+[]
+] call CBA_fnc_addPerFrameHandler;

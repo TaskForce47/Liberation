@@ -31,12 +31,7 @@ isclass (configfile >> "CfgPatches" >> "JS_JC_SU35")
 
 // If left empty, everything is allowed, otherwise only whitelisted items will be available
 GRLIB_arsenal_weapons = [
-"hlc_rifle_hk33a2",
-"hlc_rifle_MG36",
-"hlc_rifle_hk33a2RIS",
-"hgun_ACPC2_F",
- "rhsusf_weap_glock17g4",
- 
+"tf47_m3maaws",
 "srifle_DMR_06_camo_F",
 "srifle_DMR_06_olive_F",
 "hgun_Pistol_heavy_01_F",
@@ -108,37 +103,15 @@ GRLIB_arsenal_magazines = [
 ];
 
 GRLIB_arsenal_items = [
-"optic_ACO_grn_smg",
-"optic_Aco_smg",
-"optic_ACO_grn",
-"optic_Aco",
-"V_TacChestrig_oli_F",
-"V_TacChestrig_cbr_F",
-"V_TacChestrig_grn_F",
-"rhsusf_assault_eagleaiii_coy",
- "rhsusf_assault_eagleaiii_ocp",
- "rhsusf_assault_eagleaiii_ucp",
-  "H_HelmetB_light",
-  "H_HelmetB_light_grass",
-   "H_HelmetB_light_sand",
-   "H_HelmetB_light_snakeskin",
-    "H_HelmetB_light_black",
-	"H_HelmetB_light_desert",
-	"H_HelmetSpecB",
-	"H_HelmetSpecB_paint1",
-	"H_HelmetSpecB_sand",
-	 "H_HelmetSpecB_snakeskin",
-	 "H_HelmetSpecB_blk",
-	  "H_HelmetSpecB_paint2",
-	  "H_ShemagOpen_khk",
-	  "H_ShemagOpen_tan",
-	  "H_Shemag_olive",
-	  "H_Shemag_olive_hs",
-	   "G_Combat_Goggles_tna_F",
-	   "G_Balaclava_TI_tna_F",
-	   "G_Balaclava_TI_blk_F",
-	   "G_Balaclava_TI_G_blk_F",
+"G_Bandanna_khk",
 
+"G_Aviator",
+
+"G_Bandanna_oli",
+
+"G_Bandanna_beast",
+
+"tf47_optic_m3maaws",
 "rhsusf_acc_premier",
 "rhsusf_acc_premier_anpvs27",
 	"G_B_Diving",

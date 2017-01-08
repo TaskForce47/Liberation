@@ -20,11 +20,11 @@ VCOMAI_Func = {
 	//Should AI use smoke grenades? Besides default A3 behavior?
 	VCOM_USESMOKE = true;
 	//Chance of AI using grenades
-	VCOM_GRENADECHANCE = 40;
+	VCOM_GRENADECHANCE = 60;
 	//Should the AI lay mines?
 	VCOM_MineLaying = true;
 	//Chance of AI to lay a mine.
-	VCOM_MineLayChance = 40;
+	VCOM_MineLayChance = 60;
 
 	//The longer an AIs target stays in 1 location, the more accurate and aware of the target the AI becomes. DEFAULT = [WEST,EAST,RESISTANCE];
 	VCOM_IncreasingAccuracy = true;

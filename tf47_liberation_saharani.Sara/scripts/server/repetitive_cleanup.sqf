@@ -180,7 +180,6 @@ while{GVAR(isRunning)} do {
 		};
 	} forEach allGroups;
 
-
 	if (_ttdBodies>0) then {
 		{
 			[_x, _ttdBodies, true, false] call GVAR(addToCleanup);

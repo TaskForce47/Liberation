@@ -3,6 +3,11 @@ if(	!(isclass (configfile >> "CfgPatches" >> "hlcweapons_core")	)	)exitWith{"HLC
 if(isDedicated)exitWith{};
 
 {GRLIB_arsenal_weapons pushBack _x}forEach [
+"hlc_rifle_bcmjack",
+"hlc_rifle_M21",
+"hlc_rifle_RU5562",
+"hlc_rifle_RU556",
+"hlc_rifle_honeybadger",
 "HLC_Rifle_G36KSKAG36",
 "hlc_rifle_hk33a2",
 "hlc_rifle_hk33a2RIS",
@@ -104,7 +109,7 @@ if(isDedicated)exitWith{};
 ];
 
 {GRLIB_arsenal_items pushBack _x}forEach [
-"hlc_muzzle_snds_AUG"
+"hlc_muzzle_snds_AUG",
 "hlc_muzzle_556NATO_KAC",
 "hlc_optic_LRT_m14",
 "hlc_optic_artel_m14",

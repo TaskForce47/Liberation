@@ -1,23 +1,3 @@
-respawn = "BASE";
-respawndelay = 15;
-disabledAI = 1;
-respawnOnStart = 1;
-enableDebugConsole = 1;
-allowFunctionsLog = 0;
-
-author = "Zbug & McKeewa, heavily modified by [TF47]";
-OnLoadName = "TF47 Liberation Sahrani";
-OnLoadMission = "Cooperative gameplay mission with the overall task to liberate all of Sahrani. Good luck soldiers, you will need it!";
-loadScreen = "res\liberation_sahrani.paa";
-overviewPicture = "res\liberation_sahrani.paa";
-overviewText= "Cooperative gameplay mission with the overall task to liberate all of Sahrani. Good luck soldiers, you will need it!";
-overviewTextLocked= "Cooperative gameplay mission with the overall task to liberate all of Sahrani. Good luck soldiers, you will need it!";
-
-corpseManagerMode = 0;
-wreckManagerMode = 0;
-
-joinUnassigned = 0;
-
 class Header
 {
     gameType = CTI;
@@ -25,10 +5,33 @@ class Header
     maxPlayers = 55;
 };
 
+author = "Zbug & McKeewa, heavily modified by [TF47]";
+
+OnLoadName = "TF47 Liberation Sahrani";
+OnLoadMission = "Cooperative gameplay mission with the overall task to liberate all of Sahrani. Good luck soldiers, you will need it!";
+loadScreen = "res\liberation_sahrani.paa";
+
+overviewPicture = "res\liberation_sahrani.paa";
+overviewText= "Cooperative gameplay mission with the overall task to liberate all of Sahrani. Good luck soldiers, you will need it!";
+overviewTextLocked= "Cooperative gameplay mission with the overall task to liberate all of Sahrani. Good luck soldiers, you will need it!";
+
+corpseManagerMode = 0;
+wreckManagerMode = 0;
+
+joinUnassigned = 1;
+
+respawn = "BASE";
+respawndelay = 15;
+disabledAI = 1;
+respawnOnStart = 1;
+enableDebugConsole = 1;
+allowFunctionsLog = 0;
+
 #include "GREUH\UI\GREUH_interface.hpp"
 #include "ui\liberation_interface.hpp"
 #include "ui\liberation_notifications.hpp"
 #include "scripts\loadouts\cfgrespawn_templates.hpp"
+#include "ACE3\aceSettings.hpp"
 
 class CfgDebriefing
 {
@@ -51,6 +54,13 @@ class CfgDebriefing
         title = "MISSION FAILED";
         subtitle = "To many good men died here for no reason!";
         description = "NATO HQ is canceling this mission! To many good men died here for no reason!";
+        picture = "";
+    };
+	class missionWON
+    {
+        title = "MISSION WON";
+        subtitle = "A glorious day for our motherland!";
+        description = "A glorious day for our motherland!";
         picture = "";
     };
 	class notAuthorized

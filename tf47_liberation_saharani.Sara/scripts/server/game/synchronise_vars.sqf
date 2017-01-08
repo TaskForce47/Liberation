@@ -8,7 +8,7 @@ waitUntil{ !isNil "resources_fuel" };
 waitUntil{ !isNil "infantry_cap" };
 waitUntil{ !isNil "fuel_cap" };
 waitUntil{ !isNil "combat_readiness" };
-waitUntil{ !isNil "unitcap" };
+if(isNil "unitcap")then{ unitcap = 200 };
 waitUntil{ !isNil "resources_intel" };
 
 

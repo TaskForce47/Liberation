@@ -23,4 +23,4 @@ private _hcsWithLoad = _hcClientIDs apply {[0, _x]};
 _hcsWithLoad sort true;
 _less_loaded_HC = ((_hcsWithLoad select 0) select 1);
 
-_less_loaded_HC
+_less_loaded_HC;

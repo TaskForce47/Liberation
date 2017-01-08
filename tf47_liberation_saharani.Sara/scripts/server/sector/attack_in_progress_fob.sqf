@@ -1,6 +1,6 @@
 params [ "_thispos" ];
 private [ "_attacktime", "_ownership", "_grp" ];
-if (!(_thispos in SectorunderAttack))exitWith {};
+if (_thispos in SectorunderAttack) exitWith {};
 private _idx = SectorunderAttack pushBackUnique _thispos;
 
 sleep 5;

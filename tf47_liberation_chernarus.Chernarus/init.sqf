@@ -3,6 +3,7 @@
 	in mp environment it will be executed AFTER initserver.sqf and AFTER initPlayerLocal.sqf
 	in sp environment it will be executed BEFOR (thanks for that ...)
 */
+
 enableSaving [ false, false ];
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\config.sqf";	// all missionparameters
 

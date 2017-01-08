@@ -1,0 +1,105 @@
+class Header
+{
+    gameType = CTI;
+    minPlayers = 1;
+    maxPlayers = 55;
+};
+
+author = "Zbug & McKeewa, heavily modified by [TF47]";
+
+OnLoadName = "TF47 Liberation Tanoa";
+OnLoadMission = "Cooperative gameplay mission with the overall task to liberate all of Tanoa. Good luck soldiers, you will need it!";
+loadScreen = "res\liberation_nato_cover.paa";
+
+overviewPicture = "res\liberation_nato_cover.paa";
+overviewText= "Cooperative gameplay mission with the overall task to liberate all of Tanoa. Good luck soldiers, you will need it!";
+overviewTextLocked= "Cooperative gameplay mission with the overall task to liberate all of Tanoa. Good luck soldiers, you will need it!";
+
+corpseManagerMode = 0;
+wreckManagerMode = 0;
+
+joinUnassigned = 1;
+
+respawn = "BASE";
+respawndelay = 15;
+disabledAI = 1;
+respawnOnStart = 1;
+enableDebugConsole = 1;
+allowFunctionsLog = 0;
+
+#include "GREUH\UI\GREUH_interface.hpp"
+#include "ui\liberation_interface.hpp"
+#include "ui\liberation_notifications.hpp"
+#include "scripts\loadouts\cfgrespawn_templates.hpp"
+#include "ACE3\aceSettings.hpp"
+
+class CfgDebriefing
+{
+    class End1
+    {
+        title = $STR_SORRY;
+        subtitle = "";
+        description = $STR_COMMANDER_NOT_AUTHORIZED;
+        pictureBackground = "";
+    };
+	class modsNOTactivated
+    {
+        title = $STR_SORRY;
+        subtitle = "";
+        description = "NEED MOAAAAAR MOOODS!";
+        pictureBackground = "";
+    };
+	class missionFailed
+    {
+        title = "MISSION FAILED";
+        subtitle = "To many good men died here for no reason!";
+        description = "NATO HQ is canceling this mission! To many good men died here for no reason!";
+        picture = "";
+    };
+	class missionWON
+    {
+        title = "MISSION WON";
+        subtitle = "A glorious day for our motherland!";
+        description = "A glorious day for our motherland!";
+        picture = "";
+    };
+	class notAuthorized
+    {
+        title = "NOT AUTHORIZED!";
+        subtitle = "You are not authorized to play on this slot!";
+		description = "You are not whitelisted to play on this slot! Visit https://armasim.de/ for more information.";
+    };
+};
+
+respawnTemplates[] = {"MenuInventory", "MenuPosition", "Tickets"};
+
+class CfgTaskEnhancements
+{
+   enable       = 1;            //0: disable new task features (default), 1: enable new task features & add new task markers and task widgets into the map
+   3d           = 1;            //0: do not use new 3D markers (default), 1: replace task waypoints with new 3D markers
+   3dDrawDist   = 20;            //3d marker draw distance (default: 2000)
+   share        = 1;            //0: do not count assigned players (default), 1: count how many players have the task assigned
+   propagate    = 1;            //0: do not propagate (default), 1: propagate shared tasks to subordinates
+};
+
+class CfgRemoteExec
+{
+	class Commands
+	{
+			mode = 2;
+			class setFuel { allowedTargets = 0; };           //execute only on server
+			class Systemchat { allowedTargets = 0; };
+			class deleteGroup {allowedTargets = 0; };
+			class publicVariable { allowedTargets = 0; };
+	};
+	class Functions
+	{
+			mode = 2;
+			jip = 1;                                     //no functions can use jip
+
+			class TF47_fnc_WakeUp { allowedTargets = 2; }; 
+			class TF47_fnc_CPR { allowedTargets = 2; };
+			class bis_fnc_call { allowedTargets = 0; };
+			class BIS_fnc_showNotification { allowedTargets = -2; };
+	};
+};

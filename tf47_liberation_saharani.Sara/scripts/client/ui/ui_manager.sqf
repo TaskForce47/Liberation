@@ -34,7 +34,7 @@ while { true } do {
 		_overlayshown = false;
 		_first_iteration = true;
 	};
-	if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name)	)exitWith{ 
+	if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name) )exitWith{ 
 		[] spawn {
 			while {	!([] call TFAR_fnc_isTeamSpeakPluginEnabled	&& ([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name))	}do{
 				cutText ["Please turn on your Teamspeak 3 TFAR Plugin and/or switch to the appropriate channel!","BLACK FADED",0.1,true];

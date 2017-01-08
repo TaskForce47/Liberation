@@ -83,6 +83,18 @@ if(isDedicated)exitWith{};
 {GRLIB_arsenal_magazines pushBack _x}forEach [];
 
 {GRLIB_arsenal_items pushBack _x}forEach [
+"UK3CB_BAF_B_Bergen_Arctic_Rifleman_A",
+"UK3CB_BAF_B_Bergen_Arctic_Rifleman_B",
+"UK3CB_BAF_B_Bergen_Arctic_SL_A",
+"UK3CB_BAF_B_Kitbag_Arctic",
+"UK3CB_BAF_B_Carryall_Arctic",
+"UK3CB_BAF_H_Mk7_Win_A",
+"UK3CB_BAF_H_Mk7_Win_ESS_A",
+"UK3CB_BAF_U_Smock_Arctic",
+"UK3CB_BAF_U_Smock_DPMW_Arctic", 
+"UK3CB_BAF_U_Smock_MTP_Arctic",
+"UK3CB_BAF_V_PLCE_Webbing_Plate_Winter",
+"UK3CB_BAF_V_PLCE_Webbing_Winter",
 "RKSL_optic_LDS",
 	"UK3CB_BAF_SUIT",
 	"UK3CB_BAF_SUSAT,",

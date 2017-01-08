@@ -45,20 +45,14 @@ TF47_helper_findOpforSpawnPoint				=	compileFinal preprocessFileLineNumbers "scr
 
 
 TF47_helper_swapSide						=	{
-
 	private ["_grpNew"];
 	params ["_side",["_grp",nil]];
-
 	_grpNew	=	createGroup	_side;
-
 	if(!isNil "_grp")then{
-
 		(units _grp)	joinSilent	_grpNew;
-
 	};
 	deleteGroup _grp;
 	_grpNew;
-	
 };
 
 // Sector
@@ -70,25 +64,19 @@ manage_ammoboxes 			= compileFinal preprocessFileLineNumbers "scripts\server\sec
 manage_one_sector 			= compileFinal preprocessFileLineNumbers "scripts\server\sector\manage_one_sector.sqf";
 wait_to_spawn_sector 		= compileFinal preprocessFileLineNumbers "scripts\server\sector\wait_to_spawn_sector.sqf";
 
-
-
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\TF47_battlegroup_main.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\TF47_Sidemissionmanagement.sqf";
-
-
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\startgame.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\huron_manager.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\apply_saved_scores.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\capture_vehicles.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\cleanup_vehicles.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\apply_saved_scores.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\capture_vehicles.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\cleanup_vehicles.sqf";
 
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\manage_time.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\periodic_save.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\playtime.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\periodic_save.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\playtime.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\save_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\spawn_radio_towers.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\synchronise_vars.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\zeus_synchro.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\zeus_synchro.sqf";
 
 //[] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_calculation.sqf";
 //[] spawn compileFinal preprocessFileLineNumbers "scripts\server\offloading\offload_manager.sqf";
@@ -100,10 +88,12 @@ wait_to_spawn_sector 		= compileFinal preprocessFileLineNumbers "scripts\server\
 
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\manage_resources.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\recalculate_resources.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\recalculate_timer.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\unit_cap.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\recalculate_timer.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\unit_cap.sqf";
 
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\sector\lose_sectors.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\sector\manage_sectors.sqf";
 
 [] call compileFinal preprocessFileLineNumbers "scripts\server\base\TF47_CheckPrisoners.sqf";
+[] spawn compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\TF47_battlegroup_main.sqf";
+[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\TF47_Sidemissionmanagement.sqf";

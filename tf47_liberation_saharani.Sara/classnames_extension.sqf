@@ -75,24 +75,35 @@ light_vehicles_extension = [
 	["rhsusf_m1025_w_s_Mk19",0,25,3],
 	//["rhsusf_m1025_d_s_Mk19",0,25,3],
 	["B_Quadbike_01_F",0,0,1],
-	//["rhsusf_mkvsoc",0,50,5],
-	//["B_Boat_Armed_01_minigun_F",0,30,5],
-	//["B_Boat_Transport_01_F", 0,0,3],
-	//["Burnes_MK10_1",0,0,5],
-	//["B_SDV_01_F",0,0,3],
-	["ACE_Wheel",0,2,0]
+	["rhsusf_mkvsoc",0,50,5],
+	["B_Boat_Armed_01_minigun_F",0,30,5],
+	["B_Boat_Transport_01_F", 0,0,3],
+	["Burnes_MK10_1",0,0,5],
+	["B_SDV_01_F",0,0,3],
+	["ACE_Wheel",0,2,0],
+	["rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy",0,10,5],
+	["rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy",0,10,5],
+	["rhsusf_M1078A1P2_B_wd_fmtv_usarmy",0,0,5],
+	["rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy",0,0,5],
+	["rhsusf_M1078A1P2_wd_open_fmtv_usarmy",0,0,5],
+	["rhsusf_M1078A1P2_wd_fmtv_usarmy",0,0,5]
 ];
 
 heavy_vehicles_overwrite = true;
 heavy_vehicles_extension = [
 	["rhsusf_m1a1aim_tuski_wd",0,100,20],
+	["RHS_M2A3_BUSKIII_wd",0,75,15],
 	["rhsusf_m1a1fep_wd",0,100,20],
 	["rhsusf_m1a1fep_od",0,100,20],
-	["ACE_Track",0,2,0]
+	["ACE_Track",0,2,0],
+	["RHS_M6_wd",0,50,15]
 ];
 
 air_vehicles_overwrite = true;
 air_vehicles_extension = [
+	["RHS_AH1Z_wd_CS",0,200,15],
+	["RHS_AH1Z_wd_GS",0,200,15],
+	["RHS_AH1Z_wd",0,200,15],
 	["RHS_A10",0,200,15],
 	["RHS_UH60M",0,0,5],
 	["RHS_MELB_AH6M_M",0,50,5],
@@ -103,20 +114,26 @@ air_vehicles_extension = [
 	["JS_JC_FA18F",0,300,20],
 	//["B_T_VTOL_01_armed_F",0,1000,20],
 	["B_T_VTOL_01_infantry_F",0,0,10],
-	["RHS_UH1Y",0,100,10],
-	["RHS_UH1Y_FFAR",0,50,10],
+	["RHS_UH1Y",0,100,5],
+	["RHS_UH1Y_FFAR",0,50,5],
 	["RHS_UH1Y_UNARMED",0,0,5],
 	["RHS_C130J",0,0,10],
 	["rhsusf_CH53E_USMC",0,0,10],
-	["rhsusf_f22",0,100,15]
+	["rhsusf_f22",0,100,10]
 ];
 
 static_vehicles_overwrite = true;
 static_vehicles_extension = [
+	["B_Mortar_01_F",0,25,0],
+	["ace_box_82mm_mo_combo",0,50,0],
+	["RHS_M119_WD",0,200,0],
 	["RHS_Stinger_AA_pod_WD",0,20,0],
 	["UK3CB_BAF_Static_L111A1_Deployed_High",0,10,0],
+	["UK3CB_BAF_Box_L111A1_Ammo",0,10,0],
 	["UK3CB_BAF_Static_L134A1_Deployed_High",0,10,0],
+	["UK3CB_BAF_Box_L134A1_Ammo",0,10,0],
 	["UK3CB_BAF_Static_L7A2_Deployed_High",0,10,0],
+	["UK3CB_BAF_Box_L7A2_Ammo",0,10,0],
 	["RHS_TOW_TriPod_D",0,30,0]
 ];
 
@@ -132,23 +149,20 @@ buildings_extension = [
 	["Land_BarGate_F",0,0,0],
 	["Land_Cargo_Tower_V4_F", 0,0,0],
 	["Land_Cargo_Patrol_V4_F", 0,0,0],
-	["Land_HBarrier_01_tower_green_F", 0,0,0],
-	["Land_HBarrier_01_big_tower_green_F", 0,0,0],
-	["Land_HBarrier_01_wall_4_green_F", 0,0,0],
-	["Land_HBarrier_01_wall_6_green_F", 0,0,0],
-	["Land_HBarrier_01_corner_green_F", 0,0,0],
-	["Land_HBarrier_01_corridor_green_F", 0,0,0],
-	["Land_HBarrier_01_line_5_green_F", 0,0,0],
-	["Land_HBarrier_01_line_3_green_F", 0,0,0],
-	["Land_HBarrier_01_line_1_green_F", 0,0,0],
-	["Land_HBarrier_01_big_4_green_F", 0,0,0],
-	["Land_BagFence_01_short_green_F", 0,0,0],
-	["Land_BagFence_01_long_green_F", 0,0,0],
-	["Land_BagFence_01_corner_green_F", 0,0,0],
-	["Land_BagFence_01_end_green_F", 0,0,0],
-	["Land_BagFence_01_round_green_F", 0,0,0],
-	["Land_BagBunker_01_small_green_F", 0,0,0],
-	["Land_BagBunker_01_large_green_F", 0,0,0],
+	["Land_HBarrier_3_F", 0,0,0],
+	["Land_HBarrier_5_F", 0,0,0],
+	["Land_HBarrier_Big_F", 0,0,0],
+	["Land_HBarrier_1_F", 0,0,0],
+	["Land_HBarrierWall_corridor_F", 0,0,0],
+	["Land_HBarrierWall_corner_F", 0,0,0],
+	["Land_HBarrierWall6_F", 0,0,0],
+	["Land_HBarrierWall4_F", 0,0,0],
+	["Land_HBarrierTower_F", 0,0,0],
+	["Land_BagFence_Corner_F", 0,0,0],
+	["Land_BagFence_End_F", 0,0,0],
+	["Land_BagFence_Long_F", 0,0,0],
+	["Land_BagFence_Round_F", 0,0,0],
+	["Land_BagFence_Short_F", 0,0,0],
 	["Land_HelipadCircle_F",0,0,0],
 	["Land_HelipadSquare_F",0,0,0],
 	["Land_Dome_Small_F" ,0,0,0],
