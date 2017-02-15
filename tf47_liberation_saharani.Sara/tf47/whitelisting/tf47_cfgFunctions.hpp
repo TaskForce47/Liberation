@@ -7,5 +7,6 @@ class tf47_whitelist
 		class initClient {};
 		class processStack {};
 		class getDBinfo {};
+		class reportToDatabase {};
 	};
 };
