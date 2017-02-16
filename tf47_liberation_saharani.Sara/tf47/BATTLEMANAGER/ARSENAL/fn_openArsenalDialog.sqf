@@ -15,4 +15,5 @@
 closeDialog 0; //close old dialog
 
 private _return = createDialog 'tf47_arsenal_mainMenu';
-//https://community.bistudio.com/wiki/Tree_View_Path
+[] call tf47_arsenal_fnc_updateArsenalList;
+true
