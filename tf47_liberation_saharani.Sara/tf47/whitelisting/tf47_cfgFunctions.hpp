@@ -8,5 +8,6 @@ class tf47_whitelist
 		class processStack {};
 		class getDBinfo {};
 		class reportToDatabase {};
+		class initVehicleTracking {};
 	};
 };

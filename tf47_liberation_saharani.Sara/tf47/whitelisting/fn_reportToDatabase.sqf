@@ -33,6 +33,8 @@
     99: mission success
 
 */
+if !isServer exitWith { /* client does not need to do that */ };
+
 params [
   ["_action",0,[0,""]], //string
   ["_comment",""],

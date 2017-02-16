@@ -28,6 +28,10 @@ if(isNil "TF47_PERMISSION_JTFC")then{ TF47_PERMISSION_JTFC = false; };
 
 TF47_PERMISSION_SERVER_STACK = [];
 
+"extDB3" callExtension "9:ADD_DATABASE:Database";
+"extDB3" callExtension "9:ADD_DATABASE_PROTOCOL:Database:SQL:SQL:TEXT-NULL";
+"extDB3" callExtension "9:LOCK";
+
 "tf47_whitelist_clientToServerPermissionRequest" addPublicVariableEventHandler {
   params ["","_vars"];
   _vars params [ ["_obj",objNull], ["_permissionID",0] ];
