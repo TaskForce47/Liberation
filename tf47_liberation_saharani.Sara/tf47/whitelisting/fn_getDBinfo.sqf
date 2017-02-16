@@ -19,16 +19,40 @@
 
 */
 params[
-  ["_obj",objNull],
+  ["_obj",objNull,[objNull,""]],
   ["_listID",0]
 ];
 
 if( _obj isEqualTo objNull )exitWith{ false };
-if( _listID isEqualTo 0 )exitWith{ true };
+
+private _uid = if _obj isEqualType objNull then{
+  if isPlayer _obj then{
+    getPlayerUID _obj
+  };
+}else{
+  if ( (_obj isEqualType "") && !(_obj isEqualTo "") ) then{
+    if(_obj in ( allPlayers apply {getPlayerUID _x} ) )then{
+      _obj
+    }else{
+      ""
+    };
+  }else{
+    ""
+  };
+};
+if _uid isEqualTo "" exitWith { false };
+if ( _listID <= 0 || _listID > 2 ) exitWith { true };
 
 private _dt = diag_tickTime;
 private _val = "extDB3" callExtension format ["0:SQL:SELECT `playerid` FROM gadget_playerlist WHERE `listid` = '%1' AND playerid = '%2'", _listID, _uid];
 waitUntil {!isNil "_val" || (diag_tickTime - _dt) > 5 };
-if(isNil "_val")exitWith { false };
 
+private _val = if( isNil "_val" )then{
+  if( (diag_tickTime - _dt) > 5 )then{
+    /* timedelay to high, perhaps no connection to db */
+    true
+  }else{
+    false
+  };
+};
 _val
