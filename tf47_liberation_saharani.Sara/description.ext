@@ -32,9 +32,13 @@ allowFunctionsLog = 0;
 #include "ui\liberation_notifications.hpp"
 #include "scripts\loadouts\cfgrespawn_templates.hpp"
 #include "ACE3\aceSettings.hpp"
+#include "tf47\battlemanager\tf47_battlemanager_defines.hpp"
 class cfgfunctions
 {
-	#include tf47\whitelisting\tf47_cfgfunctions.hpp
+	#include "tf47\whitelisting\tf47_cfgfunctions.hpp"
+  #include "tf47\misc\tf47_cfgfunctions.hpp"
+  #include "tf47\battlemanager\tf47_battlemanager_functions.hpp"
+
 };
 class CfgDebriefing
 {
