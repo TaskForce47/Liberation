@@ -90,7 +90,7 @@ wait_to_spawn_sector 		= compileFinal preprocessFileLineNumbers "scripts\server\
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\recalculate_resources.sqf";
 //[] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\recalculate_timer.sqf";
 //[] spawn compileFinal preprocessFileLineNumbers "scripts\server\resources\unit_cap.sqf";
-
+[] call tf47_misc_fnc_sectorCommander;
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\sector\lose_sectors.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\sector\manage_sectors.sqf";
 

@@ -32,7 +32,14 @@ allowFunctionsLog = 0;
 #include "ui\liberation_notifications.hpp"
 #include "scripts\loadouts\cfgrespawn_templates.hpp"
 #include "ACE3\aceSettings.hpp"
+#include "tf47\battlemanager\tf47_battlemanager_defines.hpp"
+class cfgfunctions
+{
+	#include "tf47\whitelisting\tf47_cfgfunctions.hpp"
+  #include "tf47\misc\tf47_cfgfunctions.hpp"
+  #include "tf47\battlemanager\tf47_battlemanager_functions.hpp"
 
+};
 class CfgDebriefing
 {
     class End1
@@ -97,8 +104,6 @@ class CfgRemoteExec
 			mode = 2;
 			jip = 1;                                     //no functions can use jip
 
-			class TF47_fnc_WakeUp { allowedTargets = 2; }; 
-			class TF47_fnc_CPR { allowedTargets = 2; };
 			class bis_fnc_call { allowedTargets = 0; };
 			class BIS_fnc_showNotification { allowedTargets = -2; };
 	};
