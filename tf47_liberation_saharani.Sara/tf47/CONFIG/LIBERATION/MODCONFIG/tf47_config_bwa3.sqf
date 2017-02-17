@@ -1,4 +1,5 @@
-if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{"BWA3 not initialized!" remoteExec ["systemchat",0]};
+private _patch = "BWA3_Flag";
+if(	!(isclass (configfile >> "CfgPatches" >> _patch)	)	)exitWith{	diag_log format [" [ ERROR ] %1 not initialized!", _patch] };
 
 {heavy_vehicles_extension	pushBack _x}forEach [
 	["BWA3_Puma_Tropen",0,50,10],
@@ -19,15 +20,15 @@ if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{"BWA3 not 
 if(isDedicated)exitWith{};
 
 {GRLIB_arsenal_weapons pushBack _x}forEach [
-    "BWA3_G38", 
-    "BWA3_G38K", 
-    "BWA3_G38C", 
-    "BWA3_G38_AG", 
-    "BWA3_G38K_AG", 
+    "BWA3_G38",
+    "BWA3_G38K",
+    "BWA3_G38C",
+    "BWA3_G38_AG",
+    "BWA3_G38K_AG",
     "BWA3_G38_Tan",
-    "BWA3_G38_AG_Tan", 
-    "BWA3_G38K_Tan", 
-    "BWA3_G38K_AG_Tan", 
+    "BWA3_G38_AG_Tan",
+    "BWA3_G38K_Tan",
+    "BWA3_G38K_AG_Tan",
     "BWA3_G38C_Tan",
 	"BWA3_G28_Standard",
 	"BWA3_G28_Assault",

@@ -1,4 +1,5 @@
-if(	!(isclass (configfile >> "CfgPatches" >> "BWA3_Flag")	)	)exitWith{	"BWA3 not initialized!" remoteExec ["systemchat",0];	};
+private _patch = "BWA3_Flag";
+if(	!(isclass (configfile >> "CfgPatches" >> _patch)	)	)exitWith{	diag_log format [" [ ERROR ] %1 not initialized!", _patch] };
 
 {	light_vehicles_extension pushBack _x	}forEach [
 	["UK3CB_BAF_Coyote_Logistics_L134A1_W",0,100,10],
@@ -72,10 +73,10 @@ if(isDedicated)exitWith{};
 	"UK3CB_BAF_L129A1_FGrip",
 	"UK3CB_BAF_L131A1",
 	"UK3CB_BAF_L82A1",
-	"UK3CB_BAF_AT4_CS_AT_Launcher", 
-	"UK3CB_BAF_AT4_CS_AP_Launcher", 
-	"UK3CB_BAF_Javelin_Launcher", 
-	"UK3CB_BAF_Javelin_Slung_Tube", 
+	"UK3CB_BAF_AT4_CS_AT_Launcher",
+	"UK3CB_BAF_AT4_CS_AP_Launcher",
+	"UK3CB_BAF_Javelin_Launcher",
+	"UK3CB_BAF_Javelin_Slung_Tube",
 	"UK3CB_BAF_Javelin_CLU",
 	"UK3CB_BAF_NLAW_Launcher"
 ];
@@ -91,7 +92,7 @@ if(isDedicated)exitWith{};
 "UK3CB_BAF_H_Mk7_Win_A",
 "UK3CB_BAF_H_Mk7_Win_ESS_A",
 "UK3CB_BAF_U_Smock_Arctic",
-"UK3CB_BAF_U_Smock_DPMW_Arctic", 
+"UK3CB_BAF_U_Smock_DPMW_Arctic",
 "UK3CB_BAF_U_Smock_MTP_Arctic",
 "UK3CB_BAF_V_PLCE_Webbing_Plate_Winter",
 "UK3CB_BAF_V_PLCE_Webbing_Winter",
