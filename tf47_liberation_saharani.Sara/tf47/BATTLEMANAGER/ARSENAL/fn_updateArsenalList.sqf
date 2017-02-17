@@ -8,6 +8,7 @@ private _customCategories = profileNamespace getVariable [ "tf47_arsenal_customC
 private _tvEntries = [];
 
 //add main entries to tree view
+
 {
     _x params ["_category"];
     private _id = GEARTREE tvAdd [ [], _category];
@@ -16,15 +17,28 @@ private _tvEntries = [];
 }count _customCategories;
 
 //check arsenal loadouts and see if loadout was allready categorized
+/*
 {
-  if(_x isEqualType "")then{
+  if ( _x isEqualType "" ) then {
     private _toLookFor = _x;
     private _category = "default";
     {
       _x params ["_subcategory", "_loadout"];
-      if _toLookFor isEqualTo _loadout exitWith {_category = _subcategory};
+      if (_toLookFor isEqualTo _loadout) exitWith {_category = _subcategory};
     }forEach _customCategories;
-    
+
+
+
+
+
+
+
   };
   false
 }count _customPlayerGear;
+*/
+{
+  if ( _x isEqualType "" ) then {
+    GEARTREE tvAdd [ [0], _x];
+  };
+}forEach _customPlayerGear;

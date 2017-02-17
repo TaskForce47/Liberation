@@ -40,3 +40,4 @@ class tf47_TeamManager_BackGround
 #include "MAINMENU\tf47_mainmenu_dialog.hpp"
 #include "TEAMMANAGER\tf47_teammanager_dialog.hpp"
 #include "UNITTRACKER\tf47_unitTracker_dialog.hpp"
+#include "ARSENAL\tf47_arsenal_dialog.hpp"

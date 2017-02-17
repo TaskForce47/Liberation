@@ -37,6 +37,7 @@ class tf47_arsenal_mainMenu: tf47_TeamManager_BackGround
 		colorBackground[] = {0,0,0,.8}; // Fill color
 		colorSelectBackground[] = {1,0.5,0,1}; // Selected item fill color
 		colorSelectBackground2[] = {1,0.5,0,1}; // Selected item fill color (oscillates between this and colorSelectBackground)
+		multiselectEnabled = 0;
 	};
 	///////////////////////////////////////////////////////////////
 	// return to main menu

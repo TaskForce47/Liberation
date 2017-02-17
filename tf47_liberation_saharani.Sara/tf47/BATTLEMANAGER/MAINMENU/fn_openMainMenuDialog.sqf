@@ -6,40 +6,34 @@ _handle ppEffectAdjust [10];
 _handle ppEffectCommit 0;
 uinamespace setVariable ["tf47_battlemanager_ppEffects",_handle];
 */
-player enableSimulationGlobal false;
+#define CTRL_SQUAD (	(findDisplay 303031) displayCtrl 303035	)
+#define CTRL_TRACKER (	(findDisplay 303031) displayCtrl 303037	)
+#define CTRL_ARSENAL (	(findDisplay 303031) displayCtrl 303039	)
 
+player enableSimulationGlobal false;
 private _diagHandle	=	createDialog "tf47_TeamManager_mainMenu";
 
-(	(findDisplay 303031) displayCtrl 303035	) ctrlEnable false; //squadmanager
+CTRL_SQUAD ctrlEnable false; //squadmanager
 //(	(findDisplay 303031) displayCtrl 303037	) ctrlEnable false; //unittracker
-(	(findDisplay 303031) displayCtrl 303039	) ctrlEnable false; //roleselection
-(	(findDisplay 303031) displayCtrl 303041	) ctrlEnable false; //refill
-(	(findDisplay 303031) displayCtrl 303043	) ctrlEnable false; //arsenal
-(	(findDisplay 303031) displayCtrl 303047	) ctrlEnable false;	//veh spawner
-//(	(findDisplay 303031) displayCtrl 303049	) ctrlEnable false;	//veh tracker
-(	(findDisplay 303031) displayCtrl 303057	) ctrlEnable false;	//dev
-(	(findDisplay 303031) displayCtrl 303055	) ctrlEnable false;	//admin
+CTRL_ARSENAL ctrlEnable false; //roleselection
+
 
 
 //check which option is available
+private _fobs = +GRLIB_all_fobs;
+_fobs pushBack (getMarkerPos "respawn_west");
+_fobs = _fobs apply { _x distance2D player };
+_fobs sort true; //asscending
+_fobs = _fobs select 0;
 
-private _baseCondition	=	if (markerType "respawn_west" isEqualTo "")then{ 
+private _baseCondition	=	if (markerType "respawn_west" isEqualTo "")then{
 	alive player
 }else{
-	alive player && ((getMarkerPos "respawn_west" distance player) < TF47_BATTLEMANAGER_SAFEDISTANCE);
+	alive player && (_fobs < TF47_BATTLEMANAGER_SAFEDISTANCE);
 };
 
 if (_baseCondition)then{
-	(	(findDisplay 303031) displayCtrl 303035	) ctrlEnable true; //squadmanager
-	(	(findDisplay 303031) displayCtrl 303039	) ctrlEnable true; //roleselection
-	(	(findDisplay 303031) displayCtrl 303041	) ctrlEnable true; //refill
-	(	(findDisplay 303031) displayCtrl 303043	) ctrlEnable true; //arsenal
-	(	(findDisplay 303031) displayCtrl 303047	) ctrlEnable true;	//veh spawner
-};
-
-if(player getVariable ["TF47_BATTLEMANAGER_TEAMLEADER",false])then{
- (	(findDisplay 303031) displayCtrl 303055	) ctrlEnable true;	//admin
-};
-if(player getVariable ["TF47_BATTLEMANAGER_DEVELOPMER",false])then{
- (	(findDisplay 303031) displayCtrl 303057	) ctrlEnable true;	//admin
+	CTRL_SQUAD ctrlEnable true; //squadmanager
+	//CTRL_TRACKER ctrlEnable true; //tracker
+	CTRL_ARSENAL ctrlEnable true; //arsenal
 };

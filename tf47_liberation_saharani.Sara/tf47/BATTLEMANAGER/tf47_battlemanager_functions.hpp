@@ -3,7 +3,6 @@ class TF47_TEAMMANAGER
 	class TEAMMANAGER
 	{
 		file	="TF47\BATTLEMANAGER\TEAMMANAGER";
-
 		class openTeamManager {};
 		class updateUnitsBox {};
 		class setTeamName {};
@@ -38,9 +37,13 @@ class tf47_unitTracker
 		file	="TF47\BATTLEMANAGER\UNITTRACKER";
 		class openUnitTracker {};
 	};
+};
 class tf47_arsenal
 {
-	file	="TF47\BATTLEMANAGER\ARSENAL";
-	class openArsenalDialog {};
-};
+	class arsenal
+	{
+		file	="TF47\BATTLEMANAGER\ARSENAL";
+		class openArsenalDialog {};
+		class updateArsenalList {};
+	};
 };

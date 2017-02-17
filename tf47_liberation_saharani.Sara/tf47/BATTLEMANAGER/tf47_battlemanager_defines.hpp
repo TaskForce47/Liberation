@@ -74,7 +74,7 @@
 
 #define SL_TEXTURES       0x10
 
-// progress bar 
+// progress bar
 #define ST_VERTICAL       0x01
 #define ST_HORIZONTAL     0
 
@@ -134,7 +134,7 @@ class tf47_IGUIBack
 	idc = 124;
 	style = 128;
 	text = "";
-	colorText[] = 
+	colorText[] =
 	{
 		0,
 		0,
@@ -148,7 +148,7 @@ class tf47_IGUIBack
 	y = 0.1;
 	w = 0.1;
 	h = 0.1;
-	colorbackground[] = 
+	colorbackground[] =
 	{
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])",
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])",
@@ -158,15 +158,15 @@ class tf47_IGUIBack
 };
 
 class tf47_RscStructuredText {
-  idc = -1; 
+  idc = -1;
   type = CT_STRUCTURED_TEXT;  // defined constant
   style = ST_LEFT;            // defined constant
-  colorBackground[] = { 0,0,0,0 }; 
+  colorBackground[] = { 0,0,0,0 };
   colorText[] = {1,1,1,1};
-  x = 0.1; 
-  y = 0.1; 
-  w = 0.3; 
-  h = 0.1; 
+  x = 0.1;
+  y = 0.1;
+  w = 0.3;
+  h = 0.1;
   size = 0.03921;
   text = "";
 };
@@ -189,7 +189,7 @@ class tf47_RscText
     y = 0;
     h = 0;
     w = 0;
-   
+
 };
 
 class tf47_RscPicture
@@ -214,7 +214,7 @@ class tf47_RscPicture
 
 class tf47_RscButton
 {
-    
+
    access = 0;
     type = CT_BUTTON;
     text = "";
@@ -227,12 +227,12 @@ class tf47_RscButton
 	colorBackgroundActive[] = {0.75,0.75,0.75,.5};
 	colorShadow[] = {0.023529,0,0.0313725,0};
 	colorBorder[] = {0.023529,0,0.0313725,0};
-			
+
     soundEnter[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
     soundPush[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0,0};
     soundClick[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.07,1};
     soundEscape[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
-	
+
     style = 2;
     x = 0;
     y = 0;
@@ -495,7 +495,7 @@ class TF47_CT_TREE
 	colorSelectText[] = {1,1,1,1}; // Selected text color (when multiselectEnabled is 0)
 	colorMarkedText[] = {1,1,1,1}; // Selected text color (when multiselectEnabled is 1)
 
-	tooltip = "CT_TREE"; // Tooltip text
+	tooltip = ""; // Tooltip text
 	tooltipColorShade[] = {0,0,0,1}; // Tooltip background color
 	tooltipColorText[] = {1,1,1,1}; // Tooltip text color
 	tooltipColorBox[] = {1,1,1,1}; // Tooltip frame color
@@ -523,7 +523,7 @@ class TF47_CT_TREE
 
 	colorDisabled[] = {0,0,0,0}; // Does nothing, but must be present, otherwise an error is shown
 	colorArrow[] = {0,0,0,0}; // Does nothing, but must be present, otherwise an error is shown
-
+	/*
 	onCanDestroy = "systemChat str ['onCanDestroy',_this]; true";
 	onDestroy = "systemChat str ['onDestroy',_this]; false";
 	onMouseEnter = "systemChat str ['onMouseEnter',_this]; false";
@@ -548,5 +548,6 @@ class TF47_CT_TREE
 	//onTreeMouseMove = "systemChat str ['onTreeMouseMove',_this]; false"; // Causing CTD
 	//onTreeMouseHold = "systemChat str ['onTreeMouseHold',_this]; false"; // Causing CTD
 	onTreeMouseExit = "systemChat str ['onTreeMouseExit',_this]; false";
+	*/
 };
 #include "tf47_battlemanager_dialogs.hpp"
