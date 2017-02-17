@@ -6,5 +6,6 @@ class tf47_misc
 		class sectorCommander {};
 		class swapSide {};
 		class blackScreen {};
+		class enforceArsenal {};
 	};
 };
