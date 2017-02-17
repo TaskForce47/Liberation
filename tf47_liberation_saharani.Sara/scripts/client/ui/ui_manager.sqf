@@ -36,10 +36,10 @@ while { true } do {
 	};
 	/*************************************************************************************************************************************************/
 	/*************************************************************************************************************************************************/
-	// does only make sense if tfar is running and vars were defined 
+	// does only make sense if tfar is running and vars were defined
 	if (!isNil "tf_radio_channel_name")then{
 		if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name) )exitWith{
-			[] spawn tf47_misc_fnc_backScreen;
+			[] spawn tf47_misc_fnc_blackScreen;
 		};
 	};
 	/*************************************************************************************************************************************************/

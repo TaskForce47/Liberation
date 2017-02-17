@@ -32,7 +32,7 @@ _objectToWatch addEventHandler ["GetIn",{
     params ["_vehicle","_position","_unit","_turrent"];
     if (isPlayer _unit) then {
       if (_position isEqualTo "Driver")then{
-        _vehicle setVariable ["TF47_WHITELIST_LASTDRIVER", [getPlayerUID _unit, name _unit];
+        _vehicle setVariable ["TF47_WHITELIST_LASTDRIVER", [getPlayerUID _unit, name _unit] ];
       };
     };
 }];
@@ -53,7 +53,7 @@ _objectToWatch addEventHandler ["killed",{
 
     ( _vehicle getVariable ["TF47_WHITELIST_LASTDRIVER", ["",""] ] ) params ["_uid","_name"];
     //private _player = format ["%1 (%2)", _name, _uid];
-    private _comment = format ["%1 wurde zerstoert",typ _vehicle];
+    private _comment = format ["%1 wurde zerstoert", typeof _vehicle];
     [4, _comment, _name] call tf47_whitelist_fnc_reportToDatabase;
 }];
 /*

@@ -25,8 +25,8 @@ params[
 
 if( _obj isEqualTo objNull )exitWith{ false };
 
-private _uid = if _obj isEqualType objNull then{
-  if isPlayer _obj then{
+private _uid = if (_obj isEqualType objNull) then{
+  if (isPlayer _obj) then{
     getPlayerUID _obj
   };
 }else{
@@ -40,7 +40,7 @@ private _uid = if _obj isEqualType objNull then{
     ""
   };
 };
-if _uid isEqualTo "" exitWith { false };
+if (_uid isEqualTo "") exitWith { false };
 if ( _listID <= 0 || _listID > 2 ) exitWith { true };
 
 private _dt = diag_tickTime;

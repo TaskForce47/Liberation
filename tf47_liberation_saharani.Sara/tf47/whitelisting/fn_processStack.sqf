@@ -26,7 +26,7 @@ private _stackToProcess = +TF47_PERMISSION_SERVER_STACK;
   _x params ["_obj", "_permissionID", "_val"];
   tf47_whitelist_serverToClientPermissionFeedback = _val;
   if(_obj != objNull && isPlayer _obj)then{
-      (getPlayerUID _obj) publicVariableClient tf47_whitelist_serverToClientPermissionFeedback;
+      (owner _obj) publicVariableClient tf47_whitelist_serverToClientPermissionFeedback;
   };
   tf47_whitelist_serverToClientPermissionFeedback = nil;
 }forEach _stackToProcess;
