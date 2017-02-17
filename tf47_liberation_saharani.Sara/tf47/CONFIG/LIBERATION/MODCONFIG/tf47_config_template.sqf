@@ -1,7 +1,7 @@
 params [["_entryToGet",""],["_patch",""]];
 
 if(_patch isEqualTo "")exitWith {[]};
-if(	!(isclass (configfile >> "CfgPatches" >> _patch)	)	)exitWith{[]};
+if !(	_patch isEqualTo "cba_main")exitWith{[]};
 
 private _return = switch tolower _entryToGet do {
   case("lv"):{[]};

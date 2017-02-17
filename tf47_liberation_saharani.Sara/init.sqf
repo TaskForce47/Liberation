@@ -19,10 +19,6 @@ TF47_fnc_sendGroundsupport = compileFinal preprocessFileLineNUmbers "scripts\ser
 
 [] call compileFinal preprocessFileLineNUmbers "classnames_extension.sqf";
 [] call compileFinal preprocessFileLineNumbers "arsenal.sqf";
-[] call compileFinal preprocessFileLineNUmbers "scripts\loadouts\tf47_arsenal_3cb_baf.sqf";
-[] call compileFinal preprocessFileLineNUmbers "scripts\loadouts\tf47_arsenal_bwa3.sqf";
-[] call compileFinal preprocessFileLineNUmbers "scripts\loadouts\tf47_arsenal_hlc.sqf";
-[] call compileFinal preprocessFileLineNUmbers "scripts\loadouts\tf47_arsenal_radiomod.sqf";
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\classnames.sqf";
 
 [] execVM "GREUH\scripts\GREUH_activate.sqf";
