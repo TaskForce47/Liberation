@@ -43,18 +43,6 @@ TF47_helper_isAreaReachable					=	compileFinal preprocessFileLineNumbers "script
 TF47_helper_getPlayerBalance				=	compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\TF47_fnc_getPlayerBalance.sqf";
 TF47_helper_findOpforSpawnPoint				=	compileFinal preprocessFileLineNumbers "scripts\server\battlegroup\TF47_fnc_findOpforSpawnPoint.sqf";
 
-
-TF47_helper_swapSide						=	{
-	private ["_grpNew"];
-	params ["_side",["_grp",nil]];
-	_grpNew	=	createGroup	_side;
-	if(!isNil "_grp")then{
-		(units _grp)	joinSilent	_grpNew;
-	};
-	deleteGroup _grp;
-	_grpNew;
-};
-
 // Sector
 attack_in_progress_fob 		= compileFinal preprocessFileLineNumbers "scripts\server\sector\attack_in_progress_fob.sqf";
 attack_in_progress_sector 	= compileFinal preprocessFileLineNumbers "scripts\server\sector\attack_in_progress_sector.sqf";

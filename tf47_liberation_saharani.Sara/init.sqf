@@ -11,15 +11,6 @@ enableSaving [ false, false ];
 {	_x setMarkerAlpha 0;	} foreach ["noBattlegroup1", "noBattlegroup2", "noBattlegroup3", "noBattlegroup4" ];
 
 TF47_fnc_sendGroundsupport = compileFinal preprocessFileLineNUmbers "scripts\server\patrols\send_groundsupport.sqf";
-TF47_helper_swapSide =	{
-	params ["_side",["_grp",nil]];
-	private _grpNew	= createGroup _side;
-	if(!isNil "_grp")then{
-		(units _grp) joinSilent	_grpNew;
-	};
-	deleteGroup _grp;
-	_grpNew;
-};
 
 [] execVM "scripts\server\VCOMAI\init.sqf";
 [] call compileFinal preprocessFileLineNumbers "scripts\shared\atlas_manager.sqf";
