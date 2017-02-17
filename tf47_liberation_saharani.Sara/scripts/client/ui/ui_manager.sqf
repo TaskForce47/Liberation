@@ -34,19 +34,15 @@ while { true } do {
 		_overlayshown = false;
 		_first_iteration = true;
 	};
-	if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name) )exitWith{ 
-		[] spawn {
-			while {	!([] call TFAR_fnc_isTeamSpeakPluginEnabled	&& ([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name))	}do{
-				cutText ["Please turn on your Teamspeak 3 TFAR Plugin and/or switch to the appropriate channel!","BLACK FADED",0.1,true];
-				player enableSimulation false;
-				sleep 0.1;
-			};
-			player enableSimulation true;
-			cutText ["","PLAIN",0.25,true]; 
-			[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
+	/*************************************************************************************************************************************************/
+	/*************************************************************************************************************************************************/
+	// does only make sense if tfar is running and vars were defined 
+	if (!isNil "tf_radio_channel_name")then{
+		if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name) )exitWith{
+			[] spawn tf47_misc_fnc_backScreen;
 		};
 	};
-
+	/*************************************************************************************************************************************************/
 	if ( _overlayshown ) then {
 		((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (266)) ctrlSetText format [ "%1", GRLIB_ui_notif ];
 		((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (267)) ctrlSetText format [ "%1", GRLIB_ui_notif ];

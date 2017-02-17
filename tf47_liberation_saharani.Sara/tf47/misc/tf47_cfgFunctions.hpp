@@ -5,5 +5,6 @@ class tf47_misc
 		file	="tf47\misc";
 		class sectorCommander {};
 		class swapSide {};
+		class blackScreen {};
 	};
 };
