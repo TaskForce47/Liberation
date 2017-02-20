@@ -15,7 +15,7 @@
 */
 #define ISSTRING(ARG) ( ARG isEqualType "" )
 #define ISARRAY(ARG) ( ARG isEqualType [] )
-#define EVAL(ARG,LIST) ( ARG = if !(ARG in LIST)then{ "" }else{ ARG } )
+#define EVAL(ARG,LIST) ARG = if !(ARG in LIST)then{ "" }else{ ARG }
 
 private _pathToConfigs = "tf47\config\liberation\modconfig\";
 tf47_arsenal_modconfig_rhs_usaf = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_rhs_usaf.sqf");
@@ -29,12 +29,12 @@ private _modListToUse =[];
 {
   if !(isNil _x) then {_modListToUse pushBack _x; };
 } forEach [
-  "call tf47_arsenal_modconfig_rhs_usaf",
-  "call tf47_arsenal_modconfig_s4",
-  "call tf47_arsenal_modconfig_milGear",
-  "call tf47_arsenal_modconfig_niarms",
-  "call tf47_arsenal_modconfig_bwa3",
-  "call tf47_arsenal_modconfig_3cb"
+  "tf47_arsenal_modconfig_rhs_usaf",
+  "tf47_arsenal_modconfig_s4",
+  "tf47_arsenal_modconfig_milGear",
+  "tf47_arsenal_modconfig_niarms",
+  "tf47_arsenal_modconfig_bwa3",
+  "tf47_arsenal_modconfig_3cb"
 ];
 
 private _weapons = [];
@@ -48,8 +48,7 @@ private _magazines = [];
       private _mags = getArray (configfile >> "cfgweapons" >> _x >> "magazines" );
       { if !( _x in _magazines )then{ _magazines pushBack _x; }; }forEach _mags;
     };
-    false
-  }count ( ["w"] call (compile _x) );
+  }forEach ( ["w"] call (call compile _x) );
 }forEach _modListToUse;
 
 private _items = [];
@@ -59,7 +58,7 @@ private _items = [];
       _items pushBack _x;
     };
     false
-  }count ( ["i"] call (compile _x) );
+  }count ( ["i"] call (call compile _x) );
   false
 }count _modListToUse;
 
@@ -70,7 +69,7 @@ private _backpacks = [];
       _items pushBack _x;
     };
     false
-  }count ( ["b"] call (compile _x) );
+  }count ( ["b"] call (call compile _x) );
   false
 }count _modListToUse;
 
@@ -79,7 +78,7 @@ player setvariable ["bis_addVirtualWeaponCargo_cargo",_cargo];
 
 //*************************************************************************************************************************//
 //*************************************************************************************************************************//
-
+// does not work as intended .......
 private _vArsenalList = profileNamespace getVariable [ "bis_fnc_saveInventory_data", [] ];
 private _filteredPlayerGear = [];
 private _checkArray = _items + _weapons + _magazines + _backpacks;
@@ -96,7 +95,8 @@ if(_max > 0 )then{
     if !(_uniform isEqualTo "")then{
       EVAL(_uniform,_checkArray);
       {
-        _itemsInUniform set [_forEachIndex, EVAL(_x,_checkArray)];
+        EVAL(_x,_checkArray);
+        _itemsInUniform set [_forEachIndex, _x];
       }forEach _itemsInUniform;
     };
     _uniformA = [_uniform,_itemsInUniform];
@@ -105,7 +105,8 @@ if(_max > 0 )then{
     if !(_vest isEqualTo "")then{
       EVAL(_vest,_checkArray);
       {
-        _itemsInVest set [_forEachIndex, EVAL(_x,_checkArray)];
+         EVAL(_x,_checkArray);
+        _itemsInVest set [_forEachIndex, _x];
       }forEach _itemsInVest;
     };
     _vestA = [_vest, _itemsInVest];
@@ -114,7 +115,8 @@ if(_max > 0 )then{
     if !(_backPack isEqualTo "")then{
       EVAL(_backPack,_checkArray);
       {
-        _itemsInBackpack set [_forEachIndex, EVAL(_x,_checkArray)];
+        EVAL(_x,_checkArray);
+        _itemsInBackpack set [_forEachIndex, _x];
       }forEach _itemsInBackpack;
     };
     _backpackA = [_backPack, _itemsInBackpack];
@@ -126,9 +128,10 @@ if(_max > 0 )then{
     _primA params ["_prim","_primAttachments","_primMag"];
     if !(_prim isEqualTo "")then{
       if !(_primMag isEqualTo "")then{  EVAL(_primMag,_checkArray) };
-      EVAL(_prim,_checkArray)
+      EVAL(_prim,_checkArray);
       {
-        _primAttachments set [_forEachIndex, EVAL(_x,_checkArray)];
+        EVAL(_x,_checkArray);
+        _primAttachments set [_forEachIndex,_x];
       }forEach _primAttachments;
     };
     _primA = [_prim,_primAttachments,_primMag];
@@ -138,7 +141,8 @@ if(_max > 0 )then{
       if !(_secMag isEqualTo "")then{  EVAL(_secMag,_checkArray) };
       EVAL(_sec,_checkArray);
       {
-        _secAttachments set [_forEachIndex, EVAL(_x,_checkArray)];
+        EVAL(_x,_checkArray);
+        _secAttachments set [_forEachIndex,_x];
       }forEach _secAttachments;
     };
     _secA = [_sec, _secAttachments, _secMag];
@@ -148,13 +152,15 @@ if(_max > 0 )then{
       if !(_launcherMag isEqualTo "")then{  EVAL(_launcherMag,_checkArray) };
       EVAL(_launcher,_checkArray);
       {
-        _launcherAttach set [_forEachIndex, EVAL(_x,_checkArray)];
+        EVAL(_x,_checkArray);
+        _launcherAttach set [_forEachIndex, _x];
       }forEach _launcherAttach;
     };
     _launcherA = [_launcher, _launcherAttach, _launcherMag];
 
     {
-      _itemsA set [_forEachIndex, EVAL(_x,_checkArray)];
+      EVAL(_x,_checkArray);
+      _itemsA set [_forEachIndex, _x];
     }forEach _itemsA;
 
     _vaGear = [_uniFormA,_vestA,_backpackA,_head,_goggles,_binoc,_primA,_secA,_launcherA,_itemsA];
