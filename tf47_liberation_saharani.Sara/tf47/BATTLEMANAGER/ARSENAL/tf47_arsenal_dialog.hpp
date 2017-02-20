@@ -31,9 +31,9 @@ class tf47_arsenal_mainMenu: tf47_TeamManager_BackGround
 	{
 		idc = 306033;
 		x = TF47_MAINFRAME_INNER_ANCHOR_X;
-		y = TF47_MAINFRAME_INNER_ANCHOR_Y + TF47_MAINFRAME_APP_HEADER_HEIGTH;
+		y = TF47_MAINFRAME_INNER_ANCHOR_Y + TF47_MAINFRAME_APP_HEADER_HEIGTH + TF47_MAINFRAME_INNER_BOARDER;
 		w = (TF47_MAINFRAME_INNER_WIDTH)*2/3;
-		h = TF47_MAINFRAME_INNER_HEIGTH - TF47_MAINFRAME_APP_HEADER_HEIGTH;
+		h = TF47_MAINFRAME_INNER_HEIGTH - TF47_MAINFRAME_APP_HEADER_HEIGTH - TF47_MAINFRAME_INNER_BOARDER;
 		colorBackground[] = {0,0,0,.8}; // Fill color
 		colorSelectBackground[] = {1,0.5,0,1}; // Selected item fill color
 		colorSelectBackground2[] = {1,0.5,0,1}; // Selected item fill color (oscillates between this and colorSelectBackground)

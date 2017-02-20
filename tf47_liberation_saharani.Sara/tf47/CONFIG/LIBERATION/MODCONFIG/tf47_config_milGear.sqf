@@ -1,7 +1,7 @@
-params [["_entryToGet",""],["_patch",""]];
+params [["_entryToGet",""]];
 
-if(_patch isEqualTo "")exitWith {[]};
-if !(	_patch isEqualTo "milgp_data")exitWith{[]};
+if(_entryToGet isEqualTo "")exitWith {[]};
+if !(	isClass (configFile >> "cfgPatches" >> "milgp_data") )exitWith{[]};
 
 private _return = switch tolower _entryToGet do {
   case("lv"):{[]};

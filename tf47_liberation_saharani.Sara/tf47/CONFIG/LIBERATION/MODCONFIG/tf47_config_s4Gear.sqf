@@ -1,7 +1,7 @@
 params [["_entryToGet",""],["_patch",""]];
 
-if(_patch isEqualTo "")exitWith {[]};
-if !(	_patch isEqualTo "cpc_Vest_config")exitWith{[]};
+if(_entryToGet isEqualTo "")exitWith {[]};
+if !(	isClass (configFile >> "cfgPatches" >> "cpc_Vest_config") )exitWith{[]};
 
 private _return = switch tolower _entryToGet do {
   case("lv"):{[]};

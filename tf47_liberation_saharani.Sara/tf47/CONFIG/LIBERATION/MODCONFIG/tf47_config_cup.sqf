@@ -1,7 +1,7 @@
-params [["_entryToGet",""],["_patch",""]];
+params [["_entryToGet",""]];
 
-if(_patch isEqualTo "")exitWith {[]};
-if(	!(isclass (configfile >> "CfgPatches" >> _patch)	)	)exitWith{[]};
+if(_entryToGet isEqualTo "")exitWith {[]};
+if(	!(isclass (configfile >> "CfgPatches" >> "")	)	)exitWith{[]};
 
 private _return = switch tolower _entryToGet do {
   case("lv"):{

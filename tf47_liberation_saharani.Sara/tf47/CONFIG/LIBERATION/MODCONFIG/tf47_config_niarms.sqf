@@ -1,7 +1,7 @@
-params [["_entryToGet",""],["_patch",""]];
+params [["_entryToGet",""]];
 
-if ( _patch isEqualTo "") exitWith {[]};
-if !(	_patch isEqualTo "hlcweapons_core")exitWith{[]};
+if ( _entryToGet isEqualTo "") exitWith {[]};
+if !(	isClass (configFile >> "cfgPatches" >> "hlcweapons_core") )exitWith{[]};
 
 private _return = switch tolower _entryToGet do {
   case("lv"):{[]};

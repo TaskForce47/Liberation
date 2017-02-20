@@ -1,4 +1,5 @@
 [] call compileFinal preprocessFileLineNumbers "scripts\client\misc\init_markers.sqf";
+[] call tf47_arsenal_fnc_preInitArsenal;
 
 if ( typeOf player == "VirtualSpectator_F" ) exitWith {
 	[] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\empty_vehicles_marker.sqf";
@@ -29,7 +30,7 @@ do_load_box = compileFinal preprocessFileLineNumbers "scripts\client\ammoboxes\d
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\sector_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\broadcast_squad_colors.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\disable_remote_sensors.sqf";
-[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\init_arsenal.sqf";
+//[] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\init_arsenal.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\offload_diag.sqf";
 
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\secondary_jip.sqf";

@@ -488,9 +488,9 @@ class TF47_CT_TREE
 	colorMarked[] = {1,0.5,0,0.5}; // Marked item fill color (when multiselectEnabled is 1)
 	colorMarkedSelected[] = {1,0.5,0,1}; // Selected item fill color (when multiselectEnabled is 1)
 
-	sizeEx = (0.022	* safezoneH); // Text size
+	sizeEx = TF47_LINEHEIGTH; // Text size
 	font = "puristaMedium"; // Font from CfgFontFamilies
-	shadow = 1; // Shadow (0 - none, 1 - N/A, 2 - black outline)
+	shadow = 0; // Shadow (0 - none, 1 - N/A, 2 - black outline)
 	colorText[] = {1,1,1,1}; // Text color
 	colorSelectText[] = {1,1,1,1}; // Selected text color (when multiselectEnabled is 0)
 	colorMarkedText[] = {1,1,1,1}; // Selected text color (when multiselectEnabled is 1)
@@ -520,6 +520,13 @@ class TF47_CT_TREE
 
 		color[] = {1,1,1,1}; // Scrollbar color
 	};
+
+	colorPicture[] = {0,0,0,0};
+	colorPictureSelected[] = {0,0,0,0};
+	colorPictureDisabled[] = {0,0,0,0};
+	colorPictureRight[] = {0,0,0,0};
+	colorPictureRightSelected[] = {0,0,0,0};
+	colorPictureRightDisabled[] = {0,0,0,0};
 
 	colorDisabled[] = {0,0,0,0}; // Does nothing, but must be present, otherwise an error is shown
 	colorArrow[] = {0,0,0,0}; // Does nothing, but must be present, otherwise an error is shown

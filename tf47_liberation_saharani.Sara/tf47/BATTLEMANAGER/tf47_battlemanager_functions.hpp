@@ -45,5 +45,6 @@ class tf47_arsenal
 		file	="TF47\BATTLEMANAGER\ARSENAL";
 		class openArsenalDialog {};
 		class updateArsenalList {};
+		class preInitArsenal {};
 	};
 };

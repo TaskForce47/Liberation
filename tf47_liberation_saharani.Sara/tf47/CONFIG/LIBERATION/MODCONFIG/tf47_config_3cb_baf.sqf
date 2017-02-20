@@ -1,7 +1,7 @@
-params [["_entryToGet",""],["_patch",""]];
+params [["_entryToGet",""]];
 
-if(_patch isEqualTo "")exitWith {[]};
-if !(	_patch isEqualTo "UK3CB_BAF_Equipment")exitWith{[]};
+if(_entryToGet isEqualTo "")exitWith {[]};
+if !(	isClass (configFile >> "cfgPatches" >> "UK3CB_BAF_Equipment") )exitWith{[]};
 
 private _return = switch tolower _entryToGet do {
   case("lv"):{
@@ -39,6 +39,7 @@ private _return = switch tolower _entryToGet do {
   };
   case("w"):{
 		[
+      "UK3CB_BAF_Soflam_Laserdesignator",
 			"UK3CB_BAF_L1A1",
 			"UK3CB_BAF_L1A1_Wood",
 			"UK3CB_BAF_L110A1",
