@@ -27,7 +27,6 @@ class tf47_battlemanager
 		class initBattleManager {};
 		class openMainMenuDialog {};
 		class destroyMenu {};
-		class openArsenal {};
 	};
 };
 class tf47_unitTracker
@@ -44,7 +43,10 @@ class tf47_arsenal
 	{
 		file	="TF47\BATTLEMANAGER\ARSENAL";
 		class openArsenalDialog {};
+		class openArsenal {};
 		class updateArsenalList {};
 		class preInitArsenal {};
+		class getGearFromUI {};
+		class setGearFromArray {};
 	};
 };

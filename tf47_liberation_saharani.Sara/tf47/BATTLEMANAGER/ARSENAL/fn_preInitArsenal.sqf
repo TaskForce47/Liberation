@@ -13,10 +13,10 @@
  *
  * Public: yes
 */
-/*
+#define ISSTRING(ARG) ( ARG isEqualType "" )
+#define ISARRAY(ARG) ( ARG isEqualType [] )
+#define EVAL(ARG,LIST) ( ARG = if !(ARG in LIST)then{ "" }else{ ARG } )
 
-['Open',[nil,player,player]] spawn BIS_fnc_arsenal;
-*/
 private _pathToConfigs = "tf47\config\liberation\modconfig\";
 tf47_arsenal_modconfig_rhs_usaf = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_rhs_usaf.sqf");
 tf47_arsenal_modconfig_s4 = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_s4Gear.sqf");
@@ -79,7 +79,7 @@ player setvariable ["bis_addVirtualWeaponCargo_cargo",_cargo];
 
 //*************************************************************************************************************************//
 //*************************************************************************************************************************//
-/*
+
 private _vArsenalList = profileNamespace getVariable [ "bis_fnc_saveInventory_data", [] ];
 private _filteredPlayerGear = [];
 private _checkArray = _items + _weapons + _magazines + _backpacks;
@@ -88,40 +88,78 @@ private _max = (count _vArsenalList)-1;
 if(_max > 0 )then{
 
   for "_i" from 1 to _max step 2 do {
-    private _vArsenalEntry = _vArsenalList select _i;
-    for "_o" from 0 to 9 do {
-      //check subentires for blacklisted items
-      private _subEntry = _vArsenalEntry  select _o;
-      if (_subEntry isEqualType "") then {
-        if !(_subEntry in _checkArray)then{ _vArsenalEntry set [_o,""] };
-      }else{
-        if( _subEntry isEqualType [] )then{
-        for "_p" from 0 to ( (count _subEntry) - 1) do {
-          private _subsubEntry = _subEntry select _p;
-        };
-      };
+
+    (_vArsenalList select _i) params ["_vagear",[]];
+    _vaGear params ["_uniFormA","_vestA","_backpackA","_head","_goggles","_binoc","_primA","_secA","_launcherA","_itemsA"];
+
+    _uniformA params ["_uniform","_itemsInUniform"];
+    if !(_uniform isEqualTo "")then{
+      EVAL(_uniform,_checkArray);
+      {
+        _itemsInUniform set [_forEachIndex, EVAL(_x,_checkArray)];
+      }forEach _itemsInUniform;
     };
+    _uniformA = [_uniform,_itemsInUniform];
+
+    _vestA params ["_vest","_itemsInVest"];
+    if !(_vest isEqualTo "")then{
+      EVAL(_vest,_checkArray);
+      {
+        _itemsInVest set [_forEachIndex, EVAL(_x,_checkArray)];
+      }forEach _itemsInVest;
+    };
+    _vestA = [_vest, _itemsInVest];
+
+    _backpackA params ["_backPack","_itemsInBackpack"];
+    if !(_backPack isEqualTo "")then{
+      EVAL(_backPack,_checkArray);
+      {
+        _itemsInBackpack set [_forEachIndex, EVAL(_x,_checkArray)];
+      }forEach _itemsInBackpack;
+    };
+    _backpackA = [_backPack, _itemsInBackpack];
+
+    if !(_head isEqualTo "")then { EVAL(_head,_checkArray) };
+    if !(_goggles isEqualTo "")then{ EVAL(_goggles,_checkArray) };
+    if !(_binoc isEqualTo "")then{ EVAL(_binoc,_checkArray) };
+
+    _primA params ["_prim","_primAttachments","_primMag"];
+    if !(_prim isEqualTo "")then{
+      if !(_primMag isEqualTo "")then{  EVAL(_primMag,_checkArray) };
+      EVAL(_prim,_checkArray)
+      {
+        _primAttachments set [_forEachIndex, EVAL(_x,_checkArray)];
+      }forEach _primAttachments;
+    };
+    _primA = [_prim,_primAttachments,_primMag];
+
+    _secA params ["_sec","_secAttachments","_secMag"];
+    if !(_sec isEqualTo "")then{
+      if !(_secMag isEqualTo "")then{  EVAL(_secMag,_checkArray) };
+      EVAL(_sec,_checkArray);
+      {
+        _secAttachments set [_forEachIndex, EVAL(_x,_checkArray)];
+      }forEach _secAttachments;
+    };
+    _secA = [_sec, _secAttachments, _secMag];
+
+    _launcherA params ["_launcher","_launcherAttach","_launcherMag"];
+    if !(_launcher isEqualTo "")then{
+      if !(_launcherMag isEqualTo "")then{  EVAL(_launcherMag,_checkArray) };
+      EVAL(_launcher,_checkArray);
+      {
+        _launcherAttach set [_forEachIndex, EVAL(_x,_checkArray)];
+      }forEach _launcherAttach;
+    };
+    _launcherA = [_launcher, _launcherAttach, _launcherMag];
+
+    {
+      _itemsA set [_forEachIndex, EVAL(_x,_checkArray)];
+    }forEach _itemsA;
+
+    _vaGear = [_uniFormA,_vestA,_backpackA,_head,_goggles,_binoc,_primA,_secA,_launcherA,_itemsA];
+    _vArsenalList set [_i, _vaGear];
   };
 };
-/*
-"TF47_GER_G3_BASE",
-[
-	["BWA3_Uniform2_Fleck",
-    ["ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_EarPlugs","ACE_Flashlight_MX991","ACE_MapTools","ACE_morphine","ACE_morphine","ACE_morphine","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_personalAidKit","ACE_tourniquet","ACE_tourniquet"]],
-	[
-    "BWA3_Vest_Rifleman1_Fleck",
-    ["BWA3_DM51A1"]
-  ],
-	["tf_rt1523g_bwmod",
-    ["rhsusf_ANPVS_15","BWA3_MICH_Fleck"]
-  ],
-	"BWA3_Booniehat_Fleck",
-	"UK3CB_BAF_G_Tactical_Black",
-	"Binocular",
-	["hlc_rifle_g3sg1",["","","",""],"hlc_20rnd_762x51_b_G3"],
-	["",["","","",""],""],
-	["",["","","",""],""],
-	["ItemMap","ItemCompass","ACE_Altimeter","ItemGPS"],
-	["AfricanHead_03","ACE_NoVoice",""]
-]
-*/
+profileNameSpace setVariable ["tf47_arsenal_filteredGear",_vArsenalList];
+saveProfileNamespace;

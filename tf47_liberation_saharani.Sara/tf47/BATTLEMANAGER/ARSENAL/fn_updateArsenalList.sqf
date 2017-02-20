@@ -26,13 +26,6 @@ private _tvEntries = [];
       _x params ["_subcategory", "_loadout"];
       if (_toLookFor isEqualTo _loadout) exitWith {_category = _subcategory};
     }forEach _customCategories;
-
-
-
-
-
-
-
   };
   false
 }count _customPlayerGear;
