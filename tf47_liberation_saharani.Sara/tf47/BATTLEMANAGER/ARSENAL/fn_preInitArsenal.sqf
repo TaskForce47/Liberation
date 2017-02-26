@@ -24,6 +24,7 @@ tf47_arsenal_modconfig_milGear = compileFinal preprocessFileLineNumbers (_pathTo
 tf47_arsenal_modconfig_niarms = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_niarms.sqf");
 tf47_arsenal_modconfig_bwa3 = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_bwa3.sqf");
 tf47_arsenal_modconfig_3cb = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_3cb_baf.sqf");
+tf47_arsenal_modconfig_ace3 = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_ace3.sqf");
 
 private _modListToUse =[];
 {
@@ -34,17 +35,16 @@ private _modListToUse =[];
   "tf47_arsenal_modconfig_milGear",
   "tf47_arsenal_modconfig_niarms",
   "tf47_arsenal_modconfig_bwa3",
-  "tf47_arsenal_modconfig_3cb"
+  //"tf47_arsenal_modconfig_3cb",
+  "tf47_arsenal_modconfig_ace3"
 ];
 
 private _weapons = [];
 private _magazines = [];
 {
   {
-    diag_log _x;
     if( isClass (configFile >> "cfgWeapons" >> _x) ) then {
       _weapons pushBack _x;
-      diag_log _x;
       private _mags = getArray (configfile >> "cfgweapons" >> _x >> "magazines" );
       { if !( _x in _magazines )then{ _magazines pushBack _x; }; }forEach _mags;
     };
@@ -65,8 +65,8 @@ private _items = [];
 private _backpacks = [];
 {
   {
-    if( isClass (configFile >> "cfgWeapons" >> _x) ) then {
-      _items pushBack _x;
+    if( isClass (configFile >> "CfgVehicles" >> _x) ) then {
+      _backpacks pushBack _x;
     };
     false
   }count ( ["b"] call (call compile _x) );
@@ -79,84 +79,64 @@ player setvariable ["bis_addVirtualWeaponCargo_cargo",_cargo];
 //*************************************************************************************************************************//
 //*************************************************************************************************************************//
 // does not work as intended .......
+/*
+[
+  "TF47_GER_"TF47_Z",
+  [
+    ["Gen3_aor1",[]],
+    ["cpc_communications_coy",[]],
+    ["fatpack_coy",[]],
+    "",
+    "",
+    "Binocular",
+    ["",["","","",""],""],
+    ["",["","","",""],""],
+    ["",["","","",""],""],
+    ["ItemMap","ItemCompass","tf_microdagr","tf_anprc148jem_1","ItemGPS"],
+    ["AfricanHead_03","ACE_NoVoice",""]
+  ]
+]
+*/
 private _vArsenalList = profileNamespace getVariable [ "bis_fnc_saveInventory_data", [] ];
 private _filteredPlayerGear = [];
 private _checkArray = _items + _weapons + _magazines + _backpacks;
 
-private _max = (count _vArsenalList)-1;
-if(_max > 0 )then{
+{
+  if (_x isEqualType [] )then{
 
-  for "_i" from 1 to _max step 2 do {
+    _x params [  ["_vaGear", [], [[]] ]  ];
+    _vaGear params [
+      ["_uniFormA",   [], [[]] ],
+      ["_vestA",      [], [[]] ],
+      ["_backpackA",  [], [[]] ],
+      ["_head",     ""],
+      ["_goggles",  ""],
+      ["_binoc",    ""],
+      ["_primA",      [], [[]] ],
+      ["_secA",       [], [[]] ],
+      ["_launcherA",  [], [[]] ],
+      ["_itemsA",     [], [[]] ]
+    ];
 
-    (_vArsenalList select _i) params ["_vagear",[]];
-    _vaGear params ["_uniFormA","_vestA","_backpackA","_head","_goggles","_binoc","_primA","_secA","_launcherA","_itemsA"];
+    /*  uniform */
+    _uniformA = [_uniformA,_checkArray] call tf47_arsenal_fnc_evalArrayEntries;
 
-    _uniformA params ["_uniform","_itemsInUniform"];
-    if !(_uniform isEqualTo "")then{
-      EVAL(_uniform,_checkArray);
-      {
-        EVAL(_x,_checkArray);
-        _itemsInUniform set [_forEachIndex, _x];
-      }forEach _itemsInUniform;
-    };
-    _uniformA = [_uniform,_itemsInUniform];
+    /*  vest  */
+    _vestA = [_vestA,_checkArray] call tf47_arsenal_fnc_evalArrayEntries;
 
-    _vestA params ["_vest","_itemsInVest"];
-    if !(_vest isEqualTo "")then{
-      EVAL(_vest,_checkArray);
-      {
-         EVAL(_x,_checkArray);
-        _itemsInVest set [_forEachIndex, _x];
-      }forEach _itemsInVest;
-    };
-    _vestA = [_vest, _itemsInVest];
+    /*  backpack  */
+    _backpackA = [_backpackA,_checkArray] call tf47_arsenal_fnc_evalArrayEntries;
 
-    _backpackA params ["_backPack","_itemsInBackpack"];
-    if !(_backPack isEqualTo "")then{
-      EVAL(_backPack,_checkArray);
-      {
-        EVAL(_x,_checkArray);
-        _itemsInBackpack set [_forEachIndex, _x];
-      }forEach _itemsInBackpack;
-    };
-    _backpackA = [_backPack, _itemsInBackpack];
-
+    /*  other  */
     if !(_head isEqualTo "")then { EVAL(_head,_checkArray) };
     if !(_goggles isEqualTo "")then{ EVAL(_goggles,_checkArray) };
     if !(_binoc isEqualTo "")then{ EVAL(_binoc,_checkArray) };
 
-    _primA params ["_prim","_primAttachments","_primMag"];
-    if !(_prim isEqualTo "")then{
-      if !(_primMag isEqualTo "")then{  EVAL(_primMag,_checkArray) };
-      EVAL(_prim,_checkArray);
-      {
-        EVAL(_x,_checkArray);
-        _primAttachments set [_forEachIndex,_x];
-      }forEach _primAttachments;
-    };
-    _primA = [_prim,_primAttachments,_primMag];
+    _primA = [_primA,_checkArray] call tf47_arsenal_fnc_evalArrayEntries;
 
-    _secA params ["_sec","_secAttachments","_secMag"];
-    if !(_sec isEqualTo "")then{
-      if !(_secMag isEqualTo "")then{  EVAL(_secMag,_checkArray) };
-      EVAL(_sec,_checkArray);
-      {
-        EVAL(_x,_checkArray);
-        _secAttachments set [_forEachIndex,_x];
-      }forEach _secAttachments;
-    };
-    _secA = [_sec, _secAttachments, _secMag];
+    _secA = [_secA,_checkArray] call tf47_arsenal_fnc_evalArrayEntries;
 
-    _launcherA params ["_launcher","_launcherAttach","_launcherMag"];
-    if !(_launcher isEqualTo "")then{
-      if !(_launcherMag isEqualTo "")then{  EVAL(_launcherMag,_checkArray) };
-      EVAL(_launcher,_checkArray);
-      {
-        EVAL(_x,_checkArray);
-        _launcherAttach set [_forEachIndex, _x];
-      }forEach _launcherAttach;
-    };
-    _launcherA = [_launcher, _launcherAttach, _launcherMag];
+    _launcherA = [_launcherA,_checkArray] call tf47_arsenal_fnc_evalArrayEntries;
 
     {
       EVAL(_x,_checkArray);
@@ -164,8 +144,8 @@ if(_max > 0 )then{
     }forEach _itemsA;
 
     _vaGear = [_uniFormA,_vestA,_backpackA,_head,_goggles,_binoc,_primA,_secA,_launcherA,_itemsA];
-    _vArsenalList set [_i, _vaGear];
-  };
+    _x set [_forEachIndex, _vaGear];
+  }forEach _vArsenalList;
 };
 profileNameSpace setVariable ["tf47_arsenal_filteredGear",_vArsenalList];
 saveProfileNamespace;

@@ -47,6 +47,7 @@ class tf47_arsenal
 		class updateArsenalList {};
 		class preInitArsenal {};
 		class getGearFromUI {};
-		class setGearFromArray {};
+		class setGearFromUI {};
+		class evalArrayEntries {};
 	};
 };

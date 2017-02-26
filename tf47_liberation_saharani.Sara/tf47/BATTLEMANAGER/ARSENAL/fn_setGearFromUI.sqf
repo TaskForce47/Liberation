@@ -1,7 +1,8 @@
 /*
 [
 	["BWA3_Uniform2_Fleck",
-    ["ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_EarPlugs","ACE_Flashlight_MX991","ACE_MapTools","ACE_morphine","ACE_morphine","ACE_morphine","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_personalAidKit","ACE_tourniquet","ACE_tourniquet"]],
+    ["ACE_fieldDressing"]
+  ],
 	[
     "BWA3_Vest_Rifleman1_Fleck",
     ["BWA3_DM51A1"]
@@ -19,8 +20,20 @@
 	["AfricanHead_03","ACE_NoVoice",""]
 ]
 */
-params ["_vagear",[]];
-_vaGear params ["_uniFormA","_vestA","_backpackA","_head","_goggles","_binoc","_primA","_secA","_launcherA","_itemsA"];
+params [ ["_index",-1, [0] ] ];
+
+if(_index < 0)exitWith{};
+removeAllWeapons player;
+removeAllItems player;
+removeAllAssignedItems player;
+removeUniform player;
+removeVest player;
+removeBackpack player;
+removeHeadgear player;
+removeGoggles player;
+
+private _entry = (profileNameSpace getVariable ["tf47_arsenal_filteredGear", [] ]) select _index;
+_entry params ["_uniFormA","_vestA","_backpackA","_head","_goggles","_binoc","_primA","_secA","_launcherA","_itemsA"];
 
 _uniformA params ["_uniform","_itemsInUniform"];
 if !(_uniform isEqualTo "")then{

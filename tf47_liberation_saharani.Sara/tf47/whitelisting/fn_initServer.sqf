@@ -43,3 +43,4 @@ TF47_PERMISSION_SERVER_STACK = [];
   [] spawn tf47_whitelist_fnc_processStack;
 
 };
+[1,"[ INFO ] Mission: Task Force 47 Liberation",""] call tf47_whitelist_fnc_reportToDatabase;

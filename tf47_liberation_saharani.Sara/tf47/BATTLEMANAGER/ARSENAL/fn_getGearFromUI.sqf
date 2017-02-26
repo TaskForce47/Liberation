@@ -1,12 +1,13 @@
 #define GEARTREE (	(findDisplay 306031) displayCtrl 306033	)
-private _selectedItem = tvCurSel GEARTREE;
-private _gearName = GEARTREE tvData _selectedItem;
+private _selectedItem = tvCurSel 306033;
+private _gearName = (	(findDisplay 306031) displayCtrl 306033	) tvData _selectedItem;
+systemchat format ["Selected: %1",_gearname];
 private _vArsenalList = profileNamespace getVariable [ "bis_fnc_saveInventory_data", [] ];
 {
   if(_x isEqualType "")then{
     if(_x isEqualto _gearName)exitWith{
-      private _gear = _vArsenalList select (_forEachIndex +1);
-      [_gear] call tf47_arsenal_fnc_setGearFromArray;
+      systemchat format ["Gear found at: %1",_forEachIndex];
+      [_forEachIndex] call tf47_arsenal_fnc_setGearFromArray;
     };
   };
 }forEach _vArsenalList;

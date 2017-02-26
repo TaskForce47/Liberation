@@ -65,7 +65,7 @@ if(_action isEqualType "")then{
 
 if(_action == 0)exitWith{
   diag_log format["------------------------------------------------"];
-  diag_log format[" [ ERROR ] TF47 Ticket System - No Action given!"];
+  diag_log format[" [ ERROR ] DB - No Action given!"];
   diag_log format["------------------------------------------------"];
 };
 
@@ -90,7 +90,7 @@ _query = format [
 ];
 
 diag_log format["-------------------------------------------"];
-diag_log format[" [ INFO ] TF47 Ticket System - DB Query: %1", _query];
+diag_log format[" [ INFO ] DB - Query: %1", _query];
 diag_log format["-------------------------------------------"];
 
 if(_query != 'any' && _query != 'null') then {

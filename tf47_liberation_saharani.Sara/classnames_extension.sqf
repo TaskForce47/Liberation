@@ -1,8 +1,6 @@
 // This file allows you to add content to the mission without conflict issues after each update of the original classnames.sqf
 // If you want more modifications to be supported by this file, lets discuss it on the forums.
 
-
-
 // *** SUPPORT STUFF ***
 
 // Setting a value here will overwrite the original value found from the mission. Do that if youre doing a total conversion.
@@ -18,10 +16,6 @@ opfor_ammobox_transport = "B_Truck_01_ammo_F";							// Default "O_Truck_03_tran
 commander_classname = "B_officer_F";								    // Default "B_officer_F"
 crewman_classname = "B_crew_F";								            // Default "B_crew_F";
 pilot_classname = "B_Helipilot_F";										// Default "B_Helipilot_F";
-
-
-
-
 
 // *** FRIENDLIES ***
 
@@ -41,7 +35,7 @@ light_vehicles_extension = [
 	["B_Quadbike_01_F",0,0,1],
 	["B_Boat_Armed_01_minigun_F",0,30,5],
 	["B_Boat_Transport_01_F", 0,0,3],
-	["Burnes_MK10_1",0,0,5],
+	//["Burnes_MK10_1",0,0,5],
 	["B_SDV_01_F",0,0,3],
 	["ACE_Wheel",0,2,0]
 ];
@@ -53,8 +47,8 @@ heavy_vehicles_extension = [
 
 air_vehicles_overwrite = true;
 air_vehicles_extension = [
-	["JS_JC_FA18E",0,300,20],
-	["JS_JC_FA18F",0,300,20],
+	//["JS_JC_FA18E",0,300,20],
+	//["JS_JC_FA18F",0,300,20],
 	//["B_T_VTOL_01_armed_F",0,1000,20],
 	["B_T_VTOL_01_infantry_F",0,0,10]
 
@@ -131,6 +125,33 @@ support_vehicles_extension = [
     ["Box_East_AmmoVeh_F", 0,100,0]
 ];
 
+private _modListToUse =[];
+{
+  if !(isNil _x) then {_modListToUse pushBack _x; };
+} forEach [
+  "tf47_arsenal_modconfig_rhs_usaf",
+  "tf47_arsenal_modconfig_s4",
+  "tf47_arsenal_modconfig_milGear",
+  "tf47_arsenal_modconfig_niarms",
+  "tf47_arsenal_modconfig_bwa3",
+  //"tf47_arsenal_modconfig_3cb",
+  "tf47_arsenal_modconfig_ace3"
+];
+{
+	light_vehicles_extension = light_vehicles_extension + ( ["lv"] call (call compile _x) );
+}forEach _modListToUse;
+{
+	heavy_vehicles_extension = heavy_vehicles_extension + ( ["hv"] call (call compile _x) );
+}forEach _modListToUse;
+{
+	air_vehicles_extension = air_vehicles_extension + ( ["av"] call (call compile _x) );
+}forEach _modListToUse;
+{
+	support_vehicles_extension = support_vehicles_extension + ( ["sv"] call (call compile _x) );
+}forEach _modListToUse;
+{
+	static_vehicles_extension = static_vehicles_extension + ( ["st"] call (call compile _x) );
+}forEach _modListToUse;
 // All the UAVs must be declared here, otherwise there shall be UAV controlling issues. Namely: you wont be able to control them.
 uavs = [
 	"B_T_UAV_03_F","B_UAV_02_CAS_F","B_UAV_02_F","B_UAV_01_F","B_UGV_01_rcws_F"

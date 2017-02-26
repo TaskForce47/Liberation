@@ -13,12 +13,15 @@ enableSaving [ false, false ];
 TF47_fnc_sendGroundsupport = compileFinal preprocessFileLineNUmbers "scripts\server\patrols\send_groundsupport.sqf";
 
 [] execVM "scripts\server\VCOMAI\init.sqf";
-[] call compileFinal preprocessFileLineNumbers "scripts\shared\atlas_manager.sqf";
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\liberation_functions.sqf";
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\init_sectors.sqf";
 
 [] call compileFinal preprocessFileLineNUmbers "classnames_extension.sqf";
-[] call compileFinal preprocessFileLineNumbers "arsenal.sqf";
+
+
+
+
+
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\classnames.sqf";
 
 [] execVM "GREUH\scripts\GREUH_activate.sqf";
