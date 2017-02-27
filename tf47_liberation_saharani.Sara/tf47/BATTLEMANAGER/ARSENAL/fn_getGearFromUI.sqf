@@ -1,6 +1,6 @@
 #define GEARTREE (	(findDisplay 306031) displayCtrl 306033	)
-private _selectedItem = tvCurSel 306033;
-private _gearName = (	(findDisplay 306031) displayCtrl 306033	) tvData _selectedItem;
+private _selectedItem = tvCurSel GEARTREE; //<----- does not return expected value ?! (actually NO value at all)
+private _gearName = GEARTREE tvText _selectedItem;
 systemchat format ["Selected: %1",_gearname];
 private _vArsenalList = profileNamespace getVariable [ "bis_fnc_saveInventory_data", [] ];
 {
@@ -11,3 +11,4 @@ private _vArsenalList = profileNamespace getVariable [ "bis_fnc_saveInventory_da
     };
   };
 }forEach _vArsenalList;
+true

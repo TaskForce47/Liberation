@@ -75,6 +75,6 @@ class tf47_arsenal_mainMenu: tf47_TeamManager_BackGround
 		h = TF47_MAINFRAME_APP_HEADER_HEIGTH;
 		tooltip = "";
 		text = "Load";
-		action = "[] spawn tf47_arsenal_fnc_getGearFromUI; true";
+		action = "[] call tf47_arsenal_fnc_getGearFromUI; true";
 	};
 };
