@@ -76,7 +76,7 @@ if(_playerid isEqualType ObjNull)then{
 // set some deprecated vars for compability reasons
 private _tickets = [TF47_helper_playerFaction,0] call BIS_fnc_respawnTickets; // any changes should happen befor calling this function
 private _dbChange = 0;
-private _missionID = 1;
+private _missionID = 1; // use something else 
 private _query = "null";
 
 _query = format [

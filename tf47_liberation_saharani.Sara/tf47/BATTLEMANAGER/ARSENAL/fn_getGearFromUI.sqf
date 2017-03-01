@@ -1,4 +1,4 @@
-#include "tf47\tf47_macros.hpp"
+#include "tf47_macros.hpp"
 #define GEARTREE (	(findDisplay 306031) displayCtrl 306033	)
 private _selectedItem = tvCurSel GEARTREE;
 strace_2("TVSEL:", _selectedItem);
@@ -9,7 +9,7 @@ private _vArsenalList = profileNamespace getVariable [ "bis_fnc_saveInventory_da
   if(_x isEqualType "")then{
     if(_x isEqualto _gearName)exitWith{
       strace_2("TVIND:", _forEachIndex);
-      [_forEachIndex] call tf47_arsenal_fnc_setGearFromArray;
+      [_forEachIndex] call tf47_arsenal_fnc_setGearFromUI;
     };
   };
 }forEach _vArsenalList;

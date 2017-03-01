@@ -49,5 +49,6 @@ class tf47_arsenal
 		class getGearFromUI {};
 		class setGearFromUI {};
 		class evalArrayEntries {};
+			class preInitGetGear {};
 	};
 };

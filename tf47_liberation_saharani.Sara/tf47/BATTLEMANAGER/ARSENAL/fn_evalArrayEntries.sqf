@@ -1,4 +1,17 @@
-params ["_entry","_checkArray"];
+params [
+  "_entry",
+  ["_checkArray", []]
+];
+
+if(_checkArray isEqualTo [])then{
+  private _cargo = player getvariable ["bis_addVirtualWeaponCargo_cargo",[]];
+  {
+    private _item = _x;
+    {
+      _checkArray pushBack _x;
+    }forEach _item;
+  }forEach _cargo;
+};
 
 _entry params [
   ["_stringA", "", [""] ],

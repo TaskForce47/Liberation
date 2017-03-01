@@ -12,7 +12,7 @@
 		bool - successflag
 
 	example
-		[97,"lost mk18 found",""] call tf47_whitelist_fnc_reportToDatabase;
+		[player,_vehicle] call tf47_whitelist_fnc_initVehicleTracking;
 
 */
 if !isServer exitWith { /* client does not need to track vehicles */ };
