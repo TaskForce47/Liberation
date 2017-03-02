@@ -56,12 +56,17 @@ if (!_error) then{
   private _dt = diag_tickTime;
   private _val = "extDB3" callExtension format ["0:SQL:SELECT `playerid` FROM gadget_playerlist WHERE `listid` = '%1' AND playerid = '%2'", _listID, _uid];
 
+  //needed with sync db call ?!
   waitUntil {!isNil "_val" || (diag_tickTime - _dt) > 5 };
 
   _return = if( isNil "_val" )then{
     if( (diag_tickTime - _dt) > 5 )then{
       /* timedelay to high, perhaps no connection to db */
       dtrace_3("[ ERROR ] > 'Whitelisst' > DB TIMEOUT FOR: ",_obj,_uid);
+      true
+    };
+  }else{
+    if ( ( (call compile _val) select 1  select 0  select 0) isEqualTo _uid)then{
       true
     }else{
       false
