@@ -33,6 +33,7 @@
     99: mission success
 
 */
+#include "..\tf47_macros.hpp"
 if !isServer exitWith { /* client does not need to do that */ };
 
 params [
@@ -64,23 +65,23 @@ if(_action isEqualType "")then{
 };
 
 if(_action == 0)exitWith{
-  diag_log format["------------------------------------------------"];
-  diag_log format[" [ ERROR ] DB - No Action given!"];
-  diag_log format["------------------------------------------------"];
+  dTrace_1("[ ERROR ] > 'Whitelist' > Invalid database action requested!");
 };
 
 if(_playerid isEqualType ObjNull)then{
     _playerid = if (isPlayer _playerid) then{ getPlayerUID _playerid }else{ "" };
 };
+if(_playerid isEqualTo "")then{
+  dTrace_1("[ INFO ] > 'Whitelist' > No player information passed");
+};
 
 // set some deprecated vars for compability reasons
 private _tickets = [TF47_helper_playerFaction,0] call BIS_fnc_respawnTickets; // any changes should happen befor calling this function
-if (_tickets < 0)then{_tickets = 0}; // in case respawntickets are not used 
+if (_tickets < 0)then{_tickets = 0}; // in case respawntickets are not used
 private _dbChange = 0;
 private _missionID = 1; // use something else
-private _query = "null";
 
-_query = format [
+private _query = format [
   "INSERT INTO gadget_ticketlog (`missionid`, `timestamp`, `action`, `change`, `count`, `arma2uid`, `comment`) VALUES ( '%1', UNIX_TIMESTAMP(), '%2', '%3', '%4', '%5', '%6')",
   _missionID,
   _action,
@@ -90,10 +91,7 @@ _query = format [
   _comment
 ];
 
-diag_log format["-------------------------------------------"];
-diag_log format[" [ INFO ] DB - Query: %1", _query];
-diag_log format["-------------------------------------------"];
+dTrace_2("[ INFO ] > 'Whitelist' > Query: ",_query);
+"extDB3" callExtension format ["1:SQL:%1", _query];
 
-if(_query != 'any' && _query != 'null') then {
-        "extDB3" callExtension format ["1:SQL:%1", _query];
-};
+true
