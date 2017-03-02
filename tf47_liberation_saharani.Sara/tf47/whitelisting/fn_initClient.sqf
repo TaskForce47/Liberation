@@ -48,7 +48,9 @@ publicVariableServer "tf47_whitelist_clientToServerPermissionRequest";
 
 "tf47_whitelist_serverToClientPermissionFeedback" addPublicVariableEventHandler {
   params ["","_vars"];
-  _vars params [ ["_permission",false] ];
+  _vars params [
+		["_permission", false, [false] ]
+	];
   private _specialState = player getVariable ["tf47_whitelist_specialCharacter",0];
 	//set default values
 	TF47_PERMISSION_BUILDER = false;

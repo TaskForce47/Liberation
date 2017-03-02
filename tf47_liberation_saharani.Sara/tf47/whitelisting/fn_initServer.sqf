@@ -18,7 +18,7 @@
 		[] call tf47_whitelist_fnc_initServer;
 
 */
-
+#include "..\tf47_macros.hpp"
 if(isNil "TF47_PERMISSION_INIT")then{ TF47_PERMISSION_INIT = false; };
 if(isNil "TF47_PERMISSION_BUILDER")then{ TF47_PERMISSION_BUILDER = false; };
 if(isNil "TF47_PERMISSION_ARMOUR")then{ TF47_PERMISSION_ARMOUR = false; };
@@ -34,11 +34,33 @@ TF47_PERMISSION_SERVER_STACK = [];
 
 "tf47_whitelist_clientToServerPermissionRequest" addPublicVariableEventHandler {
   params ["","_vars"];
-  _vars params [ ["_obj",objNull], ["_permissionID",0] ];
-  if !(isPlayer _obj) exitWith{};
-  private _val = [_obj, _permissionID] call tf47_whitelist_fnc_getDBinfo;
+  _vars params [
+    ["_obj", objNull, ["",objnull] ],
+    ["_permissionID", 0, [0]]
+  ];
 
-  TF47_PERMISSION_SERVER_STACK pushback [_obj, _permissionID, _val];
+  dtrace_3("[ INFO ] > 'Whitelist' > Request information for: ",_obj,_permissionID);
+
+  if(_obj isEqualType "")then{
+    private _uid = allplayers apply {getPlayerUID _x};
+    private _ind = _obj find _uid;
+    if (_ind < 0)exitWith{
+      dTrace_2("[ ERROR ] > 'Whitelist' > Player UID expected! ",_obj)
+    };
+    _obj = allPlayers select _ind;
+  };
+  if !(isPlayer _obj) exitWith{
+    dTrace_2("[ ERROR ] > 'Whitelist' > Player Object expected! ",_obj)
+  };
+
+  private _val = if( _permissionID > 0)then{
+    [_obj, _permissionID] call tf47_whitelist_fnc_getDBinfo;
+  }else{
+    false;
+  };
+  private _stack = [_obj, _permissionID, _val]
+  dtrace_2("[ INFO ] > 'Whitelist' > Pushback stack to process: ",_stack);
+  TF47_PERMISSION_SERVER_STACK pushback _stack;
 
   [] spawn tf47_whitelist_fnc_processStack;
 

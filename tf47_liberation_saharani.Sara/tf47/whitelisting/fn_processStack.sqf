@@ -24,7 +24,12 @@ private _stackToProcess = +TF47_PERMISSION_SERVER_STACK;
 
 {
   _x params ["_obj", "_permissionID", "_val"];
-  tf47_whitelist_serverToClientPermissionFeedback = _val;
+  tf47_whitelist_serverToClientPermissionFeedback = if !(_val isEqualType true) then{
+    dTrace_3("[ ERROR ] > 'Whitelist' > Invalid permission datatype for object ",_val,_obj);
+    false
+  }else{
+    _val
+  };
   if(_obj != objNull && isPlayer _obj)then{
       (owner _obj) publicVariableClient "tf47_whitelist_serverToClientPermissionFeedback";
   };
