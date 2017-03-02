@@ -24,7 +24,8 @@ if (_builder isEqualTo objNull)then{
    _builder = if(isPlayer _builder)then{ getPlayerUID _builder }else{ "" };
 };
 if !( _objectToWatch isEqualType objNull )exitWith{ /* debugging stuff here */ };
-if ( _objectToWatch isKindOf ["camanbase", (configFile >> "cfgvehicles")] )exitWith{ /* getin EH on MEN ?! nooooope */ };
+if !( _objectToWatch isEqualTo objNull )exitWith{ /* debugging stuff here */ };
+if ( (typeOf _objectToWatch) isKindOf ["CAManBase", (configFile >> "cfgvehicles")] )exitWith{ /* getin EH on MEN ?! nooooope */ };
 
 _objectToWatch setVariable ["TF47_WHITELIST_LASTDRIVER", ["",""] ];// should uid be posted public? any privacy or safty issues?
 

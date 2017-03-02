@@ -18,6 +18,7 @@
 		["1234567",0] call tf47_whitelist_fnc_getDBinfo;
 
 */
+#include "..\tf47_macros.hpp"
 params[
   ["_obj",objNull,[objNull,""]],
   ["_listID",0]
@@ -47,12 +48,13 @@ private _dt = diag_tickTime;
 private _val = "extDB3" callExtension format ["0:SQL:SELECT `playerid` FROM gadget_playerlist WHERE `listid` = '%1' AND playerid = '%2'", _listID, _uid];
 waitUntil {!isNil "_val" || (diag_tickTime - _dt) > 5 };
 
-private _val = if( isNil "_val" )then{
+private _eval = if( isNil "_val" )then{
   if( (diag_tickTime - _dt) > 5 )then{
     /* timedelay to high, perhaps no connection to db */
+    dtrace_2("[ ERROR ] DB TIMEOUT FOR: ",_uid);
     true
   }else{
     false
   };
 };
-_val
+_eval
