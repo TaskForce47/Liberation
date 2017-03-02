@@ -53,16 +53,7 @@ TF47_PERMISSION_SERVER_STACK = [];
     dTrace_2("[ ERROR ] > 'Whitelist' > Player Object expected! ",_obj)
   };
 
-  private _val = if( _permissionID > 0)then{
-    [_obj, _permissionID] call tf47_whitelist_fnc_getDBinfo;
-  }else{
-    false;
-  };
-  private _stack = [_obj, _permissionID, _val]
-  dtrace_2("[ INFO ] > 'Whitelist' > Pushback stack to process: ",_stack);
-  TF47_PERMISSION_SERVER_STACK pushback _stack;
-
-  [] spawn tf47_whitelist_fnc_processStack;
-
+  [_obj, _permissionID] spawn tf47_whitelist_fnc_getDBinfo;
 };
+waitUntil {save_is_loaded //liberation specific progress var};
 [1,"[ INFO ] Mission: Task Force 47 Liberation",""] call tf47_whitelist_fnc_reportToDatabase;
