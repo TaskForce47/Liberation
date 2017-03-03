@@ -52,6 +52,7 @@ manage_ammoboxes 			= compileFinal preprocessFileLineNumbers "scripts\server\sec
 manage_one_sector 			= compileFinal preprocessFileLineNumbers "scripts\server\sector\manage_one_sector.sqf";
 wait_to_spawn_sector 		= compileFinal preprocessFileLineNumbers "scripts\server\sector\wait_to_spawn_sector.sqf";
 
+[] spawn tf47_whitelist_fnc_initServer;
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\startgame.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\server\base\huron_manager.sqf";
 //[] spawn compileFinal preprocessFileLineNumbers "scripts\server\game\apply_saved_scores.sqf";

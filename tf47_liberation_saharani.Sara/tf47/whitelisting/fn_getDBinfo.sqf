@@ -18,7 +18,6 @@
 		["1234567",0] call tf47_whitelist_fnc_getDBinfo;
 
 */
-#include "..\tf47_macros.hpp"
 params[
   ["_obj",objNull,[objNull,""]],
   ["_listID",0]
@@ -32,7 +31,7 @@ if (_obj isEqualType objNull) then{
     _uid = getPlayerUID _obj;
   }else{
     _error  = true;
-    dtrace_2("[ ERROR ] > 'Whitelist' > Invalid permission datatype for object ",_obj);
+    diag_log format ["%1 %2","[ ERROR ] > 'Whitelist' > Invalid permission datatype for object ",_obj];
   };
 };
 if (_obj isEqualType "")then{
@@ -43,13 +42,13 @@ if (_obj isEqualType "")then{
     _obj = allplayers select _ind;
   }else{
     _error = true;
-    dtrace_2("[ ERROR ] > 'Whitelist' > Invalid permission datatype for UID ",_obj);
+    diag_log format ["%1 %2","[ ERROR ] > 'Whitelist' > Invalid permission datatype for UID ",_obj];
   };
 };
 
 if  ( _listID <= 0 || _listID > 2 )then{
   _error = true;
-  dtrace_2("[ ERROR ] > 'Whitelist' > Invalid permissionID for ",_obj);
+  diag_log format ["%1 %2","[ ERROR ] > 'Whitelist' > Invalid permissionID for ",_obj];
 };
 
 if (!_error) then{
@@ -62,7 +61,7 @@ if (!_error) then{
   _return = if( isNil "_val" )then{
     if( (diag_tickTime - _dt) > 5 )then{
       /* timedelay to high, perhaps no connection to db */
-      dtrace_3("[ ERROR ] > 'Whitelisst' > DB TIMEOUT FOR: ",_obj,_uid);
+      diag_log format["%1 %2 %3","[ ERROR ] > 'Whitelist' > DB TIMEOUT FOR: ",_obj,_uid];
       true
     };
   }else{
@@ -76,7 +75,7 @@ if (!_error) then{
 };
 
 private _stack = [_obj, _listID, _return];
-dtrace_2("[ INFO ] > 'Whitelist' > Pushback stack to process: ",_stack);
+diag_log format["%1 %2","[ INFO ] > 'Whitelist' > Pushback stack to process: ",_stack];
 TF47_PERMISSION_SERVER_STACK pushback _stack;
 
 [] spawn tf47_whitelist_fnc_processStack;

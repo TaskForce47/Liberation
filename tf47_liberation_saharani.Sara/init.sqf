@@ -30,8 +30,7 @@ TF47_fnc_sendGroundsupport = compileFinal preprocessFileLineNUmbers "scripts\ser
 
 
 if (isServer) then {
-	[] call tf47_whitelist_fnc_initServer;
-
+	
 	[] call compileFinal preprocessFileLineNumbers "scripts\server\init_server.sqf";
 	[
 	30*60,							// seconds to delete dead Bodies 					(0 means dont delete)
