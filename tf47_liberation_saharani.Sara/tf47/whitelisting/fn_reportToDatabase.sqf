@@ -65,14 +65,14 @@ if(_action isEqualType "")then{
 };
 
 if(_action == 0)exitWith{
-  //dTrace_1("[ ERROR ] > 'Whitelist' > Invalid database action requested!");
+  DTRACE_1("[ ERROR ] > 'Whitelist' > Invalid database action requested!");
 };
 
 if(_playerid isEqualType ObjNull)then{
     _playerid = if (isPlayer _playerid) then{ getPlayerUID _playerid }else{ "" };
 };
 if(_playerid isEqualTo "")then{
-  //dTrace_1("[ INFO ] > 'Whitelist' > No player information passed");
+  DTRACE_1("[ INFO ] > 'Whitelist' > No player information passed");
 };
 
 // set some deprecated vars for compability reasons
@@ -91,7 +91,7 @@ private _query = format [
   _comment
 ];
 
-//dTrace_2("[ INFO ] > 'Whitelist' > Query: ",_query);
+DTRACE_2("[ INFO ] > 'Whitelist' > Query: ",_query);
 "extDB3" callExtension format ["1:SQL:%1", _query];
 
 true

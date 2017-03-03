@@ -37,6 +37,7 @@ _objectToWatch addEventHandler ["GetIn",{
       };
     };
 }];
+
 _objectToWatch addEventHandler ["SeatSwitched",{
     params ["_vehicle","_seatOne","_seatTwo"];
 
@@ -49,6 +50,7 @@ _objectToWatch addEventHandler ["SeatSwitched",{
       };
     };
   }];
+
 _objectToWatch addEventHandler ["killed",{
     params ["_vehicle","_killer","_instigator"];
 

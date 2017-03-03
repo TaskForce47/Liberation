@@ -65,7 +65,7 @@ publicVariableServer "tf47_whitelist_clientToServerPermissionRequest";
     case(3):{ TF47_PERMISSION_ARMOUR = _permission; };
   	default{};
   };
-	if (_specialState != 0 && !_permission)then{
+	if (_specialState > 0 && !_permission)then{
 		// player is not whitelisted for the use of this slot so end mission for him
 		endmission "notAuthorized";
 	};

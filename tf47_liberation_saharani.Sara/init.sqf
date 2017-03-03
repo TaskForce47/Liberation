@@ -16,12 +16,9 @@ TF47_fnc_sendGroundsupport = compileFinal preprocessFileLineNUmbers "scripts\ser
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\liberation_functions.sqf";
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\init_sectors.sqf";
 
+[] call tf47_arsenal_fnc_preInitArsenal; //<- compiling additional modconfigs
+[] call tf47_battlemanager_fnc_initBattleManager;
 [] call compileFinal preprocessFileLineNUmbers "classnames_extension.sqf";
-
-
-
-
-
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\classnames.sqf";
 
 [] execVM "GREUH\scripts\GREUH_activate.sqf";
@@ -30,7 +27,7 @@ TF47_fnc_sendGroundsupport = compileFinal preprocessFileLineNUmbers "scripts\ser
 
 
 if (isServer) then {
-	
+
 	[] call compileFinal preprocessFileLineNumbers "scripts\server\init_server.sqf";
 	[
 	30*60,							// seconds to delete dead Bodies 					(0 means dont delete)

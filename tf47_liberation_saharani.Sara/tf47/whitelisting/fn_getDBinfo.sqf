@@ -52,26 +52,16 @@ if  ( _listID <= 0 || _listID > 2 )then{
 };
 
 if (!_error) then{
-  private _dt = diag_tickTime;
+  // synchron call stops engine until result is retrieved from database
+  // return value for [0:sql:select] -> "[0,[[""]]]"
+  // default return value for db error = "?"
   private _val = "extDB3" callExtension format ["0:SQL:SELECT `playerid` FROM gadget_playerlist WHERE `listid` = '%1' AND playerid = '%2'", _listID, _uid];
-
-  //needed with sync db call ?!
-  waitUntil {!isNil "_val" || (diag_tickTime - _dt) > 5 };
-
-  _return = if( isNil "_val" )then{
-    if( (diag_tickTime - _dt) > 5 )then{
-      /* timedelay to high, perhaps no connection to db */
-      diag_log format["%1 %2 %3","[ ERROR ] > 'Whitelist' > DB TIMEOUT FOR: ",_obj,_uid];
-      true
-    };
+  _val = ( (call compile _val) select 1  select 0  select 0);
+  if ( _val isEqualTo _uid )then{
+    true
   }else{
-    if ( ( (call compile _val) select 1  select 0  select 0) isEqualTo _uid)then{
-      true
-    }else{
-      false
-    };
+    false
   };
-
 };
 
 private _stack = [_obj, _listID, _return];
