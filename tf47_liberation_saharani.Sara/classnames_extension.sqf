@@ -1,8 +1,6 @@
 // This file allows you to add content to the mission without conflict issues after each update of the original classnames.sqf
 // If you want more modifications to be supported by this file, lets discuss it on the forums.
 
-
-
 // *** SUPPORT STUFF ***
 
 // Setting a value here will overwrite the original value found from the mission. Do that if youre doing a total conversion.
@@ -19,10 +17,6 @@ commander_classname = "B_officer_F";								    // Default "B_officer_F"
 crewman_classname = "B_crew_F";								            // Default "B_crew_F";
 pilot_classname = "B_Helipilot_F";										// Default "B_Helipilot_F";
 
-
-
-
-
 // *** FRIENDLIES ***
 
 // Each array below represents one page of the build menu
@@ -38,103 +32,32 @@ infantry_units_extension = [
 light_vehicles_overwrite = true;
 light_vehicles_extension = [
 	["B_T_LSV_01_unarmed_F",0,0,3],
-	["rhsusf_m998_w_2dr",0,0,3],
-	//["rhsusf_m998_d_2dr",0,0,3],
-	["rhsusf_m998_w_s_2dr",0,0,3],
-	//["rhsusf_m998_d_s_2dr",0,0,3],
-	["rhsusf_m998_w_2dr_halftop",0,0,3],
-	//["rhsusf_m998_d_2dr_halftop",0,0,3],
-	["rhsusf_m998_w_s_2dr_halftop",0,0,3],
-	//["rhsusf_m998_d_s_2dr_halftop",0,0,3],
-	["rhsusf_m998_w_2dr_fulltop",0,0,3],
-	//["rhsusf_m998_d_2dr_fulltop",0,0,3],
-	["rhsusf_m998_w_s_2dr_fulltop",0,0,3],
-	//["rhsusf_m998_d_s_2dr_fulltop",0,0,3],
-	["rhsusf_m998_w_4dr",0,0,3],
-	//["rhsusf_m998_d_4dr",0,0,3],
-	["rhsusf_m998_w_s_4dr",0,0,3],
-	//["rhsusf_m998_d_s_4dr",0,0,3],
-	["rhsusf_m998_w_4dr_halftop",0,0,3],
-	//["rhsusf_m998_d_4dr_halftop",0,0,3],
-	["rhsusf_m998_w_s_4dr_halftop",0,0,3],
-	//["rhsusf_m998_d_s_4dr_halftop",0,0,3],
-	["rhsusf_m998_w_4dr_fulltop",0,0,3],
-	//["rhsusf_m998_d_4dr_fulltop",0,0,3],
-	["rhsusf_m998_w_s_4dr_fulltop",0,0,3],
-	//["rhsusf_m998_d_s_4dr_fulltop",0,0,3],
-	["rhsusf_m1025_w",0,0,3],
-	//["rhsusf_m1025_d",0,0,3],
-	["rhsusf_m1025_w_s",0,0,3],
-	//["rhsusf_m1025_d_s",0,0,3],
-	["rhsusf_m1025_w_m2",0,10,3],
-	//["rhsusf_m1025_d_m2",0,10,3],
-	["rhsusf_m1025_w_s_m2",0,10,3],
-	//["rhsusf_m1025_d_s_m2",0,10,3],
-	["rhsusf_m1025_w_mk19",0,25,3],
-	//["rhsusf_m1025_d_Mk19",0,25,3],
-	["rhsusf_m1025_w_s_Mk19",0,25,3],
-	//["rhsusf_m1025_d_s_Mk19",0,25,3],
 	["B_Quadbike_01_F",0,0,1],
-	["rhsusf_mkvsoc",0,50,5],
 	["B_Boat_Armed_01_minigun_F",0,30,5],
 	["B_Boat_Transport_01_F", 0,0,3],
-	["Burnes_MK10_1",0,0,5],
+	//["Burnes_MK10_1",0,0,5],
 	["B_SDV_01_F",0,0,3],
-	["ACE_Wheel",0,2,0],
-	["rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy",0,10,5],
-	["rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy",0,10,5],
-	["rhsusf_M1078A1P2_B_wd_fmtv_usarmy",0,0,5],
-	["rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy",0,0,5],
-	["rhsusf_M1078A1P2_wd_open_fmtv_usarmy",0,0,5],
-	["rhsusf_M1078A1P2_wd_fmtv_usarmy",0,0,5]
+	["ACE_Wheel",0,2,0]
 ];
 
 heavy_vehicles_overwrite = true;
 heavy_vehicles_extension = [
-	["rhsusf_m1a1aim_tuski_wd",0,100,20],
-	["RHS_M2A3_BUSKIII_wd",0,75,15],
-	["rhsusf_m1a1fep_wd",0,100,20],
-	["rhsusf_m1a1fep_od",0,100,20],
-	["ACE_Track",0,2,0],
-	["RHS_M6_wd",0,50,15]
+	["ACE_Track",0,2,0]
 ];
 
 air_vehicles_overwrite = true;
 air_vehicles_extension = [
-	["RHS_AH1Z_wd_CS",0,200,15],
-	["RHS_AH1Z_wd_GS",0,200,15],
-	["RHS_AH1Z_wd",0,200,15],
-	["RHS_A10",0,200,15],
-	["RHS_UH60M",0,0,5],
-	["RHS_MELB_AH6M_M",0,50,5],
-	["RHS_MELB_AH6M_L",0,50,5],
-	["RHS_MELB_AH6M_H",0,50,5],
-	["RHS_MELB_MH6M",0,0,5],
-	["JS_JC_FA18E",0,300,20],
-	["JS_JC_FA18F",0,300,20],
+	//["JS_JC_FA18E",0,300,20],
+	//["JS_JC_FA18F",0,300,20],
 	//["B_T_VTOL_01_armed_F",0,1000,20],
-	["B_T_VTOL_01_infantry_F",0,0,10],
-	["RHS_UH1Y",0,100,5],
-	["RHS_UH1Y_FFAR",0,50,5],
-	["RHS_UH1Y_UNARMED",0,0,5],
-	["RHS_C130J",0,0,10],
-	["rhsusf_CH53E_USMC",0,0,10],
-	["rhsusf_f22",0,100,10]
+	["B_T_VTOL_01_infantry_F",0,0,10]
+
 ];
 
 static_vehicles_overwrite = true;
 static_vehicles_extension = [
 	["B_Mortar_01_F",0,25,0],
-	["ace_box_82mm_mo_combo",0,50,0],
-	["RHS_M119_WD",0,200,0],
-	["RHS_Stinger_AA_pod_WD",0,20,0],
-	["UK3CB_BAF_Static_L111A1_Deployed_High",0,10,0],
-	["UK3CB_BAF_Box_L111A1_Ammo",0,10,0],
-	["UK3CB_BAF_Static_L134A1_Deployed_High",0,10,0],
-	["UK3CB_BAF_Box_L134A1_Ammo",0,10,0],
-	["UK3CB_BAF_Static_L7A2_Deployed_High",0,10,0],
-	["UK3CB_BAF_Box_L7A2_Ammo",0,10,0],
-	["RHS_TOW_TriPod_D",0,30,0]
+	["ace_box_82mm_mo_combo",0,50,0]
 ];
 
 buildings_overwrite = true;
@@ -166,24 +89,24 @@ buildings_extension = [
 	["Land_HelipadCircle_F",0,0,0],
 	["Land_HelipadSquare_F",0,0,0],
 	["Land_Dome_Small_F" ,0,0,0],
-    ["Land_LampHalogen_F",0,0,0],
-    ["Land_SM_01_shelter_wide_F",0,0,0],
-    ["Land_SM_01_shelter_narrow_F",0,0,0],
-    ["Land_PlasticCase_01_small_F",0,0,0],
-    ["Land_PlasticCase_01_medium_F",0,0,0],
-    ["Land_PlasticCase_01_large_F",0,0,0],
+	["Land_LampHalogen_F",0,0,0],
+	["Land_SM_01_shelter_wide_F",0,0,0],
+	["Land_SM_01_shelter_narrow_F",0,0,0],
+	["Land_PlasticCase_01_small_F",0,0,0],
+	["Land_PlasticCase_01_medium_F",0,0,0],
+	["Land_PlasticCase_01_large_F",0,0,0],
 	["Land_MetalCase_01_large_F",0,0,0],
 	["Land_PortableLight_double_F",0,0,0],
 	["Land_PortableLight_single_F",0,0,0],
 	["Land_Razorwire_F",0,0,0],
 	["Land_TentHangar_V1_F",0,0,0],
 	["Land_CncBarrier_F",0,0,0],
-    ["Land_CncBarrier_stripes_F", 0,0,0],
-    ["Land_CncBarrierMedium_F", 0,0,0],
-    ["Land_CncBarrierMedium4_F", 0,0,0],    
-    ["Land_CncShelter_F", 0,0,0],
-    ["Land_CncWall1_F", 0,0,0],
-    ["Land_CncWall4_F", 0,0,0],
+	["Land_CncBarrier_stripes_F", 0,0,0],
+	["Land_CncBarrierMedium_F", 0,0,0],
+	["Land_CncBarrierMedium4_F", 0,0,0],
+	["Land_CncShelter_F", 0,0,0],
+	["Land_CncWall1_F", 0,0,0],
+	["Land_CncWall4_F", 0,0,0],
 	["PortableHelipadLight_01_blue_F",0,0,0],
 	["Land_CampingTable_F", 0,0,0],
 	["Land_CampingChair_V2_F",0,0,0]
@@ -195,7 +118,6 @@ support_vehicles_extension = [
     [FOB_box_typename, 0,500,0],
     [FOB_truck_typename, 0,500,5],
     ["B_Truck_01_medical_F", 0,100,5],
-    ["RHS_UH60M_MEV_d", 0,100,10],
     ["B_Truck_01_Repair_F", 0,100,5],
     ["B_Truck_01_fuel_F", 0,100,5],
     ["B_Truck_01_ammo_F", 0,100,5],
@@ -203,6 +125,33 @@ support_vehicles_extension = [
     ["Box_East_AmmoVeh_F", 0,100,0]
 ];
 
+private _modListToUse =[];
+{
+  if !(isNil _x) then {_modListToUse pushBack _x; };
+} forEach [
+  "tf47_arsenal_modconfig_rhs_usaf",
+  "tf47_arsenal_modconfig_s4",
+  "tf47_arsenal_modconfig_milGear",
+  "tf47_arsenal_modconfig_niarms",
+  "tf47_arsenal_modconfig_bwa3",
+  //"tf47_arsenal_modconfig_3cb",
+  "tf47_arsenal_modconfig_ace3"
+];
+{
+	light_vehicles_extension = light_vehicles_extension + ( ["lv"] call (call compile _x) );
+}forEach _modListToUse;
+{
+	heavy_vehicles_extension = heavy_vehicles_extension + ( ["hv"] call (call compile _x) );
+}forEach _modListToUse;
+{
+	air_vehicles_extension = air_vehicles_extension + ( ["av"] call (call compile _x) );
+}forEach _modListToUse;
+{
+	support_vehicles_extension = support_vehicles_extension + ( ["sv"] call (call compile _x) );
+}forEach _modListToUse;
+{
+	static_vehicles_extension = static_vehicles_extension + ( ["st"] call (call compile _x) );
+}forEach _modListToUse;
 // All the UAVs must be declared here, otherwise there shall be UAV controlling issues. Namely: you wont be able to control them.
 uavs = [
 	"B_T_UAV_03_F","B_UAV_02_CAS_F","B_UAV_02_F","B_UAV_01_F","B_UGV_01_rcws_F"
@@ -243,11 +192,11 @@ blufor_squad_para = [
 
 
 
-// *** BADDIES *** // *** ENEMY *** // 
+// *** BADDIES *** // *** ENEMY *** //
 
 /* ------- ADDED BY TF47 ------- */
 OpferAAArray = [
-	"rhs_zsu234_aa"	
+	"rhs_zsu234_aa"
 ];
 
 
@@ -627,7 +576,7 @@ ai_resupply_sources_extension = [
 vehicle_repair_sources_extension = [
 ];
 vehicle_rearm_sources_extension = [
-	
+
 ];
 vehicle_refuel_sources_extension = [
 

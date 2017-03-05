@@ -23,7 +23,8 @@
 		na
 
 */
-
+if( isDedicated || !hasInterface)exitWith{};
+	
 TF47_BATTLEMANAGER_GROUPMANAGER		=	true;
 TF47_BATTLEMANAGER_GROUPTRACKER		= true;
 TF47_BATTLEMANAGER_SAFEDISTANCE		=	800;

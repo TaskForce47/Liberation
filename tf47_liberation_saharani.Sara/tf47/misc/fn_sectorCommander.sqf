@@ -14,12 +14,13 @@
  * Public: yes
 */
 if !isServer exitWith {};
+waitUntil {!isNil "GRLIB_all_fobs"};
 if isNil "tf47_mission_sectorlimit" then { tf47_mission_sectorlimit = [] };
 
 // get nearest opfor sectors
 private _fobs = +GRLIB_all_fobs;
 _fobs pushBack (getMarkerPos "respawn_west");
-private _sectors = +sectors_allSectors
+private _sectors = +sectors_allSectors;
 _sectors = _sectors - blufor_sectors; //marker
 private _sectorDis = _sectors apply {
 	//get shortest distance to any fob or spawnpoint
@@ -30,13 +31,13 @@ private _sectorDis = _sectors apply {
 };
 _sectorDis sort true;
 _sectorDis resize 3;
-_sectorDis apply { _x params ["_distance","_mkr"]; _mkr};
+_sectorDis = _sectorDis apply { _x params ["_distance","_mkr"]; _mkr};
 
 //check wether global array needs an update or just do nothing
 private _oldSectors = +tf47_mission_sectorlimit;
 tf47_mission_sectorlimit = [];
 {
-	if _x in blufor_sectors {
+	if _x in blufor_sectors then {
 		//cleanup old mapmarker
 		deleteMarker format ["tf47_mission_command_%1", _x];
 	} else {
@@ -44,8 +45,9 @@ tf47_mission_sectorlimit = [];
 	};
 } forEach _oldSectors;
 private _n = 0;
-while {count tf47_mission_sectorlimit < 3 }then{
+while {count tf47_mission_sectorlimit < 3 }do{
 	tf47_mission_sectorlimit pushBack (_sectorDis select _n);
+	_n = _n +1;
 };
 
 //create marker to visualize the next target
