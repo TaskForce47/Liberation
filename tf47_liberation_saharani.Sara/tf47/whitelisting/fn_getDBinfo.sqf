@@ -18,6 +18,7 @@
 		["1234567",0] call tf47_whitelist_fnc_getDBinfo;
 
 */
+#include "..\tf47_macros.hpp"
 params[
   ["_obj",objNull,[objNull,""]],
   ["_listID",0]
@@ -46,18 +47,29 @@ if (_obj isEqualType "")then{
   };
 };
 
-if  ( _listID <= 0 || _listID > 2 )then{
+if  ( _listID < 0 )then{
   _error = true;
-  diag_log format ["%1 %2","[ ERROR ] > 'Whitelist' > Invalid permissionID for ",_obj];
+  diag_log format ["%1 %2 %3","[ ERROR ] > 'Whitelist' > Invalid permissionID for ",_obj,_listID];
 };
-
+if  ( _listID == 0 )then{
+  _error = true;
+};
+//custom id for builder ...
+if (_listID == 99)then{
+  _error = true;
+  DTRACE_3("[ INFO ] > 'Whitelist' > Retrieving information for: ",_uid,_listID);
+  if(_uid in TF47_BUILDER_WHITELIST)then{
+    _return = true;
+  };
+};
 if (!_error) then{
   // synchron call stops engine until result is retrieved from database
   // return value for [0:sql:select] -> "[0,[[""]]]"
   // default return value for db error = "?"
+  DTRACE_3("[ INFO ] > 'Whitelist' > Retrieving information for: ",_uid,_listID);
   private _val = "extDB3" callExtension format ["0:SQL:SELECT `playerid` FROM gadget_playerlist WHERE `listid` = '%1' AND playerid = '%2'", _listID, _uid];
   _val = ( (call compile _val) select 1  select 0  select 0);
-  if ( _val isEqualTo _uid )then{
+  _return = if ( _val isEqualTo _uid )then{
     true
   }else{
     false

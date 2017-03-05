@@ -155,7 +155,7 @@ if !( _liberation_savegame isEqualTo [] ) then {
 		if ( _nextclass in classnames_to_save ) then {
 
 			//_nextbuilding = _nextclass createVehicle _nextpos;
-			private _nextbuilding = createVehicle [_nextclass, _nextpos, [], 0, "NONE"]; //does not work!
+			private _nextbuilding = createVehicle [_nextclass, _nextpos, [], 0, "NONE"];
 			_nextbuilding setVectorUp [0,0,1];
 			_nextbuilding setPosATL _nextpos;
 			_nextbuilding setdir _nextdir;
@@ -169,15 +169,12 @@ if !( _liberation_savegame isEqualTo [] ) then {
 			if ( _nextclass in building_classnames ) then {
 				_nextbuilding setVariable [ "GRLIB_saved_pos", _nextpos, false ];
 			} else {
-				if (_nextclass isKindOf "AIR") then {
-					_EHkilledIdx2 = _nextbuilding addEventHandler ["Hit", {  (format ["[INFORMATION] Vehicle: %1 ( %2 )  was hit by %3 ( %4 ) . instigator = %5", (_this select 0), typeOf (_this select 0), (_this select 1),typeOf (_this select 1),  (_this select 3), typeOf (vehicle (_this select 3)) ]) remoteExec ["diag_log", 2, false]; }];
-				};
-				_EHkilledIdx1 = _nextbuilding addEventHandler ["killed", { (format ["[INFORMATION] Vehicle: %1 ( %2 ) was killed by %3 ( %4 ) . instigator = %5 ( %6 ) ", (_this select 0), (getText (configfile >> "CfgVehicles" >> typeOf (_this select 0) >> "displayName")) , (_this select 1), (getText (configfile >> "CfgVehicles" >> typeOf typeOf (_this select 1) >> "displayName")), (_this select 2), (getText (configfile >> "CfgVehicles" >> typeOf typeOf (_this select 2) >> "displayName"))]) remoteExec ["diag_log", 2, false]; }];
+					["",_nextbuilding] call tf47_whitelist_fnc_initVehicleTracking;
 			};
 
 			if (_nextclass == "TargetBootcampHuman_F") then {
-				_vehicle setVariable ["rscattributetargetpopupdelay", 10, true];
-				_vehicle setvariable ["rscattributetargettexture_textureindex", 2];
+				_nextbuilding setVariable ["rscattributetargetpopupdelay", 10, true];
+				_nextbuilding setvariable ["rscattributetargettexture_textureindex", 2];
 			};
 
 			if (_nextclass == "TargetBootcampHuman_F") then {

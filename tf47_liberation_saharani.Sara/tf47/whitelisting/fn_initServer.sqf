@@ -18,7 +18,7 @@
 		[] call tf47_whitelist_fnc_initServer;
 
 */
-//#include "..\tf47_macros.hpp"
+#include "..\tf47_macros.hpp"
 if(isNil "TF47_PERMISSION_INIT")then{ TF47_PERMISSION_INIT = false; };
 if(isNil "TF47_PERMISSION_BUILDER")then{ TF47_PERMISSION_BUILDER = false; };
 if(isNil "TF47_PERMISSION_ARMOUR")then{ TF47_PERMISSION_ARMOUR = false; };
@@ -39,22 +39,27 @@ TF47_PERMISSION_SERVER_STACK = [];
     ["_permissionID", 0, [0]]
   ];
 
-  //dtrace_3("[ INFO ] > 'Whitelist' > Request information for: ",_obj,_permissionID);
+  DTRACE_3("[ INFO ] > 'Whitelist' > Request information for: ",_obj,_permissionID);
 
   if(_obj isEqualType "")then{
     private _uid = allplayers apply {getPlayerUID _x};
     private _ind = _obj find _uid;
     if (_ind < 0)exitWith{
-      //dTrace_2("[ ERROR ] > 'Whitelist' > Player UID expected! ",_obj);
+      DTRACE_2("[ ERROR ] > 'Whitelist' > Player UID expected! ",_obj);
     };
     _obj = allPlayers select _ind;
   };
   if !(isPlayer _obj) exitWith{
-    //dTrace_2("[ ERROR ] > 'Whitelist' > Player Object expected! ",_obj);
+    DTRACE_2("[ ERROR ] > 'Whitelist' > Player Object expected! ",_obj);
   };
 
   [_obj, _permissionID] spawn tf47_whitelist_fnc_getDBinfo;
 };
+
+"tf47_whitelist_registerVehicle" addPublicVariableEventHandler {
+  params ["","_vars"];
+  _vars call tf47_whitelist_fnc_initVehicleTracking;
+};
+
 waitUntil {!isnil "save_is_loaded"};
-waitUntil { save_is_loaded /* liberation specific progress var */};
 [1,"[ INFO ] Mission: Task Force 47 Liberation",""] call tf47_whitelist_fnc_reportToDatabase;

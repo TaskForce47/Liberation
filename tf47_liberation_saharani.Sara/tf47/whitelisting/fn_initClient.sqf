@@ -42,6 +42,8 @@ tf47_whitelist_clientToServerPermissionRequest = switch (	_specialState )do {
 	case(1):{ [player, 1] };
   case(2):{ [player, 1] };
   case(3):{ [player, 2] };
+	case(4):{ [player, 99] };
+	case(5):{ [player, 3] };
 	default{ [player, 0] };
 };
 publicVariableServer "tf47_whitelist_clientToServerPermissionRequest";
@@ -63,6 +65,8 @@ publicVariableServer "tf47_whitelist_clientToServerPermissionRequest";
   	case(1):{ TF47_PERMISSION_HELO = _permission; };
     case(2):{ TF47_PERMISSION_PLANE = _permission; };
     case(3):{ TF47_PERMISSION_ARMOUR = _permission; };
+		case(4):{ TF47_PERMISSION_BUILDER =  _permission; };
+		case(5):{ TF47_PERMISSION_JTFC =  _permission; TF47_PERMISSION_BUILDER =  _permission; };
   	default{};
   };
 	if (_specialState > 0 && !_permission)then{
@@ -107,6 +111,7 @@ player addEventHandler ["GetInMan",{
 
 	};
 }];
+
 player addEventHandler ["SeatSwitchedMan",{
 	params ["_unit","","_veh"];
 
@@ -142,4 +147,13 @@ player addEventHandler ["SeatSwitchedMan",{
 		};
 
 	};
+}];
+
+tf47_debug_killed = 0;
+player addEventHandler ["Killed",
+{
+	if(tf47_debug_killed > 0)then{
+		[	[5, (name player),""],	{	_this call tf47_whitelist_fnc_reportToDatabase;	}	] remoteExec ["call",2,false];
+	};
+	tf47_debug_killed = tf47_debug_killed  +1;
 }];

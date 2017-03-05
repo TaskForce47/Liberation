@@ -230,21 +230,15 @@ while { true } do {
 				deleteVehicle _vehicle;
 				sleep 0.1;
 				_vehicle = _classname createVehicle _truepos;
-				(format [
-					"[INFORMATION] %1 ( %2 ) build %3 at %4 at %5",
-					name player,
-					getPlayerUID player,
-					_classname,
-					mapGridPosition (getPos player),
-					daytime]) remoteExec ["diag_log", 2, false];
-					[player,_vehicle] remoteExec ["tf47_whitelist_fnc_initVehicleTracking", 2, false];
 
-				if (_classname isKindOf "AllVehicles") then {
-					if (_classname isKindOf "AIR") then {
-						_EHkilledIdx2 = _vehicle addEventHandler ["Hit", {  (format ["[INFORMATION] Vehicle: %1 ( %2 )  was hit by %3 ( %4 ) . instigator = %5", (_this select 0), typeOf (_this select 0), (_this select 1),typeOf (_this select 1),  (_this select 3), typeOf (vehicle (_this select 3)) ]) remoteExec ["diag_log", 2, false]; }];
-					};
-					_EHkilledIdx1 = _vehicle addEventHandler ["killed", { (format ["[INFORMATION] Vehicle: %1 ( %2 ) was killed by %3 ( %4 ) . instigator = %5 ( %6 ) ", (_this select 0),  typeOf (_this select 0), (_this select 1),typeOf (_this select 1), (_this select 2), typeOf (_this select 2)]) remoteExec ["diag_log", 2, false]; }];
-				};
+
+				
+				///////////////////////////////////////////////////////////////
+				tf47_whitelist_registerVehicle = [player, _vehicle];
+				publicVariableServer "tf47_whitelist_registerVehicle";
+				///////////////////////////////////////////////////////////////
+
+
 
 				if (_classname == "TargetBootcampHuman_F") then {
 					_vehicle setVariable ["rscattributetargetpopupdelay", 10, true];
