@@ -5,6 +5,7 @@
 */
 
 enableSaving [ false, false ];
+[] call tf47_misc_fnc_initModConfigs;
 [] call compileFinal preprocessFileLineNUmbers "scripts\shared\config.sqf";	// all missionparameters
 
 // make blacklistmarker invisible

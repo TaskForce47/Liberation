@@ -30,7 +30,6 @@ while { true } do {
 				((count crew _x) == 0 || (typeof _x) in uavs) &&
 				((locked _x == 0 || locked _x == 1))) || ( typeof _x in _building_classnames )) &&
 				(alive _x) &&
-				(_x distance lhd > 1000) &&
 				(_x distance ( [] call F_getNearestFob) < GRLIB_fob_range ) &&
 				( getObjectType _x >= 8 ) } ]
 			call BIS_fnc_conditionalSelect;
