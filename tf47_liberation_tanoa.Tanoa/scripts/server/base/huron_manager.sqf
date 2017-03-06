@@ -16,7 +16,7 @@ while { true } do {
 	if ( firstloop && !isNull _savedhuron ) then {
 		huron = _savedhuron;
 	} else {
-		if ( GRLIB_isAtlasPresent ) then {
+		if ( false ) then {
 			huron = huron_typename createVehicle (getmarkerpos "ghost_spot");
 			huron enableSimulationGlobal false;
 			huron allowdamage false;
