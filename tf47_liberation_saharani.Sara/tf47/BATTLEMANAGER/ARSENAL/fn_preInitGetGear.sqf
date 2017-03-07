@@ -1,6 +1,4 @@
-#define ISSTRING(ARG) ( ARG isEqualType "" )
-#define ISARRAY(ARG) ( ARG isEqualType [] )
-#define EVAL(ARG,LIST) ARG = if !(ARG in LIST)then{ "" }else{ ARG }
+#include "tf47_macros.hpp"
 
 private _vArsenalList = profileNamespace getVariable [ "bis_fnc_saveInventory_data", [] ];
 private _filteredPlayerGear = [];

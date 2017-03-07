@@ -52,4 +52,7 @@ private _backpacks = [];
 
 private _cargo = [_items,_weapons,_magazines,_backpacks];
 player setvariable ["bis_addVirtualWeaponCargo_cargo",_cargo];
+
+["Preload"] call BIS_fnc_arsenal;
+
 [] call tf47_arsenal_fnc_preInitGetGear;
