@@ -6,8 +6,8 @@ class tf47_arsenal_mainMenu: tf47_TeamManager_BackGround
 		tf47_arsenal_header,
 		tf47_arsenal_loadout_tree, //306033
 		tf47_arsenal_back,
-		tf47_arsenal_openVA
-		//tf47_arsenal_loadSelGear
+		tf47_arsenal_openVA,
+		tf47_arsenal_loadSelGear
 	};
 
 	///////////////////////////////////////////////////////////////
