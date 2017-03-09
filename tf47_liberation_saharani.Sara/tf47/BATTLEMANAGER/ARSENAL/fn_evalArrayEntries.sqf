@@ -21,16 +21,15 @@ params [
   ["_entry", [] ],
   ["_checkArray", [] ]
 ];
-
+private _return = +_entry;
 {
   private _subentry = _x;
   if(_subentry isEqualType "")then{
-    EVAL(_subentry,_checkArray);
-    _entry set [_forEachIndex,_subentry];
+    _subentry = EVAL( _subentry ,_checkArray);
   }else{
     _subentry = [_subentry, _checkArray] call tf47_arsenal_fnc_evalArrayEntries;
-    _entry set [_forEachIndex,_subentry];
   };
+  _return set [ _forEachIndex, _subentry ];
 }forEach _entry;
 
-_entry
+_return

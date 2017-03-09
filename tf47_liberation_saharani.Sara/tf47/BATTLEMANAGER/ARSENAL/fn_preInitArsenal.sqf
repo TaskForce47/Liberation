@@ -14,6 +14,7 @@
  * Public: yes
 */
 #include "tf47_macros.hpp"
+waitUntil {!isNil "tf47_arsenal_modconfigs"};
 private _modListToUse = +tf47_arsenal_modconfigs;
 
 private _weapons = [];

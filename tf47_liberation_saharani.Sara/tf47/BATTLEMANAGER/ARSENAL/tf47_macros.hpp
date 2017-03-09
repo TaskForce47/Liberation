@@ -7,4 +7,4 @@
 
 #define ISSTRING(ARG) ( ARG isEqualType "" )
 #define ISARRAY(ARG) ( ARG isEqualType [] )
-#define EVAL(ARG,LIST) ARG = if !(ARG in LIST)then{ "" }else{ ARG }
+#define EVAL(ARG,LIST) if !((toLower ARG) in LIST)then{ "" }else{ ARG }

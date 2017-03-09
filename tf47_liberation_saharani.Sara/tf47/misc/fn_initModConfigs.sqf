@@ -22,6 +22,8 @@ tf47_arsenal_modconfig_bwa3 = compileFinal preprocessFileLineNumbers (_pathToCon
 tf47_arsenal_modconfig_3cb = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_3cb_baf.sqf");
 tf47_arsenal_modconfig_ace3 = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_ace3.sqf");
 tf47_arsenal_modconfig_tfar = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_tfar.sqf");
+tf47_arsenal_modconfig_bwkk = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_bwKleiderkammer.sqf");
+tf47_arsenal_modconfig_hafm = compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_hafm.sqf");
 
 tf47_arsenal_modconfigs =[];
 {
@@ -37,7 +39,9 @@ tf47_arsenal_modconfigs =[];
   "tf47_arsenal_modconfig_bwa3",
   //"tf47_arsenal_modconfig_3cb",
   "tf47_arsenal_modconfig_ace3",
-  "tf47_arsenal_modconfig_tfar"
+  "tf47_arsenal_modconfig_tfar",
+  "tf47_arsenal_modconfig_bwkk",
+  "tf47_arsenal_modconfig_hafm"
 ];
 call compileFinal preprocessFileLineNumbers (_pathToConfigs + "tf47_config_radiomodsettings.sqf");
 true

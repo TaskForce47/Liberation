@@ -13,7 +13,7 @@ private _return = switch tolower _entryToGet do {
       ["NH90Marine",0,0,5],
       ["EC635_BW",0,20,5],
       ["EC635_AT_BW",0,50,5],
-      ["EC635_Unarmed_BW",0,50,5],
+      ["EC635_Unarmed_BW",0,50,5]
     ]
   };
   case("sv"):{[]};
