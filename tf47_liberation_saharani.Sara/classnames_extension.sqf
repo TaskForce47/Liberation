@@ -125,18 +125,7 @@ support_vehicles_extension = [
     ["Box_East_AmmoVeh_F", 0,100,0]
 ];
 
-private _modListToUse =[];
-{
-  if !(isNil _x) then {_modListToUse pushBack _x; };
-} forEach [
-  "tf47_arsenal_modconfig_rhs_usaf",
-  "tf47_arsenal_modconfig_s4",
-  "tf47_arsenal_modconfig_milGear",
-  "tf47_arsenal_modconfig_niarms",
-  "tf47_arsenal_modconfig_bwa3",
-  //"tf47_arsenal_modconfig_3cb",
-  "tf47_arsenal_modconfig_ace3"
-];
+private _modListToUse = +tf47_arsenal_modconfigs;
 {
 	light_vehicles_extension = light_vehicles_extension + ( ["lv"] call (call compile _x) );
 }forEach _modListToUse;

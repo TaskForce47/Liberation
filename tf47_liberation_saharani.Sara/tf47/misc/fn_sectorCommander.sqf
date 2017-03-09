@@ -30,7 +30,7 @@ private _sectorDis = _sectors apply {
 	[ _dis select 0, _x ] //smallest value
 };
 _sectorDis sort true;
-_sectorDis resize 3;
+_sectorDis resize 5;
 _sectorDis = _sectorDis apply { _x params ["_distance","_mkr"]; _mkr};
 
 //check wether global array needs an update or just do nothing
@@ -45,7 +45,7 @@ tf47_mission_sectorlimit = [];
 	};
 } forEach _oldSectors;
 private _n = 0;
-while {count tf47_mission_sectorlimit < 3 }do{
+while {count tf47_mission_sectorlimit < 5 }do{
 	tf47_mission_sectorlimit pushBack (_sectorDis select _n);
 	_n = _n +1;
 };

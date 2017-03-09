@@ -50,7 +50,7 @@ class tf47_TeamManager_mainMenu: tf47_TeamManager_BackGround
 		y = TF47_MAINFRAME_INNER_ANCHOR_Y + TF47_MAINFRAME_APP_HEADER_HEIGTH + 3*TF47_MAINFRAME_INNER_BOARDER + 2*TF47_MAINMENU_APP_SIZE_Y;
 		w = TF47_MAINFRAME_INNER_WIDTH;
 		h = TF47_MAINMENU_APP_SIZE_Y;
-		action = "[] spawn tf47_arsenal_fnc_openArsenalDialog;";
+		action = "closeDialog 0; [] spawn tf47_arsenal_fnc_openArsenal; true";
 		tooltip = "Customize your loadout";
 	};
 

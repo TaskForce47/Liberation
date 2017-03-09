@@ -32,6 +32,7 @@ allowFunctionsLog = 0;
 #include "ui\liberation_notifications.hpp"
 #include "ACE3\aceSettings.hpp"
 #include "tf47\battlemanager\tf47_battlemanager_defines.hpp"
+#include "tf47\tf47_respawnLoadouts.hpp"
 class cfgfunctions
 {
 	#include "tf47\whitelisting\tf47_cfgfunctions.hpp"
@@ -76,7 +77,7 @@ class CfgDebriefing
     };
 };
 
-respawnTemplates[] = {"MenuPosition", "Tickets"};
+respawnTemplates[] = {"MenuPosition", "Tickets", "MenuInventory"};
 
 class CfgTaskEnhancements
 {
