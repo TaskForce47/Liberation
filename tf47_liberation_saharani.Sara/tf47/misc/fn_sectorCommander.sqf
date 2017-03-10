@@ -10,18 +10,23 @@
  * nothing
  *
  * Example:
+ * [] call tf47_misc_fnc_sectorCommander;
  *
  * Public: yes
 */
 if !isServer exitWith {};
 waitUntil {!isNil "GRLIB_all_fobs"};
-if isNil "tf47_mission_sectorlimit" then { tf47_mission_sectorlimit = [] };
+if (isNil "tf47_mission_sectorlimit") then { tf47_mission_sectorlimit = [] };
 
 // get nearest opfor sectors
 private _fobs = +GRLIB_all_fobs;
 _fobs pushBack (getMarkerPos "respawn_west");
-private _sectors = +sectors_allSectors;
-_sectors = _sectors - blufor_sectors; //marker
+private _sectors = [];
+{
+	if !(_x in blufor_sectors)then{
+		_sectors pushBack _x;
+	};
+}forEach sectors_allSectors;
 private _sectorDis = _sectors apply {
 	//get shortest distance to any fob or spawnpoint
 	private _pos = getmarkerPos _x;
@@ -31,7 +36,7 @@ private _sectorDis = _sectors apply {
 };
 _sectorDis sort true;
 _sectorDis resize 5;
-_sectorDis = _sectorDis apply { _x params ["_distance","_mkr"]; _mkr};
+_sectorDis = _sectorDis apply { _x select 1};
 
 //check wether global array needs an update or just do nothing
 private _oldSectors = +tf47_mission_sectorlimit;

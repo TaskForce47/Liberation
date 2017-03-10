@@ -34,6 +34,10 @@ private _items = [];
   {
     if( isClass (configFile >> "cfgWeapons" >> _x) ) then {
       _items pushBack _x;
+    }else{
+      if ( isClass (configFile >> "cfgGlasses" >> _x) )then{
+        _items pushBack _x;
+      };
     };
     false
   }count ( ["i"] call (call compile _x) );
