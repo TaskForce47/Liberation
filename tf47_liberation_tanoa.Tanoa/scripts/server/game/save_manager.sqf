@@ -270,12 +270,15 @@ server_save_inProgress = false;
 		profileNamespace setVariable [ GRLIB_save_key, nil ];
 		saveProfileNamespace;
 		"missionWON" call BIS_fnc_endMissionServer;
+		[99,"Mission: Task Force 47 Liberation",""] call tf47_whitelist_fnc_reportToDatabase;
+
 	};
 	if( [TF47_helper_playerFaction,0] call BIS_fnc_respawnTickets == 0)exitWith{
 		[_this select 1] call CBA_fnc_removePerFrameHandler;
 		profileNamespace    setVariable [ GRLIB_save_key ,nil];
 		saveProfileNamespace;
 		"missionFailed" call bis_fnc_endmissionServer;
+		[98,"Mission: Task Force 47 Liberation",""] call tf47_whitelist_fnc_reportToDatabase;
 	};
 	if( time > (4*60*60) )then{
 		if(count (allPlayers - entities "headlessclients_f") == 0 )then{

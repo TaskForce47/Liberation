@@ -42,6 +42,7 @@ if (isServer) then {
 	reset_battlegroups_ai = true; publicVariable "reset_battlegroups_ai";
 
 	blufor_sectors pushback _liberated_sector; publicVariable "blufor_sectors";
+	[] call tf47_misc_fnc_sectorCommander;
 	stats_sectors_liberated = stats_sectors_liberated + 1;
 
 	[] call recalculate_caps;

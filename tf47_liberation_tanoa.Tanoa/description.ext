@@ -30,9 +30,15 @@ allowFunctionsLog = 0;
 #include "GREUH\UI\GREUH_interface.hpp"
 #include "ui\liberation_interface.hpp"
 #include "ui\liberation_notifications.hpp"
-#include "scripts\loadouts\cfgrespawn_templates.hpp"
 #include "ACE3\aceSettings.hpp"
-
+#include "tf47\battlemanager\tf47_battlemanager_defines.hpp"
+#include "tf47\tf47_respawnLoadouts.hpp"
+class cfgfunctions
+{
+	#include "tf47\whitelisting\tf47_cfgfunctions.hpp"
+  #include "tf47\misc\tf47_cfgfunctions.hpp"
+  #include "tf47\battlemanager\tf47_battlemanager_functions.hpp"
+};
 class CfgDebriefing
 {
     class End1
@@ -71,7 +77,7 @@ class CfgDebriefing
     };
 };
 
-respawnTemplates[] = {"MenuInventory", "MenuPosition", "Tickets"};
+respawnTemplates[] = {"MenuPosition", "Tickets", "MenuInventory"};
 
 class CfgTaskEnhancements
 {
@@ -80,26 +86,4 @@ class CfgTaskEnhancements
    3dDrawDist   = 20;            //3d marker draw distance (default: 2000)
    share        = 1;            //0: do not count assigned players (default), 1: count how many players have the task assigned
    propagate    = 1;            //0: do not propagate (default), 1: propagate shared tasks to subordinates
-};
-
-class CfgRemoteExec
-{
-	class Commands
-	{
-			mode = 2;
-			class setFuel { allowedTargets = 0; };           //execute only on server
-			class Systemchat { allowedTargets = 0; };
-			class deleteGroup {allowedTargets = 0; };
-			class publicVariable { allowedTargets = 0; };
-	};
-	class Functions
-	{
-			mode = 2;
-			jip = 1;                                     //no functions can use jip
-
-			class TF47_fnc_WakeUp { allowedTargets = 2; }; 
-			class TF47_fnc_CPR { allowedTargets = 2; };
-			class bis_fnc_call { allowedTargets = 0; };
-			class BIS_fnc_showNotification { allowedTargets = -2; };
-	};
 };
