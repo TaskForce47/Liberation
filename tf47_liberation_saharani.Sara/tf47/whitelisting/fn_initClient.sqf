@@ -153,7 +153,7 @@ tf47_debug_killed = 0;
 player addEventHandler ["Killed",
 {
 	if(tf47_debug_killed > 0)then{
-		[	[5, (name player),""],	{	_this call tf47_whitelist_fnc_reportToDatabase;	}	] remoteExec ["call",2,false];
+		[	[5, "",(getPlayerUID player)],	{	_this call tf47_whitelist_fnc_reportToDatabase;	}	] remoteExec ["call",2,false];
 	};
 	tf47_debug_killed = tf47_debug_killed  +1;
 }];
