@@ -37,7 +37,7 @@ _sectorDis = _sectorDis apply { _x params ["_distance","_mkr"]; _mkr};
 private _oldSectors = +tf47_mission_sectorlimit;
 tf47_mission_sectorlimit = [];
 {
-	if _x in blufor_sectors then {
+	if (_x in blufor_sectors) then {
 		//cleanup old mapmarker
 		deleteMarker format ["tf47_mission_command_%1", _x];
 	} else {
