@@ -29,6 +29,14 @@ private _magazines = [];
   }forEach ( ["w"] call (call compile _x) );
 }forEach _modListToUse;
 
+{
+  {
+    if( isClass (configFile >> "CfgMagazines" >> _x) ) then {
+      _magazines pushBack _x;
+    };
+  }forEach ( ["m"] call (call compile _x) );
+}forEach _modListToUse;
+
 private _items = [];
 {
   {
@@ -56,7 +64,11 @@ private _backpacks = [];
 }count _modListToUse;
 
 private _cargo = [_items,_weapons,_magazines,_backpacks];
-player setvariable ["bis_addVirtualWeaponCargo_cargo",_cargo];
-["Preload"] call BIS_fnc_arsenal;
+[missionNameSpace,_weapons,false] call XLA_fnc_addVirtualWeaponCargo;
+[missionNameSpace,_items,false] call XLA_fnc_addVirtualItemCargo;
+[missionNameSpace,_magazines,false] call XLA_fnc_addVirtualMagazineCargo;
+[missionNameSpace,_backpacks,false] call XLA_fnc_addVirtualBackpackCargo;
+//player setvariable ["bis_addVirtualWeaponCargo_cargo",_cargo];
+//["Preload"] call BIS_fnc_arsenal;
 
 //[] call tf47_arsenal_fnc_preInitGetGear;

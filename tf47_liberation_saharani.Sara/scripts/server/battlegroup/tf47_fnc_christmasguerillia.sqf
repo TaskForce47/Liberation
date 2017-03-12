@@ -1,25 +1,25 @@
 /*
-	
+
 	author: mindbl4ster
-	
+
 	description:
-	
+
 		init random guerillia group to reconquer blufor sectors
-		
+
 	parameter:
-	
+
 		nothing
-	
+
 	return:
-	
+
 		nothing
-		
+
 	example
-	
+
 		na
-		
+
 	notes
-	
+
 		na
 
 */
@@ -58,12 +58,12 @@ if( isClass (configfile >> "CfgPatches" >> "Chernarus_winter") )then{
 				SVAR(_grp);
 				private _ID = [] call F_lessLoadedHC;
 				if ( _ID != -1 ) then {
-					_grp setGroupOwner _ID; sleep 1;
+					_grp setGroupOwner _ID; 
 					[_grp,_attackSector,400] remoteExec ["CBA_fnc_taskPatrol",_ID];
 				}else{
 					[_grp,_attackSector,400] call CBA_fnc_taskPatrol;
-				};						
-			};		
+				};
+			};
 		};
 	};
 	if(	isClass (configfile >> "CfgPatches" >> "xmas_character") && ( _squadComposition isEqualTo [] ) )then{
@@ -83,7 +83,7 @@ if( isClass (configfile >> "CfgPatches" >> "Chernarus_winter") )then{
 			private _ID = [] call F_lessLoadedHC;
 			if ( _ID != -1 ) then {
 				_grp setGroupOwner _ID;
-				sleep 1;
+
 				[_grp,_attackSector,400] remoteExec ["CBA_fnc_taskPatrol",_ID];
 			}else{
 				[_grp,_attackSector,400] call CBA_fnc_taskPatrol;
@@ -102,7 +102,7 @@ if( isClass (configfile >> "CfgPatches" >> "Chernarus_winter") )then{
 		SVAR(_grp);
 		private _ID = [] call F_lessLoadedHC;
 		if ( _ID != -1 ) then {
-			_grp setGroupOwner _ID; sleep 1;
+			_grp setGroupOwner _ID;
 			[_grp,_attackSector,400] remoteExec ["CBA_fnc_taskPatrol",_ID];
 		}else{
 			[_grp,_attackSector,400] call CBA_fnc_taskPatrol;

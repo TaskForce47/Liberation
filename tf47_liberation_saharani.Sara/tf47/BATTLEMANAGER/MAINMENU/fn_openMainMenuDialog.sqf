@@ -20,7 +20,10 @@ CTRL_ARSENAL ctrlEnable false; //roleselection
 
 
 //check which option is available
-private _fobs = +GRLIB_all_fobs;
+private _fobs = [];
+{
+	_fobs pushBack _x;
+	} forEach GRLIB_all_fobs;
 _fobs pushBack (getMarkerPos "respawn_west");
 _fobs = _fobs apply { _x distance2D player };
 _fobs sort true; //asscending
