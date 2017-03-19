@@ -29,13 +29,22 @@ private _possibleSectors	=	[];
 {
 	private _sector	=	_x;
 	private _state 	=	true;
+	private _pos = getMarkerPos _sector;
 	{
-		if ( ( (getMarkerPos _sector) distance2D _x ) < 2000 )then{
+		if ( ( _pos distance2D _x ) < 2000 )then{
 			_state = false;
 		};
 	}forEach allPlayers;
+
+	{
+		if ( ( _pos distance2D _x ) < 2000 )then{
+			_state = false;
+		};
+	}forEach GRLIB_all_fobs;
+
 	if( _state )then{ _possibleSectors pushBack _sector};
 }forEach blufor_sectors;
+
 if( _possibleSectors isEqualTo [] )exitWith{};
 private _attackSector = getMarkerPos (selectRandom _possibleSectors);
 private _unitsToSpawn = GRLIB_battlegroup_cap - ( [] call F_opforCap );
@@ -58,7 +67,7 @@ if( isClass (configfile >> "CfgPatches" >> "Chernarus_winter") )then{
 				SVAR(_grp);
 				private _ID = [] call F_lessLoadedHC;
 				if ( _ID != -1 ) then {
-					_grp setGroupOwner _ID; 
+					_grp setGroupOwner _ID;
 					[_grp,_attackSector,400] remoteExec ["CBA_fnc_taskPatrol",_ID];
 				}else{
 					[_grp,_attackSector,400] call CBA_fnc_taskPatrol;

@@ -28,7 +28,12 @@ private _return = switch tolower _entryToGet do {
       "srifle_LRR_F"
     ]
   };
-  case("m"):{[]};
+  case("m"):{[
+    "DemoCharge_Remote_Mag",
+    "SatchelCharge_Remote_Mag",
+    "ClaymoreDirectionalMine_Remote_Mag",
+    "SLAMDirectionalMine_Wire_Mag"
+    ]};
   case("i"):{
     [
       "G_Bandanna_khk",
@@ -54,7 +59,6 @@ private _return = switch tolower _entryToGet do {
       "ItemGPS",
       "ItemWatch",
       "rhs_acc_tgpv",
-      "O_UavTerminal",
       "ACE_EarPlugs",
       "ACE_DefusalKit",
       "ACE_DeadManSwitch",

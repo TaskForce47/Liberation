@@ -35,7 +35,8 @@ do_load_box = compileFinal preprocessFileLineNumbers "scripts\client\ammoboxes\d
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\stop_renegade.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\misc\synchronise_vars.sqf";
 
-[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
+ui_manager =  compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
+[] spawn ui_manager;
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\tutorial_manager.sqf";
 [] spawn compileFinal preprocessFileLineNumbers "scripts\client\markers\spot_timer.sqf";
 deletemarkerlocal "huronmarker";
