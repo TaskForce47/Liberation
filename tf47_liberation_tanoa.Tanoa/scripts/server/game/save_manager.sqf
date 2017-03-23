@@ -38,7 +38,7 @@ stats_playtime = 0;
 stats_spartan_respawns = 0;
 stats_secondary_objectives = 0;
 stats_hostile_battlegroups = 0;
-stats_ieds_detonated = 0;
+stats_ieds_detonated = 0; 
 stats_saves_performed = 0;
 stats_saves_loaded = 0;
 stats_reinforcements_called = 0;
@@ -119,25 +119,25 @@ if !( _liberation_savegame isEqualTo [] ) then {
 			};
 		} foreach TF47_Missionarray;
 	};
-
+	
 	TF47_Missionarray = [];
 
 	if ( count _liberation_savegame > 15 ) then {
 		GRLIB_player_scores = _liberation_savegame select 15;
 	};
-
+    
     if ( count _liberation_savegame >= 16 ) then {
 		TF47_respawnTickets = _liberation_savegame select 16;
 	};
 	setDate [ date_year, date_month, date_day, time_of_day, 0];
-
+	
 	private _correct_fobs = [];
 	{
 		private _next_fob = _x;
 		private _keep_fob = true;
 		{
 			if ( _next_fob distance (markerpos _x) < 200 && !("military" in (_x splitString "_")) ) exitWith {
-				_keep_fob = false;
+				_keep_fob = false; 
 			};
 		} foreach sectors_allSectors;
 		if ( _keep_fob ) then { _correct_fobs pushbackUnique _next_fob; };
@@ -145,7 +145,7 @@ if !( _liberation_savegame isEqualTo [] ) then {
 	GRLIB_all_fobs = _correct_fobs;
 
 	stats_saves_loaded = stats_saves_loaded + 1;
-
+	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// create buildings from savegame
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -155,7 +155,7 @@ if !( _liberation_savegame isEqualTo [] ) then {
 		if ( _nextclass in classnames_to_save ) then {
 
 			//_nextbuilding = _nextclass createVehicle _nextpos;
-			private _nextbuilding = createVehicle [_nextclass, _nextpos, [], 0, "NONE"];
+			private _nextbuilding = createVehicle [_nextclass, _nextpos, [], 0, "NONE"]; //does not work!
 			_nextbuilding setVectorUp [0,0,1];
 			_nextbuilding setPosATL _nextpos;
 			_nextbuilding setdir _nextdir;
@@ -165,23 +165,26 @@ if !( _liberation_savegame isEqualTo [] ) then {
 			clearMagazineCargoGlobal _nextbuilding;
 			clearItemCargoGlobal _nextbuilding;
 			clearBackpackCargoGlobal _nextbuilding;
-
-			if ( _nextclass in building_classnames ) then {
+			
+			if ( _nextclass in building_classnames ) then {						
 				_nextbuilding setVariable [ "GRLIB_saved_pos", _nextpos, false ];
 			} else {
-					["",_nextbuilding] call tf47_whitelist_fnc_initVehicleTracking;
+				if (_nextclass isKindOf "AIR") then {
+					_EHkilledIdx2 = _nextbuilding addEventHandler ["Hit", {  (format ["[INFORMATION] Vehicle: %1 ( %2 )  was hit by %3 ( %4 ) . instigator = %5", (_this select 0), typeOf (_this select 0), (_this select 1),typeOf (_this select 1),  (_this select 3), typeOf (vehicle (_this select 3)) ]) remoteExec ["diag_log", 2, false]; }]; 
+				};
+				_EHkilledIdx1 = _nextbuilding addEventHandler ["killed", { (format ["[INFORMATION] Vehicle: %1 ( %2 ) was killed by %3 ( %4 ) . instigator = %5 ( %6 ) ", (_this select 0), (getText (configfile >> "CfgVehicles" >> typeOf (_this select 0) >> "displayName")) , (_this select 1), (getText (configfile >> "CfgVehicles" >> typeOf typeOf (_this select 1) >> "displayName")), (_this select 2), (getText (configfile >> "CfgVehicles" >> typeOf typeOf (_this select 2) >> "displayName"))]) remoteExec ["diag_log", 2, false]; }];
 			};
-
+			
 			if (_nextclass == "TargetBootcampHuman_F") then {
-				_nextbuilding setVariable ["rscattributetargetpopupdelay", 10, true];
-				_nextbuilding setvariable ["rscattributetargettexture_textureindex", 2];
+				_vehicle setVariable ["rscattributetargetpopupdelay", 10, true];
+				_vehicle setvariable ["rscattributetargettexture_textureindex", 2];
 			};
 
 			if (_nextclass == "TargetBootcampHuman_F") then {
 				_nextbuilding setVariable ["rscattributetargetpopupdelay", 10, true];
 				_nextbuilding setvariable  ["rscattributetargettexture_textureindex", 2];
 			};
-
+			
 			if ( _hascrew ) then {
 				[ _nextbuilding ] call F_forceBluforCrew;
 			};
@@ -211,23 +214,23 @@ if !( _liberation_savegame isEqualTo [] ) then {
 
 }else{
 	private _dataToSave = [
-		blufor_sectors,
-		GRLIB_all_fobs,
+		blufor_sectors, 
+		GRLIB_all_fobs, 
+		[], 
+		(date select 3), 
+		0,
+		0,
+		0,
+		0, 
+		0, 
 		[],
-		(date select 3),
-		0,
-		0,
-		0,
-		0,
-		0,
-		[],
-		[ 33, 33, 33],
-		GRLIB_vehicle_to_military_base_links,
-		[],
-		[],
-		0,
-		[],
-		[ TF47_helper_playerFaction] call BIS_fnc_respawnTickets
+		[ 33, 33, 33], 
+		GRLIB_vehicle_to_military_base_links, 
+		[], 
+		[], 
+		0, 
+		[], 
+		[ TF47_helper_playerFaction] call BIS_fnc_respawnTickets 
 	];
 	profileNamespace setVariable [ GRLIB_save_key, _dataToSave ];
 	saveProfileNamespace;
@@ -262,7 +265,6 @@ publicVariable "GRLIB_permissions";
 save_is_loaded = true; publicVariable "save_is_loaded";
 trigger_server_save = false;
 server_save_inProgress = false;
-
 [
 {
 	if ( GRLIB_endgame == 1 ) exitWith {
@@ -270,20 +272,17 @@ server_save_inProgress = false;
 		profileNamespace setVariable [ GRLIB_save_key, nil ];
 		saveProfileNamespace;
 		"missionWON" call BIS_fnc_endMissionServer;
-		[99,"Mission: Task Force 47 Liberation",""] call tf47_whitelist_fnc_reportToDatabase;
-
 	};
 	if( [TF47_helper_playerFaction,0] call BIS_fnc_respawnTickets == 0)exitWith{
 		[_this select 1] call CBA_fnc_removePerFrameHandler;
-		profileNamespace    setVariable [ GRLIB_save_key ,nil];
-		saveProfileNamespace;
+		profileNamespace    setVariable [ GRLIB_save_key ,nil]; 
+		saveProfileNamespace;	
 		"missionFailed" call bis_fnc_endmissionServer;
-		[98,"Mission: Task Force 47 Liberation",""] call tf47_whitelist_fnc_reportToDatabase;
 	};
 	if( time > (4*60*60) )then{
-		if(count (allPlayers - entities "headlessclients_f") == 0 )then{
+		if(count (allPlayers - entities "headlessclients_f") == 0 )then{	
 			if !( (profileNamespace getVariable ["tf47_battlemanager_requestActionPassword",""]) isEqualTo "") then{
-				(profileNamespace getVariable ["tf47_battlemanager_requestActionPassword",""]) serverCommand "#restart";
+				(profileNamespace getVariable ["tf47_battlemanager_requestActionPassword",""]) serverCommand "#restart"; 
 			};
 		};
 	};
@@ -294,8 +293,8 @@ server_save_inProgress = false;
 			private _pos = _x;
 			{
 				_buildings_to_save pushback [ (typeof _x), (getposATL _x), (getdir _x), false ];
-			} foreach ( [
-				_pos nearobjects (GRLIB_fob_range * 2),
+			} foreach ( [ 
+				_pos nearobjects (GRLIB_fob_range * 2), 
 				{
 					((typeof _x) in classnames_to_save ) &&
 					( alive _x) &&
@@ -303,33 +302,33 @@ server_save_inProgress = false;
 					( isNull  attachedTo _x ) &&
 					(((getpos _x) select 2) < 10 ) &&
 					( getObjectType _x >= 8 )
-				}
+				} 
 			] call BIS_fnc_conditionalSelect);
 		} foreach GRLIB_all_fobs;
 
 		private _oldBuildingsData = (profileNamespace getVariable [GRLIB_save_key, [] ]) select 2;
 		if(count _buildings_to_save == 0)then{_buildings_to_save = _oldBuildingsData};
-
+		
 		time_of_day = date select 3;
 
 		private _dataToSave = [
-			blufor_sectors,
-			GRLIB_all_fobs,
-			_buildings_to_save,
-			time_of_day,
+			blufor_sectors, 
+			GRLIB_all_fobs, 
+			_buildings_to_save, 
+			time_of_day, 
 			round combat_readiness,
 			0,
 			0,
-			0,
-			round resources_ammo,
+			0, 
+			round resources_ammo, 
 			[],
-			[ 33, 33, 33],
-			GRLIB_vehicle_to_military_base_links,
-			[],
-			[],
-			resources_intel,
-			[],
-			[ TF47_helper_playerFaction] call BIS_fnc_respawnTickets
+			[ 33, 33, 33], 
+			GRLIB_vehicle_to_military_base_links, 
+			[], 
+			[], 
+			resources_intel, 
+			[], 
+			[ TF47_helper_playerFaction] call BIS_fnc_respawnTickets 
 		];
 		profileNamespace setVariable ["TF47_FixedWingBlacklist", TF47_FixedWingBlacklist];
 		profileNamespace setVariable ["TF47_ArmoredBlacklist", TF47_ArmoredBlacklist];

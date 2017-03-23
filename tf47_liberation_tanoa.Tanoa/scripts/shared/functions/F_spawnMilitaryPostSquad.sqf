@@ -62,7 +62,7 @@ if ( count _allposts > 0 ) then {
 		if (_newdir2 < 0) then {_dir = 360 + _newdir2 };
 		_x setdir (_newdir2);
 	} foreach (units _grp2);
-	[TF47_helper_opposingFaction, _grp2 ] call tf47_misc_fnc_swapSide;
+	[TF47_helper_opposingFaction, _grp2 ] call TF47_helper_swapSide;
 };
 // diag_log format [ "Done spawning cargopost squad at %1", time ];
 

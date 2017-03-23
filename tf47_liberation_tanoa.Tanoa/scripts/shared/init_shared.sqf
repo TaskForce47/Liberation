@@ -40,5 +40,5 @@ search_and_rescue           = compileFinal preprocessFileLineNumbers "scripts\se
 TF47_SeaMines               = compileFinal preprocessFileLineNumbers "scripts\server\secondary\TF47_SeaMines.sqf";
 
 
-//tf47_shared_loadLoadout	    = compileFinal preprocessFileLineNumbers "scripts\loadouts\loadLoadout.sqf";
+//tf47_shared_loadLoadout	    = compileFinal preprocessFileLineNumbers "scripts\loadouts\loadLoadout.sqf";	
 //tf47_shared_saveLoadout	    = compileFinal preprocessFileLineNumbers "scripts\loadouts\saveplayerLoadoutToServer.sqf";

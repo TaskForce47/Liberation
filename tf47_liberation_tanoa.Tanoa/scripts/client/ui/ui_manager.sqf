@@ -34,15 +34,19 @@ while { true } do {
 		_overlayshown = false;
 		_first_iteration = true;
 	};
-	/*************************************************************************************************************************************************/
-	/*************************************************************************************************************************************************/
-	// does only make sense if tfar is running and vars were defined
-	if !(tf_radio_channel_name isEqualTo "TaskForceRadio")then{
-		if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name) )exitWith{
-			[] spawn tf47_misc_fnc_blackScreen;
+	if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name) )exitWith{ 
+		[] spawn {
+			while {	!([] call TFAR_fnc_isTeamSpeakPluginEnabled	&& ([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name))	}do{
+				cutText ["Please turn on your Teamspeak 3 TFAR Plugin and/or switch to the appropriate channel!","BLACK FADED",0.1,true];
+				player enableSimulation false;
+				sleep 0.1;
+			};
+			player enableSimulation true;
+			cutText ["","PLAIN",0.25,true]; 
+			[] spawn compileFinal preprocessFileLineNumbers "scripts\client\ui\ui_manager.sqf";
 		};
 	};
-	/*************************************************************************************************************************************************/
+
 	if ( _overlayshown ) then {
 		((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (266)) ctrlSetText format [ "%1", GRLIB_ui_notif ];
 		((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (267)) ctrlSetText format [ "%1", GRLIB_ui_notif ];

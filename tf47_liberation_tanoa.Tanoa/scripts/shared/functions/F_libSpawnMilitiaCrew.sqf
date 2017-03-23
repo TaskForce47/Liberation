@@ -30,5 +30,5 @@ if (_freeCargoPositions > 3) then {
 	};
 };
 
-_grp = [TF47_helper_opposingFaction, _grp ] call tf47_misc_fnc_swapSide;
+_grp = [TF47_helper_opposingFaction, _grp ] call TF47_helper_swapSide;
 // diag_log format [ "Done Spawning militia crew at %1", time ];

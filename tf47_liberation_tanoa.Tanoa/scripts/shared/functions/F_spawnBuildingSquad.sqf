@@ -42,7 +42,7 @@ for "_i" from 0 to (round ((count _squadtospawnnn)/4)) do {
 			_odx = _odx +1;
 		};
 	};
-	_newgroup = [TF47_helper_opposingFaction, _grp ] call tf47_misc_fnc_swapSide; sleep 0.1;
+	_newgroup = [TF47_helper_opposingFaction, _grp ] call TF47_helper_swapSide; sleep 0.1;
 	{ [ _x, _sector ] spawn building_defence_ai; } foreach (units _newgroup);
 };
 
