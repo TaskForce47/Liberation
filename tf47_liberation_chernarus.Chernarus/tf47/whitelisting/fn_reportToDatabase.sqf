@@ -69,7 +69,7 @@ if(_action == 0)exitWith{
 };
 
 if(_playerid isEqualType ObjNull)then{
-    _playerid = if (isPlayer _playerid) then{ getPlayerUID _playerid }else{ "" };
+    _playerid = getPlayerUID _playerid;
 };
 if(_playerid isEqualTo "")then{
   DTRACE_1("[ INFO ] > 'Database' > No player information passed");

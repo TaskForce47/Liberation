@@ -9,10 +9,10 @@ if( isClass (configFile >> "cfgPatches" >> "task_force_radio" ) )then{
 		false
 	}count _items;
 };
-['Open',[nil,player,player]] spawn BIS_fnc_arsenal;
+['Open',[nil,player,player]] spawn XLA_fnc_arsenal;
 
-waitUntil {!isnull( uinamespace getvariable "RSCDisplayArsenal" )};
-waitUntil {isnull( uinamespace getvariable "RSCDisplayArsenal" )};
+waitUntil {!isnull( (uinamespace getvariable ["XLA_fnc_arsenal_cam",objnull]) )};
+waitUntil {isnull( (uinamespace getvariable ["XLA_fnc_arsenal_cam",objnull]) )};
 
 [] call tf47_battlemanager_fnc_destroyMenu;
 

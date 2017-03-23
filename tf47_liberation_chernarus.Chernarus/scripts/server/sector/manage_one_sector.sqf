@@ -17,6 +17,7 @@ private _temp = COUNTUNITS(_sector,_sectorRange);
 while{  _temp > 0 }do{
 	sleep 10;
 	if( COUNTUNITS(_sector,_sectorRange) >= _temp )exitWith{};
+	_temp = COUNTUNITS(_sector,_sectorRange);
 };
 if( _temp <= 0)exitWith{
 	active_sectors = active_sectors - [ _sector ]; publicVariable "active_sectors";
@@ -35,8 +36,8 @@ private _squads	=	0;
 private _infsquad = "csat";
 
 if ( _sector in sectors_bigtown ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*3 + 3);
-	_squads 	= ceil( random(combat_readiness/100)*3 + 5);
+	_vehtospawn = ceil( random(combat_readiness/100)*7 + 3);
+	_squads 	= ceil( random(combat_readiness/100)*7 + 5);
 
 	_building_ai_max = round (50 * 1) ;
 	_building_range = 250; // original value: 110
@@ -46,8 +47,8 @@ if ( _sector in sectors_bigtown ) then {
 };
 
 if ( _sector in sectors_capture ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*3 + 0);
-	_squads 	= ceil( random(combat_readiness/100)*3 + 2);
+	_vehtospawn = ceil( random(combat_readiness/100)*7 + 0);
+	_squads 	= ceil( random(combat_readiness/100)*7 + 3);
 	_infsquad = "militia";
 
 	_building_ai_max = round ((floor (18 + (round (combat_readiness / 10 )))) * 1);
@@ -57,17 +58,17 @@ if ( _sector in sectors_capture ) then {
 };
 
 if ( _sector in sectors_military ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*3 + 2);
-	_squads 	= ceil( random(combat_readiness/100)*3 + 4);
+	_vehtospawn = ceil( random(combat_readiness/100)*7 + 2);
+	_squads 	= ceil( random(combat_readiness/100)*7 + 4);
 
 	_building_ai_max = round ((floor (18 + (round (combat_readiness / 4 )))) * 1);
 	_building_range = 110;
 };
 
 if ( _sector in sectors_factory ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*3 + 0);
-	_squads 	= ceil( random(combat_readiness/100)*3 + 2);
-	
+	_vehtospawn = ceil( random(combat_readiness/100)*7 + 0);
+	_squads 	= ceil( random(combat_readiness/100)*7 + 2);
+
 	_building_ai_max = round ((floor (18 + (round (combat_readiness / 10 )))) * 1);
 	_building_range = 200; // original value: 70
 	_iedcount = (floor (random 3)) * GRLIB_difficulty_modifier;
@@ -75,8 +76,8 @@ if ( _sector in sectors_factory ) then {
 };
 
 if ( _sector in sectors_tower ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*3 + 0);
-	_squads 	= ceil( random(combat_readiness/100)*3 + 1);
+	_vehtospawn = ceil( random(combat_readiness/100)*7 + 0);
+	_squads 	= ceil( random(combat_readiness/100)*7 + 1);
 	_building_ai_max = 4 + (round (random 5));
 	_building_range = 60;
 	if((random 100) > 80) then { _vehtospawn pushback ( [] call F_getAdaptiveVehicle ); };
@@ -102,13 +103,13 @@ if(_vehToSpawn > 0)then{
 
 if(_squads > 0)then{
 	for "_i" from 1 to _squads do {
-		private _classNames = if( _infsquad isEqualTo "militia" )then{  
+		private _classNames = if( _infsquad isEqualTo "militia" )then{
 			private _return = [];
 			for "_o" from 0 to ceil( ([] call f_adaptiveOpforFactor)*8) do {
-				_return pushBack (selectRandom militia_squad); 
+				_return pushBack (selectRandom militia_squad);
 			};
 			_return
-		}else{  
+		}else{
 			[] call F_getAdaptiveSquadComp;
 		};
 		private _grp = [ _sector, _classNames ] call F_spawnRegularSquad;
@@ -158,7 +159,7 @@ while { !_stopit } do {
 		// diag_log format [ "Sector %2 checkpoint P at %1", time, _sector ];
 		waitUntil { sleep 10; (([_sectorpos, (([ _opforcount ] call F_getCorrectedSectorRange ) + 300 ), TF47_helper_playerFaction ] call F_getUnitsCount ) <= 4) };
 		{
-			
+
 			if (_x getVariable ["ace_captives_ishandcuffed", false]) then {
 				_newgrp = createGroup (side _x);
 				[_x] joinSilent _newgrp;

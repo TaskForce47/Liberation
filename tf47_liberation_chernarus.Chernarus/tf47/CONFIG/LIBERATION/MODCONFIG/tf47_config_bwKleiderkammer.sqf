@@ -79,7 +79,21 @@ private _return = switch tolower _entryToGet do {
       'pbw_splitter_mg_h',
       'pbw_splitter_sani',
       'pbw_splitter_schtz',
-      'pbw_splitter_zivil'
+      'pbw_splitter_zivil',
+      'PBW_shemagh_beige',
+      'PBW_shemagh_gruen',
+      'PBW_Balaclava_beige',
+      'PBW_Balaclava_schwarz',
+      'PBW_Balaclava_beigeR',
+      'PBW_Balaclava_schwarzR',
+      'PBW_Headset',
+      'PBW_Brille_gelb',
+      'PBW_Brille_braun',
+      'PBW_Brille_schwarz',
+      'PBW_RevisionF_klar',
+      'PBW_RevisionF_Dunkel',
+      'PBW_RevisionT_Klar',
+      'PBW_RevisionT_Dunkel'
     ]
   };
   case("b"):{[]};

@@ -55,7 +55,12 @@ private _return = switch tolower _entryToGet do {
 			"BWA3_Fliegerfaust"
 		]
 	};
-  case("m"):{[]};
+  case("m"):{[
+    'BWA3_DM51A1',
+    'BWA3_DM25',
+    'BWA3_DM32_Orange',
+    'BWA3_DM32_Yellow'
+    ]};
   case("i"):{
 		[
 			"BWA3_optic_RSAS",

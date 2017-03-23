@@ -26,6 +26,7 @@ private _stackToProcess = +TF47_PERMISSION_SERVER_STACK;
 DTRACE_1("[ INFO ] > 'Whitelist' > Processing stack ...");
 {
   _x params ["_obj", "_permissionID", "_val"];
+  if(isNil "_val")then{_val = false};
   tf47_whitelist_serverToClientPermissionFeedback = if !(_val isEqualType true) then{
     false
   }else{
