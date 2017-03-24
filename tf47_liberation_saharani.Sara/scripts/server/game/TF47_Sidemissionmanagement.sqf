@@ -17,7 +17,7 @@ TF47_FobSeaMineisActive = false;
 
 [
 	{
-		if(	([] call F_opforCap < GRLIB_battlegroup_cap) )then{
+		if(	([] call F_opforCap < GRLIB_battlegroup_cap) && (combat_readiness > 30) )then{
 
 			private  _val = round (random 2);
 			private _activeSides	= count TF47_Missionarray;
@@ -46,13 +46,13 @@ TF47_FobSeaMineisActive = false;
 						};
 					};
 					case(2):{
-						if ( (resources_intel > 10) && (!(TF47_ConvoyHijackisActive))  && (count TF47_Missionarray < 2) && _allPlayercount > 15) then {
+						if ( (resources_intel > 10) && (!(TF47_ConvoyHijackisActive))  && (count TF47_Missionarray < 2) ) then {
 							[]spawn convoy_hijack;
-
+							resources_intel = resources_intel -10;
 						};
 					};
 					case(3):{
-						if ( (resources_intel > 10) && (!(TF47_SARisActive))  && (count TF47_Missionarray < 2) && _allPlayercount > 15) then {
+						if ( (resources_intel > 10) && (!(TF47_SARisActive))  && (count TF47_Missionarray < 2) ) then {
 							[]spawn search_and_rescue;
 							resources_intel = resources_intel -10;
 						};

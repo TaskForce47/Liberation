@@ -280,13 +280,6 @@ server_save_inProgress = false;
 		"missionFailed" call bis_fnc_endmissionServer;
 		[98,"Mission: Task Force 47 Liberation",""] call tf47_whitelist_fnc_reportToDatabase;
 	};
-	if( time > (4*60*60) )then{
-		if(count (allPlayers - entities "headlessclients_f") == 0 )then{
-			if !( (profileNamespace getVariable ["tf47_battlemanager_requestActionPassword",""]) isEqualTo "") then{
-				(profileNamespace getVariable ["tf47_battlemanager_requestActionPassword",""]) serverCommand "#restart";
-			};
-		};
-	};
 	if( trigger_server_save && !server_save_inProgress)then{
 		server_save_inProgress = true;
 		private _buildings_to_save = [];

@@ -72,7 +72,7 @@ _objectToWatch addEventHandler ["killed",{
     //private _player = format ["%1 (%2)", _name, _uid];
     private _displayname = getText (configfile >> "cfgVehicles" >> (typeOf _vehicle) >> "displayname");
     private _comment = format ["%1 wurde zerstoert", _displayname];
-    [4, _comment, _name] call tf47_whitelist_fnc_reportToDatabase;
+    [4, _comment, _uid] call tf47_whitelist_fnc_reportToDatabase;
 }];
 
 true
