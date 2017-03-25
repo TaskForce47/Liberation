@@ -43,7 +43,7 @@ if (isServer) then {
 
 	blufor_sectors pushback _liberated_sector; publicVariable "blufor_sectors";
 	[] call tf47_misc_fnc_sectorCommander;
-	[97, format ["[ INFO ] %1 liberated!",_liberated_sector] ,""] call tf47_whitelist_fnc_reportToDatabase;
+	[97, format ["[ INFO ] %1 liberated!",markerText _liberated_sector] ,""] call tf47_whitelist_fnc_reportToDatabase;
 	stats_sectors_liberated = stats_sectors_liberated + 1;
 
 	[] call recalculate_caps;

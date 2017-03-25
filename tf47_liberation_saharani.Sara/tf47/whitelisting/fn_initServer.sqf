@@ -64,7 +64,7 @@ TF47_PERMISSION_SERVER_STACK = [];
 addMissionEventHandler ["HandleDisconnect",{
   if ( (_this select 0) getVariable ["ace_isunconscious", false] )then{
     [TF47_helper_playerFaction,-1] call BIS_fnc_respawnTickets;
-    [	[5, "",(_this select 0)],	{	_this call tf47_whitelist_fnc_reportToDatabase;	}	] remoteExec ["call",2,false];
+    [5, "",(_this select 0)] call tf47_whitelist_fnc_reportToDatabase;
   };
 }];
 
