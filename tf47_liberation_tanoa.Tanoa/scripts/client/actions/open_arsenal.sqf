@@ -25,7 +25,7 @@ private _items = assignedItems _unit;
 waitUntil {!isnull( uinamespace getvariable "RSCDisplayArsenal" )};	//because fucking scheduler is over the top!!!
 waitUntil {isnull( uinamespace getvariable "RSCDisplayArsenal" )};	//should work now like expected, no need to open+close inventory
 
-[] call tf47_fnc_forceArsenal;
+[] call tf47_misc_fnc_forceArsenal;
 private _items = assignedItems _unit;
 private _state = true;
 {

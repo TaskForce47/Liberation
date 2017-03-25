@@ -38,7 +38,7 @@ if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
 	private _distredeploy = 25;
 	private _nearfob =	[] call F_getNearestFob;
 	private _fobdistance = 9999;
-	private _alive	=	alive player && vehicle player == player;	
+	private _alive	=	alive player && vehicle player == player;
 	private _p2fobD	=	player distance (getMarkerPos "respawn_west");
 	if ( count _nearfob == 3 ) then {
 		_fobdistance = player distance _nearfob;
@@ -70,7 +70,7 @@ if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
 	if ( (_fobdistance < _distredeploy ||   _p2fobD < 200) &&  _alive  && tf47_mission_arsenalControl) then {
 		if (_idact_arsenal == -1) then {
 			_idact_arsenal = player addAction ["<t color='#FFFF00'>" + localize "STR_ARSENAL_ACTION" + "</t> <img size='2' image='res\ui_arsenal.paa'/>",
-			"[_this select 1] execVM 'scripts\client\actions\open_arsenal.sqf'",
+			"hint 'To access the VArsenal use the Strg + U Menu!';",
 			"",-980,true,true,"","build_confirmed == 0"];
 		};
 	} else {
@@ -145,7 +145,7 @@ if(isnil "tf47_mission_arsenalControl")then{tf47_mission_arsenalControl = true};
 			_idact_secondary = -1;
 		};
 	};
-	TF47_ADDACTIONS_SAVE =[ 
+	TF47_ADDACTIONS_SAVE =[
 		_idact_build,
 		_idact_arsenal,
 		_idact_buildfob,

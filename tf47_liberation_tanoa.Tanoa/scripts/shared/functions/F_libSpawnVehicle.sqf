@@ -39,7 +39,7 @@ if ( _classname in militia_vehicles ) then {
 	[ _newvehicle ] call F_libSpawnMilitiaCrew;
 } else {
 	createVehicleCrew _newvehicle;
-	_grp = [TF47_helper_opposingFaction, (group ((crew _newvehicle) select 0)) ] call TF47_helper_swapSide;
+	_grp = [TF47_helper_opposingFaction, (group ((crew _newvehicle) select 0)) ] call tf47_misc_fnc_swapSide;
 };
 if (count (crew _newvehicle) == 1 ) then {
 	_freeCargoPositions = _newvehicle emptyPositions "cargo";
@@ -51,7 +51,7 @@ if (count (crew _newvehicle) == 1 ) then {
 			_unit moveinCargo _newvehicle;
 			_unit assignAsCargo  _newvehicle;
 		};
-		_grp = [TF47_helper_opposingFaction, _transportgroup ] call TF47_helper_swapSide;
+		_grp = [TF47_helper_opposingFaction, _transportgroup ] call tf47_misc_fnc_swapSide;
 	};
 };
 
