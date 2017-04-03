@@ -4,7 +4,14 @@ if( _entryToGet isEqualTo "")exitWith {[]};
 if !(	isClass (configFile >> "cfgPatches" >> "BWA3_Flag"))exitWith{[]};
 
 private _return = switch tolower _entryToGet do {
-  case("lv"):{[]};
+  case("lv"):{
+    [
+      ["bwa3_eagle_fleck",0,0,3],
+      ["bwa3_eagle_tropen",0,0,3],
+      ["bwa3_eagle_flw100_fleck",0,50,3],
+      ["bwa3_eagle_flw100_tropen",0,50,3],
+    ]
+  };
   case("hv"):{
 		[
 			["BWA3_Puma_Tropen",0,50,10],
