@@ -46,7 +46,7 @@ _objectToWatch setVariable ["TF47_WHITELIST_LASTDRIVER", ["",""] ];// should uid
 _objectToWatch addEventHandler ["GetIn",{
     params ["_vehicle","_position","_unit","_turrent"];
     if (isPlayer _unit) then {
-      if (_position isEqualTo "Driver")then{
+      if (_position isEqualTo "driver")then{
         _vehicle setVariable ["TF47_WHITELIST_LASTDRIVER", [getPlayerUID _unit, name _unit] ];
       };
     };
@@ -59,7 +59,7 @@ _objectToWatch addEventHandler ["SeatSwitched",{
 
     if (isPlayer _unit) then {
       (assignedVehicleRole _unit) params ["_newSeat",""];
-      if ( _newSeat isEqualTo "Driver")then{
+      if ( _newSeat isEqualTo "driver")then{
         _vehicle setVariable ["TF47_WHITELIST_LASTDRIVER", [getPlayerUID _unit, name _unit] ];
       };
     };

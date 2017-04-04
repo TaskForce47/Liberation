@@ -9,7 +9,7 @@ private _return = switch tolower _entryToGet do {
       ["bwa3_eagle_fleck",0,0,3],
       ["bwa3_eagle_tropen",0,0,3],
       ["bwa3_eagle_flw100_fleck",0,50,3],
-      ["bwa3_eagle_flw100_tropen",0,50,3],
+      ["bwa3_eagle_flw100_tropen",0,50,3]
     ]
   };
   case("hv"):{
