@@ -31,10 +31,10 @@ if (isServer) then {
 
 	[] call compileFinal preprocessFileLineNumbers "scripts\server\init_server.sqf";
 	[
-	30*60,							// seconds to delete dead Bodies 					(0 means dont delete)
-	30*60,							// seconds to delete dead Vehicles 					(0 means dont delete)
+	15*60,							// seconds to delete dead Bodies 					(0 means dont delete)
+	15*60,							// seconds to delete dead Vehicles 					(0 means dont delete)
 	30*60,							// seconds to delete immobile Vehicles 				(0 means dont delete)
-	20*60,							// seconds to delete dropped Weapons 				(0 means dont delete)
+	15*60,							// seconds to delete dropped Weapons 				(0 means dont delete)
 	0,								// seconds to delete planted Explosives 			(0 means dont delete)
 	5*60							// seconds to delete dropped Smokes/chemlights 		(0 means dont delete)
 	] spawn compile preprocessFileLineNumbers "scripts\server\repetitive_cleanup.sqf";

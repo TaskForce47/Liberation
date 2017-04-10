@@ -78,7 +78,7 @@ sleep 1;
 { _x setDamage 0; } foreach (_base_objectives + _base_objects);
 Waituntil {sleep 10; ([ (getMarkerPos _spawn_marker) ] call F_sectorOwnership != independent) || (( { alive _x } count _base_objectives ) <= 1) };
 if (( { alive _x } count _base_objectives ) > 1) then {
-		
+
 	_grpdefenders = createGroup TF47_helper_opposingFaction;
 	_idxselected = [];
 	while { count _idxselected < _defenders_amount } do {
@@ -99,12 +99,12 @@ if (( { alive _x } count _base_objectives ) > 1) then {
 		_nextdefender setdir _nextdir;
 		[_nextdefender] call building_defence_ai;
 	} foreach _idxselected;
-	
+
 	_ID = [] call F_lessLoadedHC;
 	if ( _ID != -1 ) then {
 		_grpdefenders setGroupOwner _ID;
 	};
-		
+
 	_sentry = ceil ((3 + (floor (random 4))) * ( sqrt ( GRLIB_unitcap ) ) );
 
 	_grpsentry = createGroup TF47_helper_opposingFaction;
@@ -116,7 +116,7 @@ if (( { alive _x } count _base_objectives ) > 1) then {
 	if ( _ID != -1 ) then {
 		_grpsentry setGroupOwner _ID;
 	};
-	
+
 	while {(count (waypoints _grpsentry)) != 0} do {deleteWaypoint ((waypoints _grpsentry) select 0);};
 	{
 		_waypoint = _grpsentry addWaypoint [[((_base_position select 0) + (_x select 0)), ((_base_position select 1) + (_x select 1)),0], 0];

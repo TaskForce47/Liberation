@@ -80,7 +80,7 @@ if ( _sector in sectors_tower ) then {
 	_squads 	= ceil( random(combat_readiness/100)*7 + 1);
 	_building_ai_max = 4 + (round (random 5));
 	_building_range = 60;
-	if((random 100) > 80) then { _vehtospawn pushback ( [] call F_getAdaptiveVehicle ); };
+	//if((random 100) > 80) then { _vehtospawn pushback ( [] call F_getAdaptiveVehicle ); };
 };
 
 /*******************************************************************************/

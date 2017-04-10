@@ -2,7 +2,7 @@
 <Project name="Liberation">
 		<Package name="Liberation">
 				<Key ID="STR_MISSION_TITLE">
-						<Original>Liberation 0.923</Original>
+						<Original>Task Force 47 Liberation Tanoa</Original>
 				</Key>
 				<Key ID="STR_MISSION_VERSION">
 						<Original>v0.923</Original>
