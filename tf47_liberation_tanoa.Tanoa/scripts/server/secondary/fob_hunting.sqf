@@ -43,10 +43,7 @@ _base_corners =  _template select 3;
 	_nextdir = _x select 2;
 
 	_nextobject = _nextclass createVehicle _nextpos;
-	_nextobject setVectorUp [0,0,1];
-	_nextobject setpos _nextpos;
-	_nextobject setdir _nextdir;
-	_nextobject setVectorUp [0,0,1];
+	_nextobject setVectorUp surfaceNormal _nextpos;
 	_nextobject setpos _nextpos;
 	_nextobject setdir _nextdir;
 	_base_objects = _base_objects + [_nextobject];
