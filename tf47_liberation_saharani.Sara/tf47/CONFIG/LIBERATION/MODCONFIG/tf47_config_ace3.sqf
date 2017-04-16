@@ -19,6 +19,7 @@ private _return = switch tolower _entryToGet do {
       "Binocular",
       "arifle_SDAR_F",
       "tf47_m3maaws",
+      "tf47_m3maaws_optic",
       "srifle_DMR_06_camo_F",
       "srifle_DMR_06_olive_F",
       "hgun_Pistol_heavy_01_F",

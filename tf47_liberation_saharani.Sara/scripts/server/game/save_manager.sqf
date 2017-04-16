@@ -76,7 +76,7 @@ building_classnames = [FOB_typename];
 } foreach (static_vehicles + air_vehicles + heavy_vehicles + light_vehicles + support_vehicles);
 
 classnames_to_save = classnames_to_save + classnames_to_save_blu + all_hostile_classnames;
-
+classnames_to_save = classnames_to_save apply {toLower _x};
 
 private _liberation_savegame = profileNamespace getVariable [GRLIB_save_key,[]];
 
@@ -152,7 +152,7 @@ if !( _liberation_savegame isEqualTo [] ) then {
 	{
 		_x params ["_nextclass","_nextpos","_nextDir","_hascrew"];
 
-		if ( _nextclass in classnames_to_save ) then {
+		if ( (tolower _nextclass) in classnames_to_save ) then {
 
 			//_nextbuilding = _nextclass createVehicle _nextpos;
 			private _nextbuilding = createVehicle [_nextclass, _nextpos, [], 0, "NONE"];
@@ -290,7 +290,7 @@ server_save_inProgress = false;
 			} foreach ( [
 				_pos nearobjects (GRLIB_fob_range * 2),
 				{
-					((typeof _x) in classnames_to_save ) &&
+					( (tolower (typeof _x) ) in classnames_to_save ) &&
 					( alive _x) &&
 					( speed _x < 5 ) &&
 					( isNull  attachedTo _x ) &&

@@ -31,6 +31,7 @@ infantry_units_extension = [
 
 light_vehicles_overwrite = true;
 light_vehicles_extension = [
+	["i_c_boat_transport_02_f",0,0,3],
 	["B_T_LSV_01_unarmed_F",0,0,3],
 	["B_Quadbike_01_F",0,0,1],
 	["B_Boat_Armed_01_minigun_F",0,30,5],
@@ -50,7 +51,7 @@ air_vehicles_extension = [
 	//["JS_JC_FA18E",0,300,20],
 	//["JS_JC_FA18F",0,300,20],
 	//["B_T_VTOL_01_armed_F",0,1000,20],
-	["B_T_VTOL_01_infantry_F",0,0,10]
+	//["B_T_VTOL_01_infantry_F",0,0,10]
 
 ];
 

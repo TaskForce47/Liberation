@@ -38,7 +38,7 @@ TF47_FobSeaMineisActive = false;
 					};
 				};
 
-				switch(ceil (random 3))do{
+				switch(ceil (random 2))do{
 					case(1):{
 						if ( (resources_intel > 10) && (!(TF47_FobMissionisActive)) &&  (count TF47_Missionarray < 2)) then {
 							[]spawn fob_hunting;
@@ -51,12 +51,14 @@ TF47_FobSeaMineisActive = false;
 							resources_intel = resources_intel -10;
 						};
 					};
+					/*
 					case(3):{
 						if ( (resources_intel > 10) && (!(TF47_SARisActive))  && (count TF47_Missionarray < 2) ) then {
 							[]spawn search_and_rescue;
 							resources_intel = resources_intel -10;
 						};
 					};
+					*/
 					/*
 					case(4):{
 						if ( (resources_intel > 15) && (!(TF47_FobSeaMineisActive))  && (count TF47_Missionarray < 4)) then {

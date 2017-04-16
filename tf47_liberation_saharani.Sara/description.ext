@@ -15,8 +15,8 @@ overviewPicture = "res\liberation_sahrani.paa";
 overviewText= "Cooperative gameplay mission with the overall task to liberate all of Sahrani. Good luck soldiers, you will need it!";
 overviewTextLocked= "Cooperative gameplay mission with the overall task to liberate all of Sahrani. Good luck soldiers, you will need it!";
 
-corpseManagerMode = 0;
-wreckManagerMode = 0;
+corpseManagerMode = 1;
+wreckManagerMode = 1;
 
 joinUnassigned = 1;
 

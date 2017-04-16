@@ -36,7 +36,7 @@ private _squads	=	0;
 private _infsquad = "csat";
 
 if ( _sector in sectors_bigtown ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*7 + 3);
+	_vehtospawn = floor( random(combat_readiness/100)*7 + 3);
 	_squads 	= ceil( random(combat_readiness/100)*7 + 5);
 
 	_building_ai_max = round (50 * 1) ;
@@ -47,7 +47,7 @@ if ( _sector in sectors_bigtown ) then {
 };
 
 if ( _sector in sectors_capture ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*7 + 0);
+	_vehtospawn = floor( random(combat_readiness/100)*7 + 0);
 	_squads 	= ceil( random(combat_readiness/100)*7 + 3);
 	_infsquad = "militia";
 
@@ -58,7 +58,7 @@ if ( _sector in sectors_capture ) then {
 };
 
 if ( _sector in sectors_military ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*7 + 2);
+	_vehtospawn = floor( random(combat_readiness/100)*7 + 2);
 	_squads 	= ceil( random(combat_readiness/100)*7 + 4);
 
 	_building_ai_max = round ((floor (18 + (round (combat_readiness / 4 )))) * 1);
@@ -66,7 +66,7 @@ if ( _sector in sectors_military ) then {
 };
 
 if ( _sector in sectors_factory ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*7 + 0);
+	_vehtospawn = floor( random(combat_readiness/100)*7 + 0);
 	_squads 	= ceil( random(combat_readiness/100)*7 + 2);
 
 	_building_ai_max = round ((floor (18 + (round (combat_readiness / 10 )))) * 1);
@@ -76,11 +76,11 @@ if ( _sector in sectors_factory ) then {
 };
 
 if ( _sector in sectors_tower ) then {
-	_vehtospawn = ceil( random(combat_readiness/100)*7 + 0);
+	_vehtospawn = floor( random(combat_readiness/100)*7 + 0);
 	_squads 	= ceil( random(combat_readiness/100)*7 + 1);
 	_building_ai_max = 4 + (round (random 5));
 	_building_range = 60;
-	if((random 100) > 80) then { _vehtospawn pushback ( [] call F_getAdaptiveVehicle ); };
+	//if((random 100) > 80) then { _vehtospawn pushback ( [] call F_getAdaptiveVehicle ); };
 };
 
 /*******************************************************************************/

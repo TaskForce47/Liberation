@@ -37,11 +37,12 @@ while { true } do {
 	/*************************************************************************************************************************************************/
 	/*************************************************************************************************************************************************/
 	// does only make sense if tfar is running and vars were defined
+
+	private _tf47_do_exit = false;
 	if !(tf_radio_channel_name isEqualTo "TaskForceRadio")then{
-		if (	!([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name) )exitWith{
-			[] spawn tf47_misc_fnc_blackScreen;
-		};
+		 _tf47_do_exit = !([] call TFAR_fnc_isTeamSpeakPluginEnabled)	|| !([] call TFAR_fnc_getTeamSpeakChannelName isEqualTo tf_radio_channel_name);
 	};
+	if (_tf47_do_exit) exitWith {[] spawn tf47_misc_fnc_blackScreen;};
 	/*************************************************************************************************************************************************/
 	if ( _overlayshown ) then {
 		((uiNamespace getVariable 'GUI_OVERLAY') displayCtrl (266)) ctrlSetText format [ "%1", GRLIB_ui_notif ];
